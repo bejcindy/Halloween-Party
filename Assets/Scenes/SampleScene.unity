@@ -835,7 +835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 3
-  speed: 0
+  speed: 5
 --- !u!54 &740907197
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1370,7 +1370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 2
-  speed: 0
+  speed: 5
 --- !u!54 &1319346892
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1497,7 +1497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 1
-  speed: 0
+  speed: 5
 --- !u!54 &1403591899
 Rigidbody:
   m_ObjectHideFlags: 0
