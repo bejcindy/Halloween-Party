@@ -218,6 +218,86 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 326381720}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &366541760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 366541763}
+  - component: {fileID: 366541762}
+  - component: {fileID: 366541761}
+  m_Layer: 0
+  m_Name: LevelMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &366541761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366541760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4078a9f3eb8854ee3b472c46864fca48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  House1:
+    Candy1: 0
+    Candy2: 0
+    Candy3: 0
+    RevisitChance: 0
+    RevistDecreaseMin: 0
+    RevistDecreaseMax: 0
+  House2:
+    Candy1: 0
+    Candy2: 0
+    Candy3: 0
+    RevisitChance: 0
+    RevistDecreaseMin: 0
+    RevistDecreaseMax: 0
+  House3:
+    Candy1: 0
+    Candy2: 0
+    Candy3: 0
+    RevisitChance: 0
+    RevistDecreaseMin: 0
+    RevistDecreaseMax: 0
+  PlayerSpeed: 0
+  MaxSteal: 0
+  MinSteal: 0
+--- !u!114 &366541762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366541760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19bae8e317a764299b0765cdceabe5d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &366541763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366541760}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.61, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &379311497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,7 +1166,7 @@ MonoBehaviour:
   offset: {x: 0, y: 30.38, z: -25.96}
   speed: {x: 0.5, y: 0, z: 0.5}
   minZoom: 60
-  maxZoom: 20
+  maxZoom: 30
 --- !u!1 &1037512024
 GameObject:
   m_ObjectHideFlags: 0
