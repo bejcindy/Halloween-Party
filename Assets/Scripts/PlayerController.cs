@@ -8,10 +8,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     PlayerNumber player;
 
-    public float speed;
+    //public float speed;
 
     int playerN;
-    float runSpeed;
+    float speed, runSpeed;
     Rigidbody rb;
     string horizontal, vertical;
     float x, z, s;
@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         runSpeed = speed * 2;
+        speed = DataHolder.speed;
+        runSpeed = DataHolder.runSpeed;
         switch (player)
         {
             case PlayerNumber.Player1:
@@ -49,7 +51,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //float x, z, s;
+        //change to add force so that it's a burst
         switch (playerN)
         {
             case 1:
@@ -61,7 +63,11 @@ public class PlayerController : MonoBehaviour
                 {
                     s = speed;
                 }
-                break;
+                //if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+                //{
+                //    Debug.Log("pressed");
+                //}
+                    break;
             case 2:
                 if (Input.GetKey(KeyCode.Joystick2Button1))
                 {
@@ -98,7 +104,87 @@ public class PlayerController : MonoBehaviour
         z = Input.GetAxis(vertical) * s;
         rb.velocity = new Vector3(x, 0, z);
         Vector3 direction = new Vector3(x, 0, z).normalized;
-        transform.rotation = Quaternion.LookRotation(direction, Vector3.forward);
+        if (x != 0 || z != 0)
+        {
+            transform.rotation = Quaternion.LookRotation(direction, Vector3.forward);
+        }
+        
         
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.CompareTag("House1")|| other.CompareTag("House2")|| other.CompareTag("House3"))
+        {
+            //add the cool down time here later
+            //need animation
+            //Debug.Log(other.gameObject);
+            KnockOnDoors(other.gameObject.GetComponent<HouseManager>().revisits, other.gameObject.GetComponent<HouseManager>().possibility, other.gameObject.GetComponent<HouseManager>().rTimes);
+        }
+    }
+
+    void KnockOnDoors(List<int> hr,List<float> pos , int[] rTimes)
+    {
+        int c;
+        switch (playerN)
+        {
+            case 1:
+                if (rTimes[0] < hr[0])
+                {
+                   if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+                    {
+                        //add decrease here later
+                        c = Random.Range(hr[1] - 1, hr[1] + 1);
+                        DataHolder.p1 = new List<int> { DataHolder.p1[0] + (int)(c * pos[0]), DataHolder.p1[1] + (int)(c * pos[1]), DataHolder.p1[2] + (int)(c * pos[2]) };
+                        rTimes[0] += 1;
+                        Debug.Log("1: " + DataHolder.p1[0]+ " 2: " + DataHolder.p1[1]+ " 3: " + DataHolder.p1[2]);
+                    }
+                }
+                
+                break;
+            case 2:
+                if (rTimes[1] < hr[0])
+                {
+                    if (Input.GetKeyDown(KeyCode.Joystick2Button2))
+                    {
+                        //add decrease here later
+                        c = Random.Range(hr[1] - 1, hr[1] + 1);
+                        DataHolder.p2 = new List<int> { DataHolder.p2[0] + (int)(c * pos[0]), DataHolder.p2[1] + (int)(c * pos[1]), DataHolder.p2[2] + (int)(c * pos[2]) };
+                        //Debug.Log("1: " + DataHolder.p1[0]+ " 2: " + DataHolder.p1[1]+ " 3: " + DataHolder.p1[2]);
+                        rTimes[1] += 1;
+                    }
+                }
+                    
+                break;
+            case 3:
+                if (rTimes[2] < hr[0])
+                {
+                    if (Input.GetKeyDown(KeyCode.Joystick3Button2))
+                    {
+                        //add decrease here later
+                        c = Random.Range(hr[1] - 1, hr[1] + 1);
+                        DataHolder.p3 = new List<int> { DataHolder.p3[0] + (int)(c * pos[0]), DataHolder.p3[1] + (int)(c * pos[1]), DataHolder.p3[2] + (int)(c * pos[2]) };
+                        //Debug.Log("1: " + DataHolder.p1[0]+ " 2: " + DataHolder.p1[1]+ " 3: " + DataHolder.p1[2]);
+                        rTimes[2] += 1;
+                    }
+                }
+              
+                break;
+            case 4:
+                if (rTimes[3] < hr[0])
+                {
+                   if (Input.GetKeyDown(KeyCode.Joystick4Button2))
+                    {
+                        //add decrease here later
+                        c = Random.Range(hr[1] - 1, hr[1] + 1);
+                        DataHolder.p4 = new List<int> { DataHolder.p4[0] + (int)(c * pos[0]), DataHolder.p4[1] + (int)(c * pos[1]), DataHolder.p4[2] + (int)(c * pos[2]) };
+                        //Debug.Log("1: " + DataHolder.p1[0]+ " 2: " + DataHolder.p1[1]+ " 3: " + DataHolder.p1[2]);
+                        rTimes[3] += 1;
+                    }
+                }
+             
+                break;
+        }
+    }
+
 }
