@@ -5,26 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-<<<<<<< HEAD
-      ticks: 637807954110000000
-    m_Hash: 3297622155
-=======
       ticks: 637807959145702617
     m_Hash: 3687621780
->>>>>>> 3fd475dfec254f01e25b4856b3b89a3c5992122e
   m_LockFileStatus:
     m_FilePath: C:/Users/tj/Documents/Halloween-Party/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-<<<<<<< HEAD
-      ticks: 637807954110000000
-    m_Hash: 1055565217
-=======
       ticks: 637807959145732600
     m_Hash: 3237294567
->>>>>>> 3fd475dfec254f01e25b4856b3b89a3c5992122e
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
