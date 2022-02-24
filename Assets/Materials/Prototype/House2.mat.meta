@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Materials/Prototype/Yellow.mat.meta
+guid: 3ac01375af76d884ca4dac26fdab27f0
+=======
 guid: 1fe0586d0e46945d1bdcb90b77af8c7c
+>>>>>>> cindy-rebuild:Assets/Materials/Prototype/House2.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
