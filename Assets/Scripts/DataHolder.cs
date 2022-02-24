@@ -38,6 +38,10 @@ public class DataHolder : MonoBehaviour
     float MinSteal;
     public static float minSteal;
 
+    [SerializeField]
+    float cameraTurnSpeed;
+    public static float camTurnSpeed;
+
     //[HideInInspector]
     public static List<float> h1Pos, h2Pos, h3Pos;
     public static List<int> h1R, h2R, h3R;
@@ -82,6 +86,8 @@ public class DataHolder : MonoBehaviour
         h3R.Add(House3.RevisitChance);
         h3R.Add(House3.StartNumber);
         h3R.Add(House3.RevistDecrease);
+
+        camTurnSpeed = cameraTurnSpeed;
         ////check how many of each type of houses are in scene right now
         //Debug.Log(h1Pos.Count);
 
@@ -96,7 +102,11 @@ public class DataHolder : MonoBehaviour
     }
     private void Update()
     {
-        playerCandies.text = "Player 1 Candies: " + p1[0] + ", " + p1[1] + ", " + p1[2] + " Player 2 Candies: " + p2[0] + ", " + p2[1] + ", " + p2[2] + " Player 3 Candies: " + p3[0] + ", " + p3[1] + ", " + p3[2] + " Player 4 Candies: " + p4[0] + ", " + p4[1] + ", " + p4[2];
+        if (playerCandies)
+        {
+            playerCandies.text = "Player 1 Candies: " + p1[0] + ", " + p1[1] + ", " + p1[2] + " Player 2 Candies: " + p2[0] + ", " + p2[1] + ", " + p2[2] + " Player 3 Candies: " + p3[0] + ", " + p3[1] + ", " + p3[2] + " Player 4 Candies: " + p4[0] + ", " + p4[1] + ", " + p4[2];
+        }
+        
     }
 
 
