@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -225,6 +225,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7590838781428240044, guid: 999ab8eac3c436246957d5239e2ab4c6, type: 3}
+      propertyPath: cameraTurnSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7590838781428240045, guid: 999ab8eac3c436246957d5239e2ab4c6, type: 3}
       propertyPath: m_Name
       value: LevelMaster
@@ -505,7 +509,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72626293}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &72626296
 Camera:
   m_ObjectHideFlags: 0
@@ -563,6 +567,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1253735979}
   offset: {x: 0, y: 2, z: -3.5}
+  controller: 0
+  pNum: 1
 --- !u!1 &101809495
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,6 +2490,7 @@ GameObject:
   - component: {fileID: 487168956}
   - component: {fileID: 487168955}
   - component: {fileID: 487168954}
+  - component: {fileID: 487168959}
   m_Layer: 0
   m_Name: Player3
   m_TagString: Player
@@ -2528,7 +2535,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487168952}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3e45768d66ab4ec7bc9fe216d722027, type: 3}
   m_Name: 
@@ -2596,6 +2603,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487168952}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &487168959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487168952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bceadfb0ac834c7682a6a47b8d18ec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: 2
+  cam: {fileID: 1495606331}
 --- !u!1 &488361004
 GameObject:
   m_ObjectHideFlags: 0
@@ -6506,6 +6527,7 @@ GameObject:
   - component: {fileID: 1061178285}
   - component: {fileID: 1061178284}
   - component: {fileID: 1061178283}
+  - component: {fileID: 1061178288}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -6550,7 +6572,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061178281}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3e45768d66ab4ec7bc9fe216d722027, type: 3}
   m_Name: 
@@ -6618,6 +6640,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061178281}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1061178288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061178281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bceadfb0ac834c7682a6a47b8d18ec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: 0
+  cam: {fileID: 2109214673}
 --- !u!1 &1068874675
 GameObject:
   m_ObjectHideFlags: 0
@@ -7621,6 +7657,7 @@ GameObject:
   - component: {fileID: 1253735982}
   - component: {fileID: 1253735981}
   - component: {fileID: 1253735980}
+  - component: {fileID: 1253735985}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -7665,7 +7702,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253735978}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3e45768d66ab4ec7bc9fe216d722027, type: 3}
   m_Name: 
@@ -7733,6 +7770,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253735978}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1253735985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253735978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bceadfb0ac834c7682a6a47b8d18ec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: 1
+  cam: {fileID: 72626294}
 --- !u!1 &1300175502
 GameObject:
   m_ObjectHideFlags: 0
@@ -8058,7 +8109,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345831273}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1345831276
 Camera:
   m_ObjectHideFlags: 0
@@ -8116,6 +8167,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1717944292}
   offset: {x: 0, y: 2, z: -3.5}
+  controller: 0
+  pNum: 3
 --- !u!1 &1396935571
 GameObject:
   m_ObjectHideFlags: 0
@@ -8489,7 +8542,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495606330}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1495606333
 Camera:
   m_ObjectHideFlags: 0
@@ -8547,6 +8600,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 487168953}
   offset: {x: 0, y: 2, z: -3.5}
+  controller: 0
+  pNum: 2
 --- !u!1 &1505870039
 GameObject:
   m_ObjectHideFlags: 0
@@ -9131,6 +9186,7 @@ GameObject:
   - component: {fileID: 1717944295}
   - component: {fileID: 1717944294}
   - component: {fileID: 1717944293}
+  - component: {fileID: 1717944298}
   m_Layer: 0
   m_Name: Player4
   m_TagString: Player
@@ -9175,7 +9231,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717944291}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3e45768d66ab4ec7bc9fe216d722027, type: 3}
   m_Name: 
@@ -9243,6 +9299,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717944291}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1717944298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717944291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bceadfb0ac834c7682a6a47b8d18ec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: 3
+  cam: {fileID: 1345831274}
 --- !u!1 &1729362571
 GameObject:
   m_ObjectHideFlags: 0
@@ -11279,7 +11349,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109214672}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &2109214675
 Camera:
   m_ObjectHideFlags: 0
@@ -11337,6 +11407,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1061178282}
   offset: {x: 0, y: 2, z: -3.5}
+  controller: 1
+  pNum: 0
 --- !u!1 &2117399492
 GameObject:
   m_ObjectHideFlags: 0
