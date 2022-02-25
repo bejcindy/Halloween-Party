@@ -11407,7 +11407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1061178282}
   offset: {x: 0, y: 2, z: -3.5}
-  controller: 1
+  controller: 0
   pNum: 0
 --- !u!1 &2117399492
 GameObject:
