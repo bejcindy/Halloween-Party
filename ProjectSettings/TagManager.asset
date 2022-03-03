@@ -3,12 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - House1
-  - House2
-  - House3
-  - DebugText
-  - Object
+  tags: []
   layers:
   - Default
   - TransparentFX
