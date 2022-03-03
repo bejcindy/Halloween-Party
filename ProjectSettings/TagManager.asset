@@ -8,6 +8,7 @@ TagManager:
   - House2
   - House3
   - DebugText
+  - Candy
   layers:
   - Default
   - TransparentFX
