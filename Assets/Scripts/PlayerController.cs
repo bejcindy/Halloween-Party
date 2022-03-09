@@ -110,6 +110,7 @@ public class PlayerController : MonoBehaviour
 
             x = Input.GetAxis(horizontal) * s;
             z = Input.GetAxis(vertical) * s;
+            
             rb.velocity = new Vector3(x, 0, z);
         }
         else
