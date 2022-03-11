@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - DebugText
+  - House3
+  - House1
+  - House2
+  - Candy
+  - ATM
   layers:
   - Default
   - TransparentFX

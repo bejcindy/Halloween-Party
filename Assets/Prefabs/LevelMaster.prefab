@@ -60,25 +60,34 @@ MonoBehaviour:
     Candy1: 0.5
     Candy2: 0.3
     Candy3: 0.2
+    Broccoli: 0
     RevisitChance: 3
     StartNumber: 10
     RevistDecrease: 3
+    coolDown: 0
   House2:
     Candy1: 0.3
     Candy2: 0.5
     Candy3: 0.2
+    Broccoli: 0
     RevisitChance: 3
     StartNumber: 10
     RevistDecrease: 3
+    coolDown: 0
   House3:
     Candy1: 0.2
     Candy2: 0.3
     Candy3: 0.5
+    Broccoli: 0
     RevisitChance: 3
     StartNumber: 10
     RevistDecrease: 3
+    coolDown: 0
   PlayerSpeed: 10
   PlayerRunSpeed: 15
   MaxSteal: 0
   MinSteal: 0
+  cameraTurnSpeed: 0
   playerCandies: {fileID: 0}
+  atm: {fileID: 0}
+  bro: {fileID: 0}

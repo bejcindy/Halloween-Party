@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     bool dontMove;
     float t, freezeTime;
 
+    bool saved1, saved2, saved3, saved4;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -128,8 +130,57 @@ public class PlayerController : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(direction, Vector3.forward);
         }
-        
-        
+        #region Save To ATM
+        if (saved1)
+        {
+            for (int i = 0; i < DataHolder.p1.Count; i++)
+            {
+                DataHolder.p1[i] = 0;
+                
+            }
+            if (DataHolder.p1[DataHolder.p1.Count - 1] == 0)
+            {
+                saved1 = false;
+            }
+        }
+        if (saved2)
+        {
+            for (int i = 0; i < DataHolder.p2.Count; i++)
+            {
+                DataHolder.p2[i] = 0;
+
+            }
+            if (DataHolder.p2[DataHolder.p2.Count - 1] == 0)
+            {
+                saved2 = false;
+            }
+        }
+        if (saved3)
+        {
+            for (int i = 0; i < DataHolder.p3.Count; i++)
+            {
+                DataHolder.p3[i] = 0;
+
+            }
+            if (DataHolder.p3[DataHolder.p3.Count - 1] == 0)
+            {
+                saved3 = false;
+            }
+        }
+        if (saved4)
+        {
+            for (int i = 0; i < DataHolder.p4.Count; i++)
+            {
+                DataHolder.p4[i] = 0;
+
+            }
+            if (DataHolder.p4[DataHolder.p4.Count - 1] == 0)
+            {
+                saved4 = false;
+            }
+        }
+        #endregion
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -186,6 +237,7 @@ public class PlayerController : MonoBehaviour
             }
             Destroy(collision.gameObject);
         }
+        
     }
 
     private void OnTriggerStay(Collider other)
@@ -195,15 +247,65 @@ public class PlayerController : MonoBehaviour
         {
             //add the cool down time here later
             //need animation
-            KnockOnDoors(other.gameObject.GetComponent<HouseManager>().revisits, other.gameObject.GetComponent<HouseManager>().possibility, other.gameObject.GetComponent<HouseManager>().rTimes);
+            KnockOnDoors(other.gameObject.GetComponent<HouseManager>().revisits, other.gameObject.GetComponent<HouseManager>().possibility, other.gameObject.GetComponent<HouseManager>().rTimes, other.gameObject.GetComponent<HouseManager>().totalRtime);
+            
+        }
+        if (other.CompareTag("ATM"))
+        {
+            switch (playerN)
+            {
+                case 1:
+                    if (!saved1 && Input.GetKeyDown(KeyCode.Joystick1Button2))
+                    {
+                        for (int i = 0; i < DataHolder.p1.Count; i++)
+                        {
+                            DataHolder.p1ATM[i] += DataHolder.p1[i];
+                            //Debug.Log(DataHolder.p1ATM[i]);
+                            saved1 = true;
+                        }
+
+                    }
+                    
+                    break;
+                case 2:
+                    if (Input.GetKeyDown(KeyCode.Joystick2Button2))
+                    {
+                        for (int i = 0; i < DataHolder.p2.Count; i++)
+                        {
+                            DataHolder.p2ATM[i] = DataHolder.p2[i];
+                            DataHolder.p2[i] = 0;
+                        }
+                    }
+                    break;
+                case 3:
+                    if (Input.GetKeyDown(KeyCode.Joystick3Button2))
+                    {
+                        for (int i = 0; i < DataHolder.p3.Count; i++)
+                        {
+                            DataHolder.p3ATM[i] = DataHolder.p3[i];
+                            DataHolder.p3[i] = 0;
+                        }
+                    }
+                    break;
+                case 4:
+                    if (Input.GetKeyDown(KeyCode.Joystick4Button2))
+                    {
+                        for (int i = 0; i < DataHolder.p4.Count; i++)
+                        {
+                            DataHolder.p4ATM[i] = DataHolder.p4[i];
+                            DataHolder.p4[i] = 0;
+                        }
+                    }
+                    break;
+            }
         }
 
-        
     }
 
-    void KnockOnDoors(List<int> hr,List<float> pos , int[] rTimes)
+    void KnockOnDoors(List<int> hr,List<float> pos , int[] rTimes, int totalR)
     {
         int c;
+        int b;
         switch (playerN)
         {
             case 1:
@@ -214,8 +316,14 @@ public class PlayerController : MonoBehaviour
                         //add decrease here later
                         c = Random.Range(hr[1] - 1, hr[1] + 1);
                         DataHolder.p1 = new List<int> { DataHolder.p1[0] + (int)(c * pos[0]), DataHolder.p1[1] + (int)(c * pos[1]), DataHolder.p1[2] + (int)(c * pos[2]) };
+                        b = Random.Range(0, 100);
+                        if (b <= 15)
+                        {
+                            DataHolder.Bro[0]++;
+                        }
                         rTimes[0] += 1;
-                        Debug.Log("1: " + DataHolder.p1[0]+ " 2: " + DataHolder.p1[1]+ " 3: " + DataHolder.p1[2]);
+                        //totalR+=1;
+                        //Debug.Log("totalR" + totalR);
                     }
                 }
                 
@@ -228,7 +336,12 @@ public class PlayerController : MonoBehaviour
                         //add decrease here later
                         c = Random.Range(hr[1] - 1, hr[1] + 1);
                         DataHolder.p2 = new List<int> { DataHolder.p2[0] + (int)(c * pos[0]), DataHolder.p2[1] + (int)(c * pos[1]), DataHolder.p2[2] + (int)(c * pos[2]) };
-                        //Debug.Log("1: " + DataHolder.p1[0]+ " 2: " + DataHolder.p1[1]+ " 3: " + DataHolder.p1[2]);
+                        b = Random.Range(0, 100);
+                        if (b <= 15)
+                        {
+                            DataHolder.Bro[1]++;
+                        }
+                        //totalR += 1;
                         rTimes[1] += 1;
                     }
                 }
@@ -242,7 +355,12 @@ public class PlayerController : MonoBehaviour
                         //add decrease here later
                         c = Random.Range(hr[1] - 1, hr[1] + 1);
                         DataHolder.p3 = new List<int> { DataHolder.p3[0] + (int)(c * pos[0]), DataHolder.p3[1] + (int)(c * pos[1]), DataHolder.p3[2] + (int)(c * pos[2]) };
-                        //Debug.Log("1: " + DataHolder.p1[0]+ " 2: " + DataHolder.p1[1]+ " 3: " + DataHolder.p1[2]);
+                        b = Random.Range(0, 100);
+                        if (b <= 15)
+                        {
+                            DataHolder.Bro[2]++;
+                        }
+                        //totalR += 1;
                         rTimes[2] += 1;
                     }
                 }
@@ -256,7 +374,12 @@ public class PlayerController : MonoBehaviour
                         //add decrease here later
                         c = Random.Range(hr[1] - 1, hr[1] + 1);
                         DataHolder.p4 = new List<int> { DataHolder.p4[0] + (int)(c * pos[0]), DataHolder.p4[1] + (int)(c * pos[1]), DataHolder.p4[2] + (int)(c * pos[2]) };
-                        //Debug.Log("1: " + DataHolder.p1[0]+ " 2: " + DataHolder.p1[1]+ " 3: " + DataHolder.p1[2]);
+                        b = Random.Range(0, 100);
+                        if (b <= 15)
+                        {
+                            DataHolder.Bro[3]++;
+                        }
+                        //totalR += 1;
                         rTimes[3] += 1;
                     }
                 }
