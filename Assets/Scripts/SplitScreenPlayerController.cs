@@ -124,7 +124,7 @@ public class SplitScreenPlayerController : MonoBehaviour
             //rb.velocity = transform.TransformDirection(new Vector3(x * s, 0, z * s));
             if (x != 0 || z != 0)
             {
-                transform.rotation = Quaternion.LookRotation(zeroY, Vector3.forward);
+                transform.rotation = Quaternion.LookRotation(zeroY, Vector3.up);
             }
         }
         else
