@@ -27,6 +27,8 @@ public class SplitScreenCamera : MonoBehaviour
             switch (pNum)
             {
                 case PlayerNumber.Player1:
+                    //RVertical = "XboxRHorizontal1";
+                    //RHorizontal = "XboxRVertical1";
                     RHorizontal = "XboxRHorizontal1";
                     RVertical = "XboxRVertical1";
                     break;
