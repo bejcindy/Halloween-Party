@@ -11,11 +11,13 @@ public class HouseManager : MonoBehaviour
     public int totalRtime;
     float t;
     float coolDown;
+    public bool CanCandy;
     Renderer r;
     // Start is called before the first frame update
     void Start()
     {
         r = GetComponent<MeshRenderer>();
+        CanCandy = true;
         rTimes = new int[] { 0, 0, 0, 0 };
         switch (gameObject.tag)
         {
@@ -41,15 +43,22 @@ public class HouseManager : MonoBehaviour
     void Update()
     {
         totalRtime = rTimes[0] + rTimes[1] + rTimes[2] + rTimes[3];
+        //if (totalRtime != 0)
+        //{
+        //    Debug.Log(rTimes[0]);
+        //}
         if (totalRtime >= revisits[0])
         {
             t += Time.deltaTime;
-            //Debug.Log(t);
+            Debug.Log("t"+t);
             r.enabled = false;
+            rTimes = new int[] { 0, 0, 0, 0 };
+            CanCandy = false;
             if (t >= coolDown)
             {
+                CanCandy = true;
                 r.enabled = true;
-                rTimes= new int[] { 0, 0, 0, 0 };
+                //rTimes= new int[] { 0, 0, 0, 0 };
                 t = 0;
             }
         }

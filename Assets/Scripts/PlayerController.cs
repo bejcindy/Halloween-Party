@@ -63,52 +63,52 @@ public class PlayerController : MonoBehaviour
         {
             //change to add force so that it's a burst
             switch (playerN)
-        {
-            case 1:
+            {
+                case 1:
                     if (Input.GetKey(KeyCode.Joystick1Button1))
-                {
-                    s = runSpeed;
-                    isRunning = true;
-                }
-                else
-                {
-                    s = speed;
-                }
+                    {
+                        s = runSpeed;
+                        isRunning = true;
+                    }
+                    else
+                    {
+                        s = speed;
+                    }
+                        break;
+                case 2:
+                    if (Input.GetKey(KeyCode.Joystick2Button1))
+                    {
+                        s = runSpeed;
+                        isRunning = true;
+                    }
+                    else
+                    {
+                        s = speed;
+                    }
                     break;
-            case 2:
-                if (Input.GetKey(KeyCode.Joystick2Button1))
-                {
-                    s = runSpeed;
-                    isRunning = true;
-                }
-                else
-                {
-                    s = speed;
-                }
-                break;
-            case 3:
-                if (Input.GetKey(KeyCode.Joystick3Button1))
-                {
-                    s = runSpeed;
-                    isRunning = true;
-                }
-                else
-                {
-                    s = speed;
-                }
-                break;
-            case 4:
-                if (Input.GetKey(KeyCode.Joystick4Button1))
-                {
-                    s = runSpeed;
-                    isRunning = true;
-                }
-                else
-                {
-                    s = speed;
-                }
-                break;
-        }
+                case 3:
+                    if (Input.GetKey(KeyCode.Joystick3Button1))
+                    {
+                        s = runSpeed;
+                        isRunning = true;
+                    }
+                    else
+                    {
+                        s = speed;
+                    }
+                    break;
+                case 4:
+                    if (Input.GetKey(KeyCode.Joystick4Button1))
+                    {
+                        s = runSpeed;
+                        isRunning = true;
+                    }
+                    else
+                    {
+                        s = speed;
+                    }
+                    break;
+            }
 
             x = Input.GetAxis(horizontal) * s;
             z = Input.GetAxis(vertical) * s;

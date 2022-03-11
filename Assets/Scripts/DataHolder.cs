@@ -56,9 +56,10 @@ public class DataHolder : MonoBehaviour
     //Each players' number of candies in total
     public static List<int> Bro;
 
-    public Text playerCandies;
-    public Text atm;
-    public Text bro;
+    //public Text playerCandies;
+    //public Text atm;
+    //public Text bro;
+    public Text p1txt, p2txt, p3txt, p4txt;
 
     //timer related variables
     public Text Timer;
@@ -135,17 +136,33 @@ public class DataHolder : MonoBehaviour
     }
     private void Update()
     {
-        if (playerCandies)
+        //if (playerCandies)
+        //{
+        //    playerCandies.text = "Player 1 Candies: " + p1[0] + ", " + p1[1] + ", " + p1[2] + " Player 2 Candies: " + p2[0] + ", " + p2[1] + ", " + p2[2] + " Player 3 Candies: " + p3[0] + ", " + p3[1] + ", " + p3[2] + " Player 4 Candies: " + p4[0] + ", " + p4[1] + ", " + p4[2];
+        //}
+        //if (atm)
+        //{
+        //    atm.text = p1ATM[0] + ", " + p1ATM[1] + ", " + p1ATM[2];
+        //}
+        //if (bro)
+        //{
+        //    bro.text = Bro[0] + ", " + Bro[1] + ", " + Bro[2] + ", " + Bro[3] + ", ";
+        //}
+        if (p1txt)
         {
-            playerCandies.text = "Player 1 Candies: " + p1[0] + ", " + p1[1] + ", " + p1[2] + " Player 2 Candies: " + p2[0] + ", " + p2[1] + ", " + p2[2] + " Player 3 Candies: " + p3[0] + ", " + p3[1] + ", " + p3[2] + " Player 4 Candies: " + p4[0] + ", " + p4[1] + ", " + p4[2];
+            p1txt.text = "Candy Carrying: " + p1[0] + ", " + p1[1] + ", " + p1[2] + "\n" + "Candy Stored: " + p1ATM[0] + ", " + p1ATM[1] + ", " + p1ATM[2] + "\n" + "Broccoli: " + Bro[0];
         }
-        if (atm)
+        if (p2txt)
         {
-            atm.text = p1ATM[0] + ", " + p1ATM[1] + ", " + p1ATM[2];
+            p2txt.text = "Candy Carrying: " + p2[0] + ", " + p2[1] + ", " + p2[2] + "\n" + "Candy Stored: " + p2ATM[0] + ", " + p2ATM[1] + ", " + p2ATM[2] + "\n" + "Broccoli: " + Bro[1];
         }
-        if (bro)
+        if (p3txt)
         {
-            bro.text = Bro[0] + ", " + Bro[1] + ", " + Bro[2] + ", " + Bro[3] + ", ";
+            p3txt.text = "Candy Carrying: " + p3[0] + ", " + p3[1] + ", " + p3[2] + "\n" + "Candy Stored: " + p3ATM[0] + ", " + p3ATM[1] + ", " + p3ATM[2] + "\n" + "Broccoli: " + Bro[2];
+        }
+        if (p4txt)
+        {
+            p4txt.text = "Candy Carrying: " + p4[0] + ", " + p4[1] + ", " + p4[2] + "\n" + "Candy Stored: " + p4ATM[0] + ", " + p4ATM[1] + ", " + p4ATM[2] + "\n" + "Broccoli: " + Bro[3];
         }
         if (Timer)
         {
