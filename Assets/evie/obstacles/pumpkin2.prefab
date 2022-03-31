@@ -183,6 +183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8808031907080456314}
+  - component: {fileID: 8294217184456971095}
   m_Layer: 0
   m_Name: pumpkin2
   m_TagString: Untagged
@@ -207,6 +208,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &8294217184456971095
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4017890612686817295}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5769291
+  m_Height: 0
+  m_Direction: 1
+  m_Center: {x: -3.2470426e-10, y: 0, z: 0.07692928}
 --- !u!1 &6204562079993925330
 GameObject:
   m_ObjectHideFlags: 0

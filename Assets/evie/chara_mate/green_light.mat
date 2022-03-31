@@ -22,8 +22,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: green_light
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 2
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
@@ -130,9 +130,9 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.5529412, g: 1, b: 0.98572236, a: 1}
+    - _BaseColor: {r: 0.4716981, g: 0.16668384, b: 0.12756611, a: 1}
     - _Color: {r: 1, g: 0.8448722, b: 0.13836467, a: 0.7764706}
-    - _EmissionColor: {r: 0.118623205, g: 3.7112966, b: 3.7761717, a: 1}
+    - _EmissionColor: {r: 0.3332396, g: 0.59731627, b: 0.60046, a: 1}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
     - _UvOffset: {r: 0, g: 0, b: 0, a: 0}
     - _UvTiling: {r: 1, g: 1, b: 0, a: 0}

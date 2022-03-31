@@ -172,9 +172,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3767681338370322133}
   - component: {fileID: 6317584820617341730}
+  - component: {fileID: 5138576688395023761}
+  - component: {fileID: 5522985037832315794}
   m_Layer: 0
   m_Name: house1
-  m_TagString: Untagged
+  m_TagString: House1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -220,6 +222,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.7603225, y: 6.1474447, z: 2.4036722}
   m_Center: {x: -0.029243171, y: 1.6964273, z: 0}
+--- !u!114 &5138576688395023761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2955184749517085943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34db833f817894ffb931fdf994f5bd30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibility: []
+  revisits: 
+  rTimes: 
+  totalRtime: 0
+  CanCandy: 0
+--- !u!65 &5522985037832315794
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2955184749517085943}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.79848206, y: 0.8255323, z: 0.90362644}
+  m_Center: {x: -1.2792411, y: -0.9472332, z: -0.0043811393}
 --- !u!1 &3315967197601469271
 GameObject:
   m_ObjectHideFlags: 0
