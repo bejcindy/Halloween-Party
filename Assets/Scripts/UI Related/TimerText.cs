@@ -32,8 +32,9 @@ public class TimerText : MonoBehaviour
         }
         if (timeRemaining == 0)
         {
-            timeText.text = "Time's Up!";
+            //timeText.text = "Time's Up!";
             FinalInput.SetActive(true);
+            Phase2Manager.timeUp = true;
         }
     }
     void DisplayTime(float timeToDisplay)

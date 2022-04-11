@@ -10,6 +10,10 @@ TagManager:
   - House2
   - Candy
   - ATM
+  - P1
+  - P2
+  - P3
+  - P4
   layers:
   - Default
   - TransparentFX
