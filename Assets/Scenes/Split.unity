@@ -566,8 +566,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1253735979}
   offset: {x: 0, y: 1, z: -3.5}
-  controller: 0
-  pNum: 1
+  horizontal: 0
 --- !u!114 &72626298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3068,8 +3067,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e45768d66ab4ec7bc9fe216d722027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 2
-  isRunning: 0
 --- !u!65 &487168956
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7611,7 +7608,6 @@ GameObject:
   - component: {fileID: 1061178287}
   - component: {fileID: 1061178286}
   - component: {fileID: 1061178285}
-  - component: {fileID: 1061178284}
   - component: {fileID: 1061178283}
   - component: {fileID: 1061178288}
   - component: {fileID: 1061178289}
@@ -7630,7 +7626,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061178281}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.3, y: 0.61, z: 37.4}
+  m_LocalPosition: {x: 10.3, y: 0.61, z: 19.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 382500076}
@@ -7653,20 +7649,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1061178284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061178281}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e45768d66ab4ec7bc9fe216d722027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: 0
-  isRunning: 0
 --- !u!65 &1061178285
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7784,7 +7766,19 @@ MonoBehaviour:
     m_ActionId: c3f6b010-3f95-46a8-bca3-6c5ef933cc7d
     m_ActionName: Player/Move[/DualShock4GamepadHID/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1061178288}
+        m_TargetAssemblyTypeName: SplitScreenPlayerController, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: f0de620e-60e2-44e6-a36d-d4b0b78ff95c
     m_ActionName: Player/Look[/DualShock4GamepadHID/rightStick,/Mouse/delta,/Pen/delta]
   - m_PersistentCalls:
@@ -7843,6 +7837,38 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: aaba95ee-4693-488e-88b0-994b251ddcc0
     m_ActionName: UI/SwitchScene[/DualShock4GamepadHID/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1061178288}
+        m_TargetAssemblyTypeName: SplitScreenPlayerController, Assembly-CSharp
+        m_MethodName: OnRun
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 168f4808-5ff2-4394-a5c3-3e50f3aaf6fd
+    m_ActionName: Player/Run
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1061178288}
+        m_TargetAssemblyTypeName: SplitScreenPlayerController, Assembly-CSharp
+        m_MethodName: OnKnock
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4ab68089-2c98-4f9b-b68f-495f2dbed1a8
+    m_ActionName: Player/Knock[/DualShock4GamepadHID/buttonEast]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -9058,8 +9084,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e45768d66ab4ec7bc9fe216d722027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 1
-  isRunning: 0
 --- !u!65 &1253735982
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9620,8 +9644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1717944292}
   offset: {x: 0, y: 1, z: -3.5}
-  controller: 0
-  pNum: 3
+  horizontal: 0
 --- !u!114 &1345831278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10189,8 +10212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 487168953}
   offset: {x: 0, y: 1, z: -3.5}
-  controller: 0
-  pNum: 2
+  horizontal: 0
 --- !u!114 &1495606335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11200,8 +11222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e45768d66ab4ec7bc9fe216d722027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 3
-  isRunning: 0
 --- !u!65 &1717944295
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14124,7 +14144,7 @@ GameObject:
   - component: {fileID: 2109214677}
   m_Layer: 0
   m_Name: P1 Camera
-  m_TagString: Untagged
+  m_TagString: P1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14201,15 +14221,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109214672}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a862eb1250464247b91482b597ff9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1061178282}
   offset: {x: 0, y: 1, z: -3.5}
-  controller: 0
-  pNum: 0
+  horizontal: 0
 --- !u!114 &2109214677
 MonoBehaviour:
   m_ObjectHideFlags: 0

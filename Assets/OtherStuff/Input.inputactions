@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Knock",
+                    "type": "Button",
+                    "id": "4ab68089-2c98-4f9b-b68f-495f2dbed1a8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -286,11 +295,22 @@
                 {
                     "name": "",
                     "id": "bcd33db0-80d4-4287-b613-d65588a10d4b",
-                    "path": "",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "90e97bcb-50a9-44b9-9111-c22afcd015b2",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Knock",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
