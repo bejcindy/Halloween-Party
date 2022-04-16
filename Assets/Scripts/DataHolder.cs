@@ -60,6 +60,8 @@ public class DataHolder : MonoBehaviour
     //public Text atm;
     //public Text bro;
     public Text p1txt, p2txt, p3txt, p4txt;
+    public GameObject c1, c2, c3, c4;
+    public static bool c1Taken, c2Taken, c3Taken, c4Taken;
 
     //timer related variables
     public Text Timer;
@@ -68,8 +70,28 @@ public class DataHolder : MonoBehaviour
     float t;
     bool screenShotTaken;
 
+    public static DataHolder instance = null;
+
     private void Awake()
     {
+        if (instance = null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+       
+        ////check how many of each type of houses are in scene right now
+        //Debug.Log(h1Pos.Count);
+
+    }
+    private void Start()
+    {
+        //DontDestroyOnLoad(gameObject);
+        screenShotTaken = false;
         speed = PlayerSpeed;
         runSpeed = PlayerRunSpeed;
         maxSteal = MaxSteal;
@@ -111,13 +133,6 @@ public class DataHolder : MonoBehaviour
         coolDownTime.Add(House2.coolDown);
         coolDownTime.Add(House3.coolDown);
         camTurnSpeed = cameraTurnSpeed;
-        ////check how many of each type of houses are in scene right now
-        //Debug.Log(h1Pos.Count);
-
-    }
-    private void Start()
-    {
-        screenShotTaken = false;
         p1 = new List<int> { 0, 0, 0 };
         p2 = new List<int> { 0, 0, 0 };
         p3 = new List<int> { 0, 0, 0 };
@@ -132,7 +147,7 @@ public class DataHolder : MonoBehaviour
         p4Total = new List<int> { 0, 0, 0 };
         Bro = new List<int> { 0, 0, 0, 0 };
         t = GameTime;
-        ScreenCapture.CaptureScreenshot("SomeLevel");
+        //ScreenCapture.CaptureScreenshot("SomeLevel");
     }
     private void Update()
     {
@@ -173,16 +188,16 @@ public class DataHolder : MonoBehaviour
             else
             {
                 t = 0;
-                if (!screenShotTaken)
-                {
-                    string folderPath = "Assets/Screenshots/"; // the path of your project folder
-                                        string screenshotName =
-                                                                "Screenshot_" +
-                                                                System.DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss") + // puts the current time right into the screenshot name
-                                                                ".png"; // put youre favorite data format here
-                                        ScreenCapture.CaptureScreenshot(System.IO.Path.Combine(folderPath, screenshotName), 2); // takes the sceenshot, the "2" is for the scaled resolution, you can put this to 600 but it will take really long to scale the image up
-                    screenShotTaken = true;
-                }
+                //if (!screenShotTaken)
+                //{
+                //    string folderPath = "Assets/Screenshots/"; // the path of your project folder
+                //                        string screenshotName =
+                //                                                "Screenshot_" +
+                //                                                System.DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss") + // puts the current time right into the screenshot name
+                //                                                ".png"; // put youre favorite data format here
+                //                        ScreenCapture.CaptureScreenshot(System.IO.Path.Combine(folderPath, screenshotName), 2); // takes the sceenshot, the "2" is for the scaled resolution, you can put this to 600 but it will take really long to scale the image up
+                //    screenShotTaken = true;
+                //}
                 
             }
             Timer.text = string.Format("{0:0}:{1:00}", Mathf.FloorToInt(t / 60), Mathf.FloorToInt(t % 60));
