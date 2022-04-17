@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 72626298}
   m_Layer: 0
   m_Name: P2 Camera
-  m_TagString: Untagged
+  m_TagString: P2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72626293}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a862eb1250464247b91482b597ff9af, type: 3}
   m_Name: 
@@ -3142,6 +3142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1495606331}
+  isRunning: 0
 --- !u!1 &488361004
 GameObject:
   m_ObjectHideFlags: 0
@@ -7724,6 +7725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 2109214673}
+  isRunning: 0
 --- !u!114 &1061178289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9031,7 +9033,6 @@ GameObject:
   - component: {fileID: 1253735984}
   - component: {fileID: 1253735983}
   - component: {fileID: 1253735982}
-  - component: {fileID: 1253735981}
   - component: {fileID: 1253735980}
   - component: {fileID: 1253735985}
   m_Layer: 0
@@ -9040,7 +9041,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1253735979
 Transform:
   m_ObjectHideFlags: 0
@@ -9072,18 +9073,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1253735981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253735978}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e45768d66ab4ec7bc9fe216d722027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1253735982
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9159,6 +9148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 72626294}
+  isRunning: 1
 --- !u!1 &1300175502
 GameObject:
   m_ObjectHideFlags: 0
@@ -9560,7 +9550,7 @@ GameObject:
   - component: {fileID: 1345831278}
   m_Layer: 0
   m_Name: P4 Camera
-  m_TagString: Untagged
+  m_TagString: P4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10128,7 +10118,7 @@ GameObject:
   - component: {fileID: 1495606335}
   m_Layer: 0
   m_Name: P3 Camera
-  m_TagString: Untagged
+  m_TagString: P3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11297,6 +11287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1345831274}
+  isRunning: 0
 --- !u!1 &1729362571
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,12 +15,16 @@ public class Phase2PlayerController : MonoBehaviour
 
     int PlayerNum;
 
+    SplitScreenPlayerController phase1script;
+
     Vector2 v;
     bool c;
     bool b;
     bool changed;
 
     bool change;
+    Rigidbody rb;
+    Collider col;
 
     int sceneNum;
 
@@ -33,7 +37,10 @@ public class Phase2PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         transform.position = new Vector3(1.3f - playerInput.playerIndex*.8f, 0, 0);
         DontDestroyOnLoad(gameObject);
-
+        phase1script = GetComponent<SplitScreenPlayerController>();
+        rb = GetComponent<Rigidbody>();
+        col = GetComponent<Collider>();
+        phase1script.enabled = false;
         if (transform.childCount == 0)
         {
             if (!DataHolder.c1Taken)
@@ -86,27 +93,38 @@ public class Phase2PlayerController : MonoBehaviour
                 //playerInput.SwitchCurrentActionMap("UI");
                 if (change)
                 {
-                    SceneManager.LoadScene(2);
+                    SceneManager.LoadScene(1);
                     change = false;
                 }
+                rb.useGravity = false;
                 titleCam = GameObject.FindGameObjectWithTag("MainCamera");
                 transform.LookAt(titleCam.transform);
                 break;
             case 1:
                 //playerInput.SwitchCurrentActionMap("Player");
-                //if (change)
-                //{
-                //    SceneManager.LoadScene(2);
-                //}
+                if (change)
+                {
+                    SceneManager.LoadScene(2);
+                    
+                    change = false;
+                }
+                phase1script.enabled = true;
+                transform.localScale = new Vector3(2, 2, 2);
+                rb.useGravity = true;
                 break;
             case 2:
                 //playerInput.SwitchCurrentActionMap("Player");
                 Debug.Log(change);
-                //if (change)
-                //{
-                //    //playerInput.actions["SwitchActionMap"].performed+=SwitchActionMap;
-                //    SceneManager.LoadScene(0);
-                //}
+                phase1script.enabled = false;
+                transform.localScale = new Vector3(1, 1, 1);
+                if (change)
+                {
+                    
+                    //playerInput.actions["SwitchActionMap"].performed+=SwitchActionMap;
+                    SceneManager.LoadScene(0);
+                    change = false;
+                }
+                rb.useGravity = false;
                 transform.GetChild(0).gameObject.SetActive(false);
                 if (Phase2Manager.timeUp)
                 {

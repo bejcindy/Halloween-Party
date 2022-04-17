@@ -19,7 +19,7 @@ public class HouseManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        r = GetComponent<MeshRenderer>();
+        //r = GetComponent<MeshRenderer>();
         CanCandy = true;
         rTimes = new int[] { 0, 0, 0, 0 };
         switch (gameObject.tag)
@@ -58,13 +58,13 @@ public class HouseManager : MonoBehaviour
         {
             t += Time.deltaTime;
             Debug.Log("t"+t);
-            r.enabled = false;
+            //r.enabled = false;
             rTimes = new int[] { 0, 0, 0, 0 };
             CanCandy = false;
             if (t >= coolDown)
             {
                 CanCandy = true;
-                r.enabled = true;
+                //r.enabled = true;
                 //rTimes= new int[] { 0, 0, 0, 0 };
                 t = 0;
             }
