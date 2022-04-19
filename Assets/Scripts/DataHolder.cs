@@ -48,18 +48,20 @@ public class DataHolder : MonoBehaviour
     public static List<float> coolDownTime;
 
     //Each players' number of candies that they are carrying
-    public static List<int> p1, p2, p3, p4;
+    public static int p1, p2, p3, p4;
     //Each players' number of candies that they have in ATM
-    public static List<int> p1ATM, p2ATM, p3ATM, p4ATM;
+    public static int p1ATM, p2ATM, p3ATM, p4ATM;
     //Each players' number of candies in total
-    public static List<int> p1Total, p2Total, p3Total, p4Total;
+    public static int p1Total, p2Total, p3Total, p4Total;
     //Each players' number of candies in total
     public static List<int> Bro;
 
     //public Text playerCandies;
     //public Text atm;
     //public Text bro;
-    public Text p1txt, p2txt, p3txt, p4txt;
+    //public Text p1txt, p2txt, p3txt, p4txt;
+    public GameObject c1, c2, c3, c4;
+    public static bool c1Taken, c2Taken, c3Taken, c4Taken;
 
     //timer related variables
     public Text Timer;
@@ -68,8 +70,20 @@ public class DataHolder : MonoBehaviour
     float t;
     bool screenShotTaken;
 
+    public static DataHolder instance = null;
+
     private void Awake()
     {
+        if (instance = null)
+        {
+            instance = this;
+        }
+        else if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+        screenShotTaken = false;
         speed = PlayerSpeed;
         runSpeed = PlayerRunSpeed;
         maxSteal = MaxSteal;
@@ -81,10 +95,10 @@ public class DataHolder : MonoBehaviour
         h2R = new List<int>(3);
         h3R = new List<int>(3);
         coolDownTime = new List<float>(3);
-        p1 = new List<int>(3);
-        p2 = new List<int>(3);
-        p3 = new List<int>(3);
-        p4 = new List<int>(3);
+        //p1 = new List<int>(3);
+        //p2 = new List<int>(3);
+        //p3 = new List<int>(3);
+        //p4 = new List<int>(3);
         h1Pos.Add(House1.Candy1);
         h1Pos.Add(House1.Candy2);
         h1Pos.Add(House1.Candy3);
@@ -106,88 +120,24 @@ public class DataHolder : MonoBehaviour
         h3R.Add(House3.RevisitChance);
         h3R.Add(House3.StartNumber);
         h3R.Add(House3.RevistDecrease);
-
+        Debug.Log(h1R[1]);
         coolDownTime.Add(House1.coolDown);
         coolDownTime.Add(House2.coolDown);
         coolDownTime.Add(House3.coolDown);
         camTurnSpeed = cameraTurnSpeed;
+        Bro = new List<int> { 0, 0, 0, 0 };
+        t = GameTime;
         ////check how many of each type of houses are in scene right now
         //Debug.Log(h1Pos.Count);
 
     }
     private void Start()
     {
-        screenShotTaken = false;
-        p1 = new List<int> { 0, 0, 0 };
-        p2 = new List<int> { 0, 0, 0 };
-        p3 = new List<int> { 0, 0, 0 };
-        p4 = new List<int> { 0, 0, 0 };
-        p1ATM = new List<int> { 0, 0, 0 };
-        p2ATM = new List<int> { 0, 0, 0 };
-        p3ATM = new List<int> { 0, 0, 0 };
-        p4ATM = new List<int> { 0, 0, 0 };
-        p1Total = new List<int> { 0, 0, 0 };
-        p2Total = new List<int> { 0, 0, 0 };
-        p3Total = new List<int> { 0, 0, 0 };
-        p4Total = new List<int> { 0, 0, 0 };
-        Bro = new List<int> { 0, 0, 0, 0 };
-        t = GameTime;
-        ScreenCapture.CaptureScreenshot("SomeLevel");
+        
     }
     private void Update()
     {
-        //if (playerCandies)
-        //{
-        //    playerCandies.text = "Player 1 Candies: " + p1[0] + ", " + p1[1] + ", " + p1[2] + " Player 2 Candies: " + p2[0] + ", " + p2[1] + ", " + p2[2] + " Player 3 Candies: " + p3[0] + ", " + p3[1] + ", " + p3[2] + " Player 4 Candies: " + p4[0] + ", " + p4[1] + ", " + p4[2];
-        //}
-        //if (atm)
-        //{
-        //    atm.text = p1ATM[0] + ", " + p1ATM[1] + ", " + p1ATM[2];
-        //}
-        //if (bro)
-        //{
-        //    bro.text = Bro[0] + ", " + Bro[1] + ", " + Bro[2] + ", " + Bro[3] + ", ";
-        //}
-        if (p1txt)
-        {
-            p1txt.text = "Candy Carrying: " + p1[0] + ", " + p1[1] + ", " + p1[2] + "\n" + "Candy Stored: " + p1ATM[0] + ", " + p1ATM[1] + ", " + p1ATM[2] + "\n" + "Broccoli: " + Bro[0];
-        }
-        if (p2txt)
-        {
-            p2txt.text = "Candy Carrying: " + p2[0] + ", " + p2[1] + ", " + p2[2] + "\n" + "Candy Stored: " + p2ATM[0] + ", " + p2ATM[1] + ", " + p2ATM[2] + "\n" + "Broccoli: " + Bro[1];
-        }
-        if (p3txt)
-        {
-            p3txt.text = "Candy Carrying: " + p3[0] + ", " + p3[1] + ", " + p3[2] + "\n" + "Candy Stored: " + p3ATM[0] + ", " + p3ATM[1] + ", " + p3ATM[2] + "\n" + "Broccoli: " + Bro[2];
-        }
-        if (p4txt)
-        {
-            p4txt.text = "Candy Carrying: " + p4[0] + ", " + p4[1] + ", " + p4[2] + "\n" + "Candy Stored: " + p4ATM[0] + ", " + p4ATM[1] + ", " + p4ATM[2] + "\n" + "Broccoli: " + Bro[3];
-        }
-        if (Timer)
-        {
-            if (t > 0)
-            {
-                t -= Time.deltaTime;
-            }
-            else
-            {
-                t = 0;
-                if (!screenShotTaken)
-                {
-                    string folderPath = "Assets/Screenshots/"; // the path of your project folder
-                                        string screenshotName =
-                                                                "Screenshot_" +
-                                                                System.DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss") + // puts the current time right into the screenshot name
-                                                                ".png"; // put youre favorite data format here
-                                        ScreenCapture.CaptureScreenshot(System.IO.Path.Combine(folderPath, screenshotName), 2); // takes the sceenshot, the "2" is for the scaled resolution, you can put this to 600 but it will take really long to scale the image up
-                    screenShotTaken = true;
-                }
-                
-            }
-            Timer.text = string.Format("{0:0}:{1:00}", Mathf.FloorToInt(t / 60), Mathf.FloorToInt(t % 60));
-        }
-            
+       
         
     }
 

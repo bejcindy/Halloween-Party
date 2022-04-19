@@ -301,10 +301,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34db833f817894ffb931fdf994f5bd30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possibility: []
-  revisits: 
+  candyAmount: 0
   rTimes: 
   totalRtime: 0
+  CanCandy: 0
 --- !u!65 &1735814461
 BoxCollider:
   m_ObjectHideFlags: 0

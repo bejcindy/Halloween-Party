@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43673748, g: 0.48434848, b: 0.56460106, a: 1}
+  m_IndirectSpecularColor: {r: 0.43673718, g: 0.48434794, b: 0.5646004, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -479,9 +479,10 @@ GameObject:
   - component: {fileID: 72626296}
   - component: {fileID: 72626295}
   - component: {fileID: 72626297}
+  - component: {fileID: 72626298}
   m_Layer: 0
   m_Name: P2 Camera
-  m_TagString: Untagged
+  m_TagString: P2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -565,8 +566,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1253735979}
   offset: {x: 0, y: 1, z: -3.5}
-  controller: 0
-  pNum: 1
+  horizontal: 0
+--- !u!114 &72626298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72626293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1001 &76024565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2990,7 +3023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &487168953
 Transform:
   m_ObjectHideFlags: 0
@@ -3034,8 +3067,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e45768d66ab4ec7bc9fe216d722027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 2
-  isRunning: 0
 --- !u!65 &487168956
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3110,7 +3141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bceadfb0ac834c7682a6a47b8d18ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 2
   cam: {fileID: 1495606331}
   isRunning: 0
 --- !u!1 &488361004
@@ -7579,9 +7609,9 @@ GameObject:
   - component: {fileID: 1061178287}
   - component: {fileID: 1061178286}
   - component: {fileID: 1061178285}
-  - component: {fileID: 1061178284}
   - component: {fileID: 1061178283}
   - component: {fileID: 1061178288}
+  - component: {fileID: 1061178289}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -7597,7 +7627,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061178281}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.3, y: 0.61, z: 37.4}
+  m_LocalPosition: {x: 10.3, y: 0.61, z: 19.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 382500076}
@@ -7620,20 +7650,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1061178284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061178281}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e45768d66ab4ec7bc9fe216d722027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: 0
-  isRunning: 0
 --- !u!65 &1061178285
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7708,9 +7724,158 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bceadfb0ac834c7682a6a47b8d18ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 0
   cam: {fileID: 2109214673}
   isRunning: 0
+--- !u!114 &1061178289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061178281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 865202171019447fcb81b09322a0199a, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1061178288}
+        m_TargetAssemblyTypeName: SplitScreenPlayerController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c3f6b010-3f95-46a8-bca3-6c5ef933cc7d
+    m_ActionName: Player/Move[/DualShock4GamepadHID/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1061178288}
+        m_TargetAssemblyTypeName: SplitScreenPlayerController, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f0de620e-60e2-44e6-a36d-d4b0b78ff95c
+    m_ActionName: Player/Look[/DualShock4GamepadHID/rightStick,/Mouse/delta,/Pen/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 64b06b8b-be59-4b5f-b3d9-5a758ac8c70f
+    m_ActionName: Player/Fire[/DualShock4GamepadHID/rightTrigger,/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 311e8d34-7411-4947-8cc7-228ec3e1cf82
+    m_ActionName: Player/SwitchScene[/DualShock4GamepadHID/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3be05550-4f04-4ab3-85f7-f6a2f2915183
+    m_ActionName: UI/Navigate[/DualShock4GamepadHID/leftStick/up,/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID/leftStick/left,/DualShock4GamepadHID/dpad/left,/DualShock4GamepadHID/leftStick/right,/DualShock4GamepadHID/dpad/right,/DualShock4GamepadHID/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ae57c4c9-055d-47f7-b1e3-bb708df80672
+    m_ActionName: UI/Submit[/DualShock4GamepadHID/buttonSouth,/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dcedaf3c-9ace-4550-8d88-f56f7c10c762
+    m_ActionName: UI/Cancel[/DualShock4GamepadHID/buttonEast,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4f21efe0-6257-4341-880d-5b0af7fbd13c
+    m_ActionName: UI/Point[/Mouse/position,/Pen/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e4b011d2-01e4-4c5d-8148-601d883c838d
+    m_ActionName: UI/Click[/Mouse/leftButton,/Pen/tip,/DualShock4GamepadHID/buttonSouth,/DualShock4GamepadHID/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5412e3e9-9bcf-46b8-811c-dcf2d6b932e7
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0f08e0cf-0cff-439b-8940-9595ac5415f7
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3371f2e3-84f2-4811-9e82-1d87bc1e7827
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9f997cc3-66c5-4fdd-aaac-b919ceffa025
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9db6312b-3e35-4741-9950-f00ef4e7adeb
+    m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fc3c073a-3997-4612-b798-681152e1dbef
+    m_ActionName: UI/Confirm[/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: aaba95ee-4693-488e-88b0-994b251ddcc0
+    m_ActionName: UI/SwitchScene[/DualShock4GamepadHID/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1061178288}
+        m_TargetAssemblyTypeName: SplitScreenPlayerController, Assembly-CSharp
+        m_MethodName: OnRun
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 168f4808-5ff2-4394-a5c3-3e50f3aaf6fd
+    m_ActionName: Player/Run
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1061178288}
+        m_TargetAssemblyTypeName: SplitScreenPlayerController, Assembly-CSharp
+        m_MethodName: OnKnock
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4ab68089-2c98-4f9b-b68f-495f2dbed1a8
+    m_ActionName: Player/Knock[/DualShock4GamepadHID/buttonEast]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &1064843006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8119,16 +8284,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1119320735}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 865202171019447fcb81b09322a0199a, type: 3}
+  m_PointAction: {fileID: -7504527468743175082, guid: 865202171019447fcb81b09322a0199a, type: 3}
+  m_MoveAction: {fileID: 3504536308986760992, guid: 865202171019447fcb81b09322a0199a, type: 3}
+  m_SubmitAction: {fileID: 2064916234097673511, guid: 865202171019447fcb81b09322a0199a, type: 3}
+  m_CancelAction: {fileID: -1967631576421560919, guid: 865202171019447fcb81b09322a0199a, type: 3}
+  m_LeftClickAction: {fileID: 8056856818456041789, guid: 865202171019447fcb81b09322a0199a, type: 3}
+  m_MiddleClickAction: {fileID: -234444027392297608, guid: 865202171019447fcb81b09322a0199a, type: 3}
+  m_RightClickAction: {fileID: 2410214264535233512, guid: 865202171019447fcb81b09322a0199a, type: 3}
+  m_ScrollWheelAction: {fileID: -8363763129024170900, guid: 865202171019447fcb81b09322a0199a, type: 3}
+  m_TrackedDevicePositionAction: {fileID: -4344589707476872043, guid: 865202171019447fcb81b09322a0199a, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: 865202171019447fcb81b09322a0199a, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
 --- !u!114 &1119320737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8859,7 +9033,6 @@ GameObject:
   - component: {fileID: 1253735984}
   - component: {fileID: 1253735983}
   - component: {fileID: 1253735982}
-  - component: {fileID: 1253735981}
   - component: {fileID: 1253735980}
   - component: {fileID: 1253735985}
   m_Layer: 0
@@ -8900,20 +9073,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1253735981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253735978}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e45768d66ab4ec7bc9fe216d722027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: 1
-  isRunning: 0
 --- !u!65 &1253735982
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8988,9 +9147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bceadfb0ac834c7682a6a47b8d18ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 1
   cam: {fileID: 72626294}
-  isRunning: 0
+  isRunning: 1
 --- !u!1 &1300175502
 GameObject:
   m_ObjectHideFlags: 0
@@ -9389,9 +9547,10 @@ GameObject:
   - component: {fileID: 1345831276}
   - component: {fileID: 1345831275}
   - component: {fileID: 1345831277}
+  - component: {fileID: 1345831278}
   m_Layer: 0
   m_Name: P4 Camera
-  m_TagString: Untagged
+  m_TagString: P4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9468,15 +9627,47 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345831273}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a862eb1250464247b91482b597ff9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1717944292}
   offset: {x: 0, y: 1, z: -3.5}
-  controller: 0
-  pNum: 3
+  horizontal: 0
+--- !u!114 &1345831278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345831273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1396935571
 GameObject:
   m_ObjectHideFlags: 0
@@ -9924,9 +10115,10 @@ GameObject:
   - component: {fileID: 1495606333}
   - component: {fileID: 1495606332}
   - component: {fileID: 1495606334}
+  - component: {fileID: 1495606335}
   m_Layer: 0
   m_Name: P3 Camera
-  m_TagString: Untagged
+  m_TagString: P3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10003,15 +10195,47 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495606330}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a862eb1250464247b91482b597ff9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 487168953}
   offset: {x: 0, y: 1, z: -3.5}
-  controller: 0
-  pNum: 2
+  horizontal: 0
+--- !u!114 &1495606335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495606330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1505870039
 GameObject:
   m_ObjectHideFlags: 0
@@ -10944,7 +11168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1717944292
 Transform:
   m_ObjectHideFlags: 0
@@ -10988,8 +11212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e45768d66ab4ec7bc9fe216d722027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 3
-  isRunning: 0
 --- !u!65 &1717944295
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11064,7 +11286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bceadfb0ac834c7682a6a47b8d18ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 3
   cam: {fileID: 1345831274}
   isRunning: 0
 --- !u!1 &1729362571
@@ -13911,9 +14132,10 @@ GameObject:
   - component: {fileID: 2109214675}
   - component: {fileID: 2109214674}
   - component: {fileID: 2109214676}
+  - component: {fileID: 2109214677}
   m_Layer: 0
   m_Name: P1 Camera
-  m_TagString: Untagged
+  m_TagString: P1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13997,8 +14219,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1061178282}
   offset: {x: 0, y: 1, z: -3.5}
-  controller: 0
-  pNum: 0
+  horizontal: 0
+--- !u!114 &2109214677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109214672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1001 &2109369100
 PrefabInstance:
   m_ObjectHideFlags: 0

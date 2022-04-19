@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Phase2PlayerController : MonoBehaviour
 {
@@ -14,83 +15,173 @@ public class Phase2PlayerController : MonoBehaviour
 
     int PlayerNum;
 
+    SplitScreenPlayerController phase1script;
+
     Vector2 v;
     bool c;
     bool b;
     bool changed;
 
+    bool change;
+    Rigidbody rb;
+    Collider col;
+
+    int sceneNum;
+
+    GameObject titleCam;
+
     //public int playerIndex { get; }
+
+    private void Awake()
+    {
+        playerInput = GetComponent<PlayerInput>();
+        transform.position = new Vector3(1.3f - playerInput.playerIndex*.8f, 0, 0);
+        DontDestroyOnLoad(gameObject);
+        phase1script = GetComponent<SplitScreenPlayerController>();
+        rb = GetComponent<Rigidbody>();
+        col = GetComponent<Collider>();
+        phase1script.enabled = false;
+        if (transform.childCount == 0)
+        {
+            if (!DataHolder.c1Taken)
+            {
+                GameObject characterModel = Instantiate(Resources.Load("cowboy"), transform.position, Quaternion.identity) as GameObject;
+                characterModel.transform.parent = transform;
+                DataHolder.c1Taken = true;
+            }else if (!DataHolder.c2Taken)
+            {
+                GameObject characterModel = Instantiate(Resources.Load("dino"), transform.position, Quaternion.identity) as GameObject;
+                characterModel.transform.parent = transform;
+                DataHolder.c2Taken = true;
+            }
+            else if (!DataHolder.c3Taken)
+            {
+                GameObject characterModel = Instantiate(Resources.Load("hotdof"), transform.position, Quaternion.identity) as GameObject;
+                characterModel.transform.parent = transform;
+                DataHolder.c3Taken = true;
+            }
+            else if (!DataHolder.c4Taken)
+            {
+                GameObject characterModel = Instantiate(Resources.Load("pump"), transform.position, Quaternion.identity) as GameObject;
+                characterModel.transform.parent = transform;
+                DataHolder.c4Taken = true;
+            }
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
-        playerInput = GetComponent<PlayerInput>();
+        //playerInput = GetComponent<PlayerInput>();
         PlayerNum = playerInput.playerIndex + 1;
+        //sceneNum = SceneManager.GetActiveScene().buildIndex;
         
-        //Debug.Log(PlayerNum);
-        //p1 = GameObject.FindGameObjectWithTag("P1").GetComponent<Text>();
-        //p2 = GameObject.FindGameObjectWithTag("P2").GetComponent<Text>();
-        //p3 = GameObject.FindGameObjectWithTag("P3").GetComponent<Text>();
-        //p4 = GameObject.FindGameObjectWithTag("P4").GetComponent<Text>();
     }
 
-    
+    //private void OnEnable()
+    //{
+    //    transform.position = new Vector3(2 - playerInput.playerIndex, 0, 0);
+    //}
 
 
     // Update is called once per frame
     void Update()
     {
-        if (Phase2Manager.timeUp)
+        sceneNum = SceneManager.GetActiveScene().buildIndex;
+        switch (sceneNum)
         {
-            if (placement)
-            {
-                if (v == Vector2.up)
+            case 0:
+                //playerInput.SwitchCurrentActionMap("UI");
+                if (change)
                 {
-                    placement.text = "1";
+                    SceneManager.LoadScene(1);
+                    change = false;
                 }
-                if (v == Vector2.left)
+                rb.useGravity = false;
+                titleCam = GameObject.FindGameObjectWithTag("MainCamera");
+                transform.LookAt(titleCam.transform);
+                break;
+            case 1:
+                //playerInput.SwitchCurrentActionMap("Player");
+                if (change)
                 {
-                    placement.text = "2";
+                    SceneManager.LoadScene(2);
+                    
+                    change = false;
                 }
-                if (v == Vector2.down)
+                phase1script.enabled = true;
+                transform.localScale = new Vector3(2, 2, 2);
+                rb.useGravity = true;
+                break;
+            case 2:
+                //playerInput.SwitchCurrentActionMap("Player");
+                Debug.Log(change);
+                phase1script.enabled = false;
+                transform.localScale = new Vector3(1, 1, 1);
+                if (change)
                 {
-                    placement.text = "3";
+                    
+                    //playerInput.actions["SwitchActionMap"].performed+=SwitchActionMap;
+                    SceneManager.LoadScene(0);
+                    change = false;
                 }
-                if (v == Vector2.right)
+                rb.useGravity = false;
+                transform.GetChild(0).gameObject.SetActive(false);
+                if (Phase2Manager.timeUp)
                 {
-                    placement.text = "4";
-                }
-            }
-            if (confirm)
-            {
-                if (c)
-                {
-                    if (!changed)
+                    if (placement)
                     {
-                        if (confirm.gameObject.activeSelf)
+                        if (v == Vector2.up)
                         {
-                            confirm.gameObject.SetActive(false);
-                            changed = true;
+                            placement.text = "1";
+                        }
+                        if (v == Vector2.left)
+                        {
+                            placement.text = "2";
+                        }
+                        if (v == Vector2.down)
+                        {
+                            placement.text = "3";
+                        }
+                        if (v == Vector2.right)
+                        {
+                            placement.text = "4";
+                        }
+                    }
+                    if (confirm)
+                    {
+                        if (c)
+                        {
+                            if (!changed)
+                            {
+                                if (confirm.gameObject.activeSelf)
+                                {
+                                    confirm.gameObject.SetActive(false);
+                                    changed = true;
+                                }
+                                else
+                                {
+                                    confirm.gameObject.SetActive(true);
+                                    changed = true;
+                                }
+                            }
                         }
                         else
                         {
-                            confirm.gameObject.SetActive(true);
-                            changed = true;
+                            changed = false;
                         }
+
                     }
                 }
-                else
-                {
-                    changed = false;
-                }
-
-            }
+                break;
         }
-
     }
     //public void Up()
     //{
     //    placement.text = "1";
     //}
+    //playerInput.currentActionMap = playerInput.actions.FindActionMap("Player");
+
+
 
     public void InputPlacement(InputAction.CallbackContext context)
     {
@@ -103,6 +194,10 @@ public class Phase2PlayerController : MonoBehaviour
         //c = context.ReadValue<bool>();
         c = context.action.triggered;
         //Debug.Log(c);
+    }
+    public void ChangeScene(InputAction.CallbackContext context)
+    {
+        change = context.action.triggered;
     }
 
     
