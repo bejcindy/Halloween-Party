@@ -109,7 +109,7 @@ public class Phase2PlayerController : MonoBehaviour
                     change = false;
                 }
                 phase1script.enabled = true;
-                transform.localScale = new Vector3(2, 2, 2);
+                transform.localScale = new Vector3(3, 3, 3);
                 rb.useGravity = true;
                 break;
             case 2:

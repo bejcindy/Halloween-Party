@@ -228,6 +228,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4ab68089-2c98-4f9b-b68f-495f2dbed1a8
     m_ActionName: Player/Knock[/DualShock4GamepadHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 22379547515953598}
+        m_TargetAssemblyTypeName: SplitScreenPlayerController, Assembly-CSharp
+        m_MethodName: ResetCam
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5ad25c01-f16a-42bc-95b0-97c69d07d9a5
+    m_ActionName: Player/CameraReset[/DualShock4GamepadHID/leftShoulder,/DualShock4GamepadHID/leftTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

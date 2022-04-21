@@ -7,7 +7,7 @@ public class Phase1UIManager : MonoBehaviour
 {
     public Text p1txt, p2txt, p3txt, p4txt;
     public Text Timer;
-    float t = 0;
+    float t = 120;
 
     // Start is called before the first frame update
     void Start()

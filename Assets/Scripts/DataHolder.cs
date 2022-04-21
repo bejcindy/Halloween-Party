@@ -120,7 +120,6 @@ public class DataHolder : MonoBehaviour
         h3R.Add(House3.RevisitChance);
         h3R.Add(House3.StartNumber);
         h3R.Add(House3.RevistDecrease);
-        Debug.Log(h1R[1]);
         coolDownTime.Add(House1.coolDown);
         coolDownTime.Add(House2.coolDown);
         coolDownTime.Add(House3.coolDown);
