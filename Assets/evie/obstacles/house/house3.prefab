@@ -1213,8 +1213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34db833f817894ffb931fdf994f5bd30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possibility: []
-  revisits: 
+  candyAmount: 0
   rTimes: 
   totalRtime: 0
   CanCandy: 0
@@ -1226,7 +1225,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7008526490141648968}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.71383566, y: 1, z: 0.9330901}
