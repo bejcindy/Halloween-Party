@@ -27,6 +27,7 @@ public class SplitScreenPlayerController : MonoBehaviour
     PlayerInput playerInput;
     bool knocking, knocked;
     float knockCoolDown;
+    bool camReset;
 
     // Start is called before the first frame update
     void Start()
@@ -36,23 +37,7 @@ public class SplitScreenPlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
         isRunning = false;
-        //switch (playerInput.playerIndex)
-        //{
-        //    case 0:
-        //        cam = GameObject.FindGameObjectWithTag("P1");
-        //        break;
-        //    case 1:
-        //        cam = GameObject.FindGameObjectWithTag("P2");
-        //        break;
-        //    case 2:
-        //        cam = GameObject.FindGameObjectWithTag("P3");
-        //        break;
-        //    case 3:
-        //        cam = GameObject.FindGameObjectWithTag("P4");
-        //        break;
-        //}
-
-        //cam.GetComponent<SplitScreenCamera>().player = transform;
+        camReset = false;
     }
 
     // Update is called once per frame
@@ -78,6 +63,12 @@ public class SplitScreenPlayerController : MonoBehaviour
 
             cam.GetComponent<SplitScreenCamera>().player = transform;
         }
+        if (cam)
+        {
+            cam.GetComponent<SplitScreenCamera>().horizontal = rightStick.x;
+            cam.GetComponent<SplitScreenCamera>().vertical = rightStick.y;
+            cam.GetComponent<SplitScreenCamera>().reset = camReset;
+        }
         if (!dontMove)
         {
             if (isRunning)
@@ -92,7 +83,7 @@ public class SplitScreenPlayerController : MonoBehaviour
             x = movement.x * currentSpeed;
             z = movement.y * currentSpeed;
 
-            cam.GetComponent<SplitScreenCamera>().horizontal = rightStick.x;
+            
             Vector3 direction = (cam.transform.forward * z + cam.transform.right * x).normalized;
             Vector3 zeroY = new Vector3(direction.x, 0, direction.z);
             rb.velocity = zeroY*currentSpeed;
@@ -245,7 +236,22 @@ public class SplitScreenPlayerController : MonoBehaviour
             {
                 if (knocking && !knocked) 
                 {
-                    DataHolder.p1 +=candyAmount;
+                    switch (playerInput.playerIndex)
+                    {
+                        case 0:
+                            DataHolder.p1 += candyAmount;
+                            break;
+                        case 1:
+                            DataHolder.p2 += candyAmount;
+                            break;
+                        case 2:
+                            DataHolder.p3 += candyAmount;
+                            break;
+                        case 3:
+                            DataHolder.p4 += candyAmount;
+                            break;
+                    }
+                    
                     rTimes[playerInput.playerIndex] += 1;
                     knocked = true;
                     Debug.Log("called knocking");
@@ -273,5 +279,9 @@ public class SplitScreenPlayerController : MonoBehaviour
     public void OnKnock(InputAction.CallbackContext context)
     {
         knocking = context.action.triggered;
+    }
+    public void ResetCam(InputAction.CallbackContext context)
+    {
+        camReset = context.action.triggered;
     }
 }
