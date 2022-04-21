@@ -114,12 +114,11 @@ public class Phase2PlayerController : MonoBehaviour
                 break;
             case 2:
                 //playerInput.SwitchCurrentActionMap("Player");
-                Debug.Log(change);
+                //Debug.Log(change);
                 phase1script.enabled = false;
                 transform.localScale = new Vector3(1, 1, 1);
                 if (change)
                 {
-                    
                     //playerInput.actions["SwitchActionMap"].performed+=SwitchActionMap;
                     SceneManager.LoadScene(0);
                     change = false;
