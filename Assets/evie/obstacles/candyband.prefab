@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4031145642070589552}
   - component: {fileID: 3970181831719435963}
   - component: {fileID: 8547299770974973368}
+  - component: {fileID: 5732888785230397297}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -25,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299030221488740710}
-  m_LocalRotation: {x: -0.6904171, y: -0.1527228, z: 0.15272278, w: 0.69041705}
-  m_LocalPosition: {x: -0.52345335, y: -2.4732869, z: -0.21665618}
+  m_LocalRotation: {x: -0.69386905, y: -0.13328053, z: 0.13302045, w: 0.6950451}
+  m_LocalPosition: {x: -0.527, y: -2.276, z: 0.013}
   m_LocalScale: {x: 38.201324, y: 38.201317, z: 14.44714}
   m_Children: []
   m_Father: {fileID: 4568063739252973034}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -111.708, y: -269.758, z: 269.736}
 --- !u!33 &3970181831719435963
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -81,6 +82,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &5732888785230397297
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299030221488740710}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3bd00bfc1b3e06344a4f4f0b8e97d377, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &720740463923466758
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +312,7 @@ Animator:
   m_GameObject: {fileID: 3045048187788129191}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 902aa2698c670534591df3878fcf321b, type: 2}
+  m_Controller: {fileID: 9100000, guid: c3302de8c3cca60419f0b91d7d1d6c14, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
