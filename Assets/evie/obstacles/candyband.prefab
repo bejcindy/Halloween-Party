@@ -187,7 +187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2909118884126979858}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.526, y: -1.969, z: 0.022}
+  m_LocalPosition: {x: -0.526, y: -1.915, z: 0.022}
   m_LocalScale: {x: 0.093159966, y: 0.093159966, z: 0.093159966}
   m_Children: []
   m_Father: {fileID: 4568063739252973034}
@@ -253,6 +253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4568063739252973034}
+  - component: {fileID: 2900706170601014795}
   m_Layer: 0
   m_Name: candyband
   m_TagString: Untagged
@@ -281,6 +282,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2900706170601014795
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3045048187788129191}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 902aa2698c670534591df3878fcf321b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3565551355780701275
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +474,7 @@ GameObject:
   - component: {fileID: 7135031780832543969}
   - component: {fileID: 3681608163523703856}
   - component: {fileID: 2561590938718147455}
+  - component: {fileID: 6029110439836146921}
   m_Layer: 0
   m_Name: Cube.003
   m_TagString: Untagged
@@ -469,7 +490,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7862005087451198094}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.09891797, y: 0.8785588, z: 0.9931526}
+  m_LocalPosition: {x: 0, y: 0.8785588, z: 0}
   m_LocalScale: {x: 65.269806, y: 65.2698, z: 37.687595}
   m_Children: []
   m_Father: {fileID: 4568063739252973034}
@@ -524,6 +545,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &6029110439836146921
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7862005087451198094}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea2bf56abf2677146ae971f8b185945d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8800244564823578812
 GameObject:
   m_ObjectHideFlags: 0
