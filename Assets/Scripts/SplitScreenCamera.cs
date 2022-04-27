@@ -32,13 +32,13 @@ public class SplitScreenCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y >= 1 && transform.position.y<=4)
+        if (transform.position.y >= 1 && transform.position.y <= 4)
         {
             transform.position = player.position + offset;
             stop = false;
             toohigh = false;
         }
-        else if(transform.position.y<1)
+        else if (transform.position.y < 1)
         {
             stop = true;
             transform.position = player.position + offset;
@@ -48,7 +48,7 @@ public class SplitScreenCamera : MonoBehaviour
             toohigh = true;
             transform.position = player.position + offset;
         }
-        
+
         //transform.eulerAngles += new Vector3(0, Input.GetAxis(RHorizontal) * Time.deltaTime * DataHolder.camTurnSpeed, 0);
         if (reset)
         {
@@ -59,25 +59,27 @@ public class SplitScreenCamera : MonoBehaviour
         else
         {
             offset = Quaternion.AngleAxis(horizontal * 5, Vector3.up) * offset;
-            if (!stop&&!toohigh)
+            if (!stop && !toohigh)
             {
                 offset += new Vector3(0, vertical * camSpeed, 0);
             }
-            else if(stop)
+            else if (stop)
             {
                 if (vertical > 0)
                 {
                     offset += new Vector3(0, vertical * camSpeed, 0);
                 }
-            }else if (toohigh)
+            }
+            else if (toohigh)
             {
                 if (vertical < 0)
                 {
                     offset += new Vector3(0, vertical * camSpeed, 0);
                 }
             }
-            
+
         }
+        transform.position = player.position + offset;
         transform.LookAt(player.position+originalOffestY);
     }
 }
