@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SplitScreenCamera : MonoBehaviour
 {
-    public float t=5f;
     public Transform player;
 
     public Vector3 offset;
@@ -28,67 +27,59 @@ public class SplitScreenCamera : MonoBehaviour
         transform.position = player.position + offset;
         stop = false;
         toohigh = false;
-        offset = transform.position - player.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (transform.position.y >= 1 && transform.position.y <= 4)
-        //{
-        //    transform.position = player.position + offset;
-        //    stop = false;
-        //    toohigh = false;
-        //}
-        //else if (transform.position.y < 1)
-        //{
-        //    stop = true;
-        //    transform.position = player.position + offset;
-        //}
-        //else if (transform.position.y > 4)
-        //{
-        //    toohigh = true;
-        //    transform.position = player.position + offset;
-        //}
+        if (transform.position.y >= 1 && transform.position.y <= 4)
+        {
+            transform.position = player.position + offset;
+            stop = false;
+            toohigh = false;
+        }
+        else if (transform.position.y < 1)
+        {
+            stop = true;
+            transform.position = player.position + offset;
+        }
+        else if (transform.position.y > 4)
+        {
+            toohigh = true;
+            transform.position = player.position + offset;
+        }
 
-        ////transform.eulerAngles += new Vector3(0, Input.GetAxis(RHorizontal) * Time.deltaTime * DataHolder.camTurnSpeed, 0);
-        //if (reset)
-        //{
-        //    //snap to back of character
-        //    //offset = originalOffset;
-        //offset = transform.position-player.transform.position;
-        //}
-        //else
-        //{
-        //    offset = Quaternion.AngleAxis(horizontal * 5, Vector3.up) * offset;
-        //    if (!stop && !toohigh)
-        //    {
-        //        offset += new Vector3(0, vertical * camSpeed, 0);
-        //    }
-        //    else if (stop)
-        //    {
-        //        if (vertical > 0)
-        //        {
-        //            offset += new Vector3(0, vertical * camSpeed, 0);
-        //        }
-        //    }
-        //    else if (toohigh)
-        //    {
-        //        if (vertical < 0)
-        //        {
-        //            offset += new Vector3(0, vertical * camSpeed, 0);
-        //        }
-        //    }
+        //transform.eulerAngles += new Vector3(0, Input.GetAxis(RHorizontal) * Time.deltaTime * DataHolder.camTurnSpeed, 0);
+        if (reset)
+        {
+            //snap to back of character
+            //offset = originalOffset;
+            offset = player.transform.rotation * originalOffset;
+        }
+        else
+        {
+            offset = Quaternion.AngleAxis(horizontal * 5, Vector3.up) * offset;
+            if (!stop && !toohigh)
+            {
+                offset += new Vector3(0, vertical * camSpeed, 0);
+            }
+            else if (stop)
+            {
+                if (vertical > 0)
+                {
+                    offset += new Vector3(0, vertical * camSpeed, 0);
+                }
+            }
+            else if (toohigh)
+            {
+                if (vertical < 0)
+                {
+                    offset += new Vector3(0, vertical * camSpeed, 0);
+                }
+            }
 
-        //}
-
+        }
         transform.position = player.position + offset;
-        //Vector3 slowLook = new Vector3(Mathf.Lerp(transform.position.x, player.position.x + originalOffset.x, t), Mathf.Lerp(transform.position.y, player.position.y + originalOffset.y, t), Mathf.Lerp(transform.position.z, player.position.z + originalOffset.z, t));
-        //Debug.Log(slowLook);
-        //transform.rotation = Quaternion.LookRotation(slowLook);
-        //transform.LookAt(player.position + originalOffestY);
-        //Quaternion rotation = Quaternion.LookRotation(player.position - transform.position);
-        //Debug.Log(rotation);
-        //transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * t);
+        transform.LookAt(player.position+originalOffestY);
     }
 }

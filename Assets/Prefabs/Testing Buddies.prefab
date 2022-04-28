@@ -97,7 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a862eb1250464247b91482b597ff9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: 5
   player: {fileID: 62300559036296111}
   offset: {x: 0, y: 1.42, z: -2.8}
   horizontal: 0
@@ -234,7 +233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a862eb1250464247b91482b597ff9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: 5
   player: {fileID: 62300559543335868}
   offset: {x: 0, y: 1.42, z: -2.8}
   horizontal: 0
@@ -301,13 +299,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62300558687281516}
-  m_LocalRotation: {x: 0.03289348, y: 0, z: 0, w: 0.99945885}
-  m_LocalPosition: {x: 10.3, y: 13.71, z: 25.1}
+  m_LocalRotation: {x: 0.13917309, y: 0, z: 0, w: 0.9902681}
+  m_LocalPosition: {x: -62.629997, y: 0.28, z: -16.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 62300558949182739}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 3.77, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 16, y: 0, z: 0}
 --- !u!20 &62300558687281513
 Camera:
   m_ObjectHideFlags: 0
@@ -331,9 +329,9 @@ Camera:
     y: 0
     width: 0.5
     height: 0.5
-  near clip plane: 0.1
-  far clip plane: 5000
-  field of view: 40
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -371,9 +369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a862eb1250464247b91482b597ff9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: 5
-  player: {fileID: 9107883205685760789}
-  offset: {x: 0, y: 3.05, z: -8.6}
+  player: {fileID: 62300558380195809}
+  offset: {x: 0, y: 1.42, z: -2.8}
   horizontal: 0
   vertical: 0
   reset: 0
@@ -547,7 +544,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a862eb1250464247b91482b597ff9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: 5
   player: {fileID: 62300558845845038}
   offset: {x: 0, y: 1.42, z: -2.8}
   horizontal: 0
@@ -928,6 +924,11 @@ PrefabInstance:
 --- !u!4 &3675361510804039908 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 352606094065881942, guid: 62d3c5ccbbadd4a51a1719c2101e69f2, type: 3}
+  m_PrefabInstance: {fileID: 4027683225956613042}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &62300558380195809 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3979038619745526867, guid: 62d3c5ccbbadd4a51a1719c2101e69f2, type: 3}
   m_PrefabInstance: {fileID: 4027683225956613042}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4227900051218065463

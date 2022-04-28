@@ -83,23 +83,14 @@ public class SplitScreenPlayerController : MonoBehaviour
             x = movement.x * currentSpeed;
             z = movement.y * currentSpeed;
 
-            //Vector3 direction = (cam.transform.forward * z + cam.transform.right * x).normalized;
-            Vector3 direction = (transform.forward * z + transform.right * x).normalized;
+            Vector3 direction = (cam.transform.forward * z + cam.transform.right * x).normalized;
+            //Vector3 direction = (transform.forward * z + transform.right * x).normalized;
             Vector3 zeroY = new Vector3(direction.x, 0, direction.z);
-            Vector3 zeroYPossitiveZ = new Vector3(direction.x, 0, Mathf.Abs(direction.z));
             //Vector3 zeroY=new Vector3(x,0,z).normalized;
             rb.velocity = zeroY*currentSpeed;
             //rb.velocity = transform.TransformDirection(new Vector3(x * s, 0, z * s));
             if (x != 0 || z != 0)
             {
-                //if (z > 0)
-                //{
-                //    transform.rotation = Quaternion.LookRotation(zeroY, Vector3.up);
-                //}
-                //else
-                //{
-                //    transform.rotation = transform.rotation;
-                //}
                 transform.rotation = Quaternion.LookRotation(zeroY, Vector3.up);
             }
             //Debug.Log(isRunning);

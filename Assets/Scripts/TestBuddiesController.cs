@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-//using Cinemachine;
-
 
 
 public class TestBuddiesController : MonoBehaviour
@@ -71,11 +69,6 @@ public class TestBuddiesController : MonoBehaviour
             cam.GetComponent<SplitScreenCamera>().horizontal = rightStick.x;
             cam.GetComponent<SplitScreenCamera>().vertical = rightStick.y;
             cam.GetComponent<SplitScreenCamera>().reset = camReset;
-            //if (cam.GetComponent<CinemachineVirtualCamera>())
-            //{
-            //    cam.GetComponent<CinemachineVirtualCamera>().LookAt = transform;
-            //    cam.GetComponent<CinemachineVirtualCamera>().Follow = transform;
-            //}
         }
         if (!dontMove)
         {
