@@ -21729,7 +21729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 143722813441932595, guid: 38ff98fa1e0a0a74aa905d2e1087c38c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.01
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 143722813441932595, guid: 38ff98fa1e0a0a74aa905d2e1087c38c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26700,6 +26700,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: stage
       objectReference: {fileID: 0}
+    - target: {fileID: 8194068771815818093, guid: fff86f3acbd8c9d49b8bccb3a31f3113, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e30e2baadcf26a49afb83548cc1fceb, type: 2}
     - target: {fileID: 8894180437708538868, guid: fff86f3acbd8c9d49b8bccb3a31f3113, type: 3}
       propertyPath: m_RootOrder
       value: 19
