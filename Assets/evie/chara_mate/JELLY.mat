@@ -23,7 +23,7 @@ Material:
   m_Name: JELLY
   m_Shader: {fileID: -6465566751694194690, guid: edd7abf643fa4bc4e8561d4c280c97cf, type: 3}
   m_ShaderKeywords: TCP2_REFLECTIONS_FRESNEL TCP2_RIM_LIGHTING_LIGHTMASK TCP2_SHADOW_LIGHT_COLOR
-    TCP2_SPECULAR TCP2_SPECULAR_STYLIZED TCP2_UV_NORMALS_FULL _EMISSION
+    TCP2_SPECULAR TCP2_SPECULAR_STYLIZED TCP2_UV_NORMALS_FULL
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -152,7 +152,7 @@ Material:
     - _RampOffset: 0
     - _RampScale: 1
     - _RampSmoothing: 0
-    - _RampThreshold: 0.792
+    - _RampThreshold: 0.748
     - _RampType: 0
     - _ReceiveShadows: 1
     - _ReceiveShadowsOff: 1
@@ -168,13 +168,13 @@ Material:
     - _SpecularHighlights: 1
     - _SpecularMapType: 0
     - _SpecularRoughness: 0.5
-    - _SpecularToonSize: 0.01
+    - _SpecularToonSize: 0.05
     - _SpecularToonSmoothness: 0
     - _SpecularType: 1
     - _SrcBlend: 1
     - _Surface: 0
     - _UseAlphaTest: 0
-    - _UseEmission: 1
+    - _UseEmission: 0
     - _UseFresnelReflections: 1
     - _UseMatCap: 0
     - _UseMatCapMask: 0
@@ -190,15 +190,15 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.9056604, g: 0.5268778, b: 0.84658456, a: 1}
+    - _BaseColor: {r: 0.8784314, g: 0.67179096, b: 0.18823525, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0.4528303, g: 0.037023835, b: 0.41476348, a: 1}
+    - _EmissionColor: {r: 19.22222, g: 0.35868675, b: 0, a: 1}
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectionColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 0.8, g: 0.8, b: 0.8, a: 0.5}
-    - _SColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _SColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _SpecularColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
