@@ -93,13 +93,14 @@ public class TestBuddiesController : MonoBehaviour
 
             Vector3 direction = (cam.transform.forward * z + cam.transform.right * x).normalized;
             //Vector3 direction = (transform.forward * z + transform.right * x).normalized;
-            Vector3 zeroY = new Vector3(direction.x, 0, direction.z);
+            Vector3 zeroY = new Vector3(direction.x*currentSpeed, rb.velocity.y, direction.z*currentSpeed);
             //Vector3 zeroY=new Vector3(x,0,z).normalized;
-            rb.velocity = zeroY * currentSpeed;
+            rb.velocity = zeroY;
             //rb.velocity = transform.TransformDirection(new Vector3(x * s, 0, z * s));
+            Vector3 smoothY = new Vector3(direction.x * currentSpeed, 0, direction.z * currentSpeed);
             if (x != 0 || z != 0)
             {
-                transform.rotation = Quaternion.LookRotation(zeroY, Vector3.up);
+                transform.rotation = Quaternion.LookRotation(smoothY, Vector3.up);
             }
             //Debug.Log(isRunning);
             //Debug.Log(knocking);
