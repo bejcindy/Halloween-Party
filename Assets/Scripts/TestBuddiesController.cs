@@ -15,9 +15,17 @@ public class TestBuddiesController : MonoBehaviour
 
     public bool isRunning;
 
+    public float jumpForce;
+
+    float candyCarried;
+    public float candySlowDown=0.98f;
+
     int playerN;
-    float speed = 10;
-    float runSpeed = 15;
+    float speed = 25;
+    //[SerializeField]
+    //[Range(15,50)]
+    float runSpeed = 25;
+
     Rigidbody rb;
 
     float x, z, currentSpeed;
@@ -31,6 +39,11 @@ public class TestBuddiesController : MonoBehaviour
     bool knocking, knocked;
     float knockCoolDown;
     bool camReset;
+    bool jump;
+    bool isGrounded;
+    bool canJump;
+    float jumpTime;
+    float maxJumpTime = .2f;
 
     // Start is called before the first frame update
     void Start()
@@ -41,11 +54,30 @@ public class TestBuddiesController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         isRunning = false;
         camReset = false;
+        jump = false;
+        jumpTime = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //read the candy amount
+        switch (playerInput.playerIndex)
+        {
+            case 0:
+                candyCarried = DataHolder.p1;
+                break;
+            case 1:
+                candyCarried = DataHolder.p2;
+                break;
+            case 2:
+                candyCarried = DataHolder.p3;
+                break;
+            case 3:
+                candyCarried = DataHolder.p4;
+                break;
+        }
+
         if (!cam)
         {
             switch (playerInput.playerIndex)
@@ -81,11 +113,14 @@ public class TestBuddiesController : MonoBehaviour
         {
             if (isRunning)
             {
-                currentSpeed = runSpeed;
+                //currentSpeed = runSpeed;
+                currentSpeed = runSpeed * Mathf.Pow(candySlowDown, candyCarried);
             }
             else
             {
-                currentSpeed = speed;
+                //currentSpeed = speed;
+                currentSpeed = speed * Mathf.Pow(candySlowDown, candyCarried);
+                Debug.Log("current speed is: " + currentSpeed);
             }
 
             x = movement.x * currentSpeed;
@@ -113,6 +148,23 @@ public class TestBuddiesController : MonoBehaviour
                     knockCoolDown = 0;
                 }
             }
+            //jump related code over here!!
+            if (jump && isGrounded && canJump)
+            {
+                jumpTime += Time.deltaTime;
+                if (jumpTime <= maxJumpTime)
+                {
+                    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                }
+                else
+                {
+                    jumpTime = 0;
+                    isGrounded = false;
+                }
+                
+            }
+            //Debug.Log("jump is currently: " + jump);
+            //Debug.Log("grounded is: " + isGrounded);
         }
         else
         {
@@ -159,27 +211,55 @@ public class TestBuddiesController : MonoBehaviour
                 switch (playerInput.playerIndex)
                 {
                     case 0:
-                        DataHolder.p1 -= 1;
+                        if (DataHolder.p1 > 0)
+                        {
+                            DataHolder.p1 -= 1;
+                            string candyName = "Candy" + (candyType + 1);
+                            float randomEulerY = Random.Range(transform.eulerAngles.y - 90, transform.eulerAngles.y + 90);
+                            Instantiate(Resources.Load(candyName), transform.position, Quaternion.Euler(0, randomEulerY, 0));
+                        }
+                        
                         break;
                     case 1:
-                        DataHolder.p2 -= 1;
+                        if (DataHolder.p2 > 0)
+                        {
+                            DataHolder.p2 -= 1;
+                            string candyName = "Candy" + (candyType + 1);
+                            float randomEulerY = Random.Range(transform.eulerAngles.y - 90, transform.eulerAngles.y + 90);
+                            Instantiate(Resources.Load(candyName), transform.position, Quaternion.Euler(0, randomEulerY, 0));
+                        }
                         break;
                     case 2:
-                        DataHolder.p3 -= 1;
+                        if (DataHolder.p3 > 0)
+                        {
+                            DataHolder.p3 -= 1;
+                            string candyName = "Candy" + (candyType + 1);
+                            float randomEulerY = Random.Range(transform.eulerAngles.y - 90, transform.eulerAngles.y + 90);
+                            Instantiate(Resources.Load(candyName), transform.position, Quaternion.Euler(0, randomEulerY, 0));
+                        }
+                        
                         break;
                     case 3:
-                        DataHolder.p4 -= 1;
+                        if (DataHolder.p4 > 0)
+                        {
+                            DataHolder.p4 -= 1;
+                            string candyName = "Candy" + (candyType + 1);
+                            float randomEulerY = Random.Range(transform.eulerAngles.y - 90, transform.eulerAngles.y + 90);
+                            Instantiate(Resources.Load(candyName), transform.position, Quaternion.Euler(0, randomEulerY, 0));
+                        }
+                       
                         break;
                 }
                 dontMove = true;
-                //instantiate candy model prefab (maybe add a forward & upward force so that it's not gonna be too close to players)
-                string candyName = "Candy" + (candyType + 1);
-                float randomEulerY = Random.Range(transform.eulerAngles.y - 90, transform.eulerAngles.y + 90);
-                Instantiate(Resources.Load(candyName), transform.position, Quaternion.Euler(0, randomEulerY, 0));
+                
             }
-
         }
-
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+            canJump = false;
+            jump = false;
+        }
         if (collision.gameObject.CompareTag("Candy") && !dontMove)
         {
             switch (playerInput.playerIndex)
@@ -210,7 +290,7 @@ public class TestBuddiesController : MonoBehaviour
             //add the cool down time here later
             //need animation
 
-            KnockOnDoors(other.gameObject.GetComponent<HouseManager>().candyAmount, other.gameObject.GetComponent<HouseManager>().rTimes, other.gameObject.GetComponent<HouseManager>().CanCandy);
+            KnockOnDoors(other.gameObject.GetComponent<HouseManager>().candyAmount, other.gameObject.GetComponent<HouseManager>().rTimes, other.gameObject.GetComponent<HouseManager>().CanCandy, other.gameObject.GetComponent<HouseManager>().stopGiving);
         }
 
         if (other.CompareTag("ATM"))
@@ -238,7 +318,7 @@ public class TestBuddiesController : MonoBehaviour
 
     }
 
-    void KnockOnDoors(int candyAmount, int[] rTimes, bool can)
+    void KnockOnDoors(int candyAmount, int[] rTimes, bool can, bool stop)
     {
         if (can)
         {
@@ -261,7 +341,7 @@ public class TestBuddiesController : MonoBehaviour
                             DataHolder.p4 += candyAmount;
                             break;
                     }
-
+                    stop = true;
                     rTimes[playerInput.playerIndex] += 1;
                     knocked = true;
                     Debug.Log("called knocking");
@@ -293,6 +373,20 @@ public class TestBuddiesController : MonoBehaviour
     public void ResetCam(InputAction.CallbackContext context)
     {
         camReset = context.action.triggered;
+    }
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        
+        if (context.performed)
+        {
+            jump = true;
+            canJump = true;
+        }
+        //else if (context.canceled)
+        //{
+        //    jump = false;
+        //    canJump = false;
+        //}
     }
 
 }

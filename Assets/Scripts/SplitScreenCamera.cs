@@ -62,7 +62,7 @@ public class SplitScreenCamera : MonoBehaviour
             //offset
             //player's direction - difference
 
-            Debug.Log("reseted to "+(transform.position-player.transform.position));
+            //Debug.Log("reseted to "+(transform.position-player.transform.position));
         }
         else
         {

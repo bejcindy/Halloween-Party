@@ -13,7 +13,8 @@ public class HouseManager : MonoBehaviour
 
     public int totalRtime;
     float t;
-    float coolDown;
+    public float coolDownTime;
+    public bool stopGiving;
     public bool CanCandy;
     Renderer r;
     // Start is called before the first frame update
@@ -28,19 +29,19 @@ public class HouseManager : MonoBehaviour
                 candyAmount = 3;
                 //possibility = DataHolder.h1Pos;
                 //revisits = DataHolder.h1R;
-                coolDown = DataHolder.coolDownTime[0];
+                //coolDown = DataHolder.coolDownTime[0];
                 break;
             case "House2":
                 candyAmount = 5;
                 //possibility = DataHolder.h2Pos;
                 //revisits = DataHolder.h2R;
-                coolDown = DataHolder.coolDownTime[1];
+                //coolDown = DataHolder.coolDownTime[1];
                 break;
             case "House3":
                 candyAmount = 8;
                 //possibility = DataHolder.h3Pos;
                 //revisits = DataHolder.h3R;
-                coolDown = DataHolder.coolDownTime[2];
+                //coolDown = DataHolder.coolDownTime[2];
                 break;
         }
         //Debug.Log(candyAmount);
@@ -49,19 +50,19 @@ public class HouseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        totalRtime = rTimes[0] + rTimes[1] + rTimes[2] + rTimes[3];
+        //totalRtime = rTimes[0] + rTimes[1] + rTimes[2] + rTimes[3];
         //if (totalRtime != 0)
         //{
         //    Debug.Log(rTimes[0]);
         //}
-        if (totalRtime >= 3)
+        if (stopGiving)
         {
             t += Time.deltaTime;
-            Debug.Log("t"+t);
+            //Debug.Log("t"+t);
             //r.enabled = false;
             rTimes = new int[] { 0, 0, 0, 0 };
             CanCandy = false;
-            if (t >= coolDown)
+            if (t >= coolDownTime)
             {
                 CanCandy = true;
                 //r.enabled = true;
