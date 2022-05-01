@@ -90,7 +90,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8577210104288205430}
-  - component: {fileID: 4403499515620792360}
   m_Layer: 0
   m_Name: tall-bush
   m_TagString: Untagged
@@ -107,26 +106,13 @@ Transform:
   m_GameObject: {fileID: 7201414336169662103}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.40325, y: 0.40325, z: 0.40325}
   m_Children:
   - {fileID: 6539821559029852985}
   - {fileID: 3066710584785021787}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4403499515620792360
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7201414336169662103}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3486392, y: 6.7446094, z: 3.1264606}
-  m_Center: {x: -0.095211156, y: 1.3171341, z: -0.07933527}
 --- !u!1 &8065083381938633842
 GameObject:
   m_ObjectHideFlags: 0
