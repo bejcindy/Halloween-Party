@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5665,7 +5665,7 @@ Transform:
   m_LocalScale: {x: 115.926155, y: 76.30513, z: 52.32728}
   m_Children: []
   m_Father: {fileID: 2024530379}
-  m_RootOrder: 22
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &479693935
 MeshRenderer:
@@ -6515,7 +6515,7 @@ Transform:
   m_LocalScale: {x: 115.926155, y: 76.30513, z: 52.32728}
   m_Children: []
   m_Father: {fileID: 578627982}
-  m_RootOrder: 22
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &603166747
 MeshRenderer:
@@ -13501,86 +13501,6 @@ PrefabInstance:
     - target: {fileID: 62300558949182739, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4061648105875964832, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: jumpForce
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4061648105875964832, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: candySlowDown
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6428714543936120133, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: runSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8670958448294043774, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: m_Size.x
-      value: 0.90299666
-      objectReference: {fileID: 0}
-    - target: {fileID: 8670958448294043774, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: m_Size.y
-      value: 1.6381176
-      objectReference: {fileID: 0}
-    - target: {fileID: 8670958448294043774, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: m_Size.z
-      value: 1.1197548
-      objectReference: {fileID: 0}
-    - target: {fileID: 8670958448294043774, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: m_Center.x
-      value: -0.03537911
-      objectReference: {fileID: 0}
-    - target: {fileID: 8670958448294043774, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: m_Center.y
-      value: 0.87192786
-      objectReference: {fileID: 0}
-    - target: {fileID: 8670958448294043774, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: m_Center.z
-      value: -0.059877396
-      objectReference: {fileID: 0}
-    - target: {fileID: 9107883205685760788, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 9107883205685760788, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: m_ActionEvents.Array.data[19].m_ActionId
-      value: 3c3b4574-d46b-4b69-8d82-2d780f489e0d
-      objectReference: {fileID: 0}
-    - target: {fileID: 9107883205685760788, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: m_ActionEvents.Array.data[19].m_ActionName
-      value: Player/Jump[/DualShock4GamepadHID/buttonSouth]
-      objectReference: {fileID: 0}
-    - target: {fileID: 9107883205685760788, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: m_ActionEvents.Array.data[19].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9107883205685760788, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: m_ActionEvents.Array.data[19].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9107883205685760788, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: m_ActionEvents.Array.data[19].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1710000616}
-    - target: {fileID: 9107883205685760788, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: m_ActionEvents.Array.data[19].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9107883205685760788, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: m_ActionEvents.Array.data[19].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnJump
-      objectReference: {fileID: 0}
-    - target: {fileID: 9107883205685760788, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: m_ActionEvents.Array.data[19].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: TestBuddiesController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 9107883205685760788, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: m_ActionEvents.Array.data[19].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 9107883205685760789, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.49
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
@@ -24387,7 +24307,7 @@ Transform:
   m_LocalScale: {x: 115.926155, y: 76.30513, z: 52.32728}
   m_Children: []
   m_Father: {fileID: 273058694}
-  m_RootOrder: 22
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1535834215
 MeshRenderer:
@@ -24468,7 +24388,7 @@ Transform:
   m_LocalScale: {x: 115.926155, y: 76.30513, z: 52.32728}
   m_Children: []
   m_Father: {fileID: 742848685}
-  m_RootOrder: 22
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1539174543
 MeshRenderer:
@@ -24549,7 +24469,7 @@ Transform:
   m_LocalScale: {x: 115.926155, y: 76.30513, z: 52.32728}
   m_Children: []
   m_Father: {fileID: 1856855622}
-  m_RootOrder: 22
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1544405713
 MeshRenderer:
@@ -28330,17 +28250,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7608719981810255478, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
   m_PrefabInstance: {fileID: 1706437911}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1710000616 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4061648105875964832, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-  m_PrefabInstance: {fileID: 738165017}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 701a3fb53d84a486089af32e57134093, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1725581522
 PrefabInstance:
   m_ObjectHideFlags: 0

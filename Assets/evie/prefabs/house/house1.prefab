@@ -408,6 +408,14 @@ MonoBehaviour:
   door: {fileID: 8608663479973656536}
   otherDoor: {fileID: 0}
   spewPos: {fileID: 9052432408967793192}
+  lightOn:
+  - {fileID: 6596127305659426936}
+  - {fileID: 5450244847153229882}
+  - {fileID: 5450244845956155537}
+  lightOff:
+  - {fileID: 5300437091484182342}
+  - {fileID: 5826899966592130667}
+  - {fileID: 5826899967240038080}
 --- !u!65 &5522985037832315794
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2399,6 +2407,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7608719981810255478, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
   m_PrefabInstance: {fileID: 276969084}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5450244847153229882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5450244846893303366, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
+  m_PrefabInstance: {fileID: 276969084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5826899966592130667 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5826899966332217367, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
+  m_PrefabInstance: {fileID: 276969084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1273253591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2459,5 +2477,15 @@ PrefabInstance:
 --- !u!4 &7608719982709688481 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7608719981810255478, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
+  m_PrefabInstance: {fileID: 1273253591}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5450244845956155537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5450244846893303366, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
+  m_PrefabInstance: {fileID: 1273253591}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5826899967240038080 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5826899966332217367, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
   m_PrefabInstance: {fileID: 1273253591}
   m_PrefabAsset: {fileID: 0}

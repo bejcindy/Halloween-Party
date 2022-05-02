@@ -19,6 +19,7 @@ public class TestBuddiesController : MonoBehaviour
 
     float candyCarried;
     public float candySlowDown=0.98f;
+    public bool attacked;
 
     int playerN;
     float speed = 25;
@@ -42,20 +43,20 @@ public class TestBuddiesController : MonoBehaviour
     bool jump;
     bool isGrounded;
     bool canJump;
-    float jumpTime;
-    float maxJumpTime = .2f;
+    bool safe;
 
     // Start is called before the first frame update
     void Start()
     {
-        freezeTime = 2;
+        freezeTime = 3;
         dontMove = false;
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
         isRunning = false;
         camReset = false;
         jump = false;
-        jumpTime = 0;
+        attacked = false;
+        safe = false;
     }
 
     // Update is called once per frame
@@ -109,6 +110,7 @@ public class TestBuddiesController : MonoBehaviour
             //    cam.GetComponent<CinemachineVirtualCamera>().Follow = transform;
             //}
         }
+        
         if (!dontMove)
         {
             if (isRunning)
@@ -151,20 +153,60 @@ public class TestBuddiesController : MonoBehaviour
             //jump related code over here!!
             if (jump && isGrounded && canJump)
             {
-                jumpTime += Time.deltaTime;
-                if (jumpTime <= maxJumpTime)
-                {
-                    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                }
-                else
-                {
-                    jumpTime = 0;
-                    isGrounded = false;
-                }
-                
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                isGrounded = false;
             }
-            //Debug.Log("jump is currently: " + jump);
-            //Debug.Log("grounded is: " + isGrounded);
+
+            //if attacked
+            //safe will be changed in animation events
+            if (attacked && !safe)
+            {
+                Debug.Log("attacked");
+                int candyType = Random.Range(0, 3);
+                switch (playerInput.playerIndex)
+                {
+                    case 0:
+                        if (DataHolder.p1 > 0)
+                        {
+                            DataHolder.p1 -= 1;
+                            string candyName = "Candy" + (candyType + 1);
+                            float randomEulerY = Random.Range(transform.eulerAngles.y - 90, transform.eulerAngles.y + 90);
+                            Instantiate(Resources.Load(candyName), transform.position, Quaternion.Euler(0, randomEulerY, 0));
+                        }
+
+                        break;
+                    case 1:
+                        if (DataHolder.p2 > 0)
+                        {
+                            DataHolder.p2 -= 1;
+                            string candyName = "Candy" + (candyType + 1);
+                            float randomEulerY = Random.Range(transform.eulerAngles.y - 90, transform.eulerAngles.y + 90);
+                            Instantiate(Resources.Load(candyName), transform.position, Quaternion.Euler(0, randomEulerY, 0));
+                        }
+                        break;
+                    case 2:
+                        if (DataHolder.p3 > 0)
+                        {
+                            DataHolder.p3 -= 1;
+                            string candyName = "Candy" + (candyType + 1);
+                            float randomEulerY = Random.Range(transform.eulerAngles.y - 90, transform.eulerAngles.y + 90);
+                            Instantiate(Resources.Load(candyName), transform.position, Quaternion.Euler(0, randomEulerY, 0));
+                        }
+
+                        break;
+                    case 3:
+                        if (DataHolder.p4 > 0)
+                        {
+                            DataHolder.p4 -= 1;
+                            string candyName = "Candy" + (candyType + 1);
+                            float randomEulerY = Random.Range(transform.eulerAngles.y - 90, transform.eulerAngles.y + 90);
+                            Instantiate(Resources.Load(candyName), transform.position, Quaternion.Euler(0, randomEulerY, 0));
+                        }
+
+                        break;
+                }
+                dontMove = true;
+            }
         }
         else
         {
@@ -176,6 +218,8 @@ public class TestBuddiesController : MonoBehaviour
                 t = 0;
             }
         }
+      
+
         #region Save To ATM
         if (saved)
         {
@@ -199,59 +243,81 @@ public class TestBuddiesController : MonoBehaviour
         #endregion
 
     }
+
+    private void FixedUpdate()
+    {
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, 30);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        //knock off your friend and lose candy!
-        if (collision.gameObject.CompareTag("Player") && isRunning)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            //check if this & the other player isRunning
-            if (collision.gameObject.GetComponent<SplitScreenPlayerController>().isRunning)
+            if (transform.position.y - collision.gameObject.transform.position.y > 1)
             {
-                int candyType = Random.Range(0, 3);
-                switch (playerInput.playerIndex)
+                Debug.Log("jumped");
+                //jump ass attack
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                rb.AddForce(transform.forward * jumpForce * .5f, ForceMode.Impulse);
+                //when copy this code to actual guys, change this to the name of that script
+                collision.gameObject.GetComponent<TestBuddiesController>().attacked = true;
+            }
+            else
+            {
+                Debug.Log("bumped");
+                //knock off your friend and lose candy!
+                if (isRunning)
                 {
-                    case 0:
-                        if (DataHolder.p1 > 0)
+                    //check if this & the other player isRunning
+                    if (collision.gameObject.GetComponent<SplitScreenPlayerController>().isRunning)
+                    {
+                        int candyType = Random.Range(0, 3);
+                        switch (playerInput.playerIndex)
                         {
-                            DataHolder.p1 -= 1;
-                            string candyName = "Candy" + (candyType + 1);
-                            float randomEulerY = Random.Range(transform.eulerAngles.y - 90, transform.eulerAngles.y + 90);
-                            Instantiate(Resources.Load(candyName), transform.position, Quaternion.Euler(0, randomEulerY, 0));
+                            case 0:
+                                if (DataHolder.p1 > 0)
+                                {
+                                    DataHolder.p1 -= 1;
+                                    string candyName = "Candy" + (candyType + 1);
+                                    float randomEulerY = Random.Range(transform.eulerAngles.y - 90, transform.eulerAngles.y + 90);
+                                    Instantiate(Resources.Load(candyName), transform.position, Quaternion.Euler(0, randomEulerY, 0));
+                                }
+
+                                break;
+                            case 1:
+                                if (DataHolder.p2 > 0)
+                                {
+                                    DataHolder.p2 -= 1;
+                                    string candyName = "Candy" + (candyType + 1);
+                                    float randomEulerY = Random.Range(transform.eulerAngles.y - 90, transform.eulerAngles.y + 90);
+                                    Instantiate(Resources.Load(candyName), transform.position, Quaternion.Euler(0, randomEulerY, 0));
+                                }
+                                break;
+                            case 2:
+                                if (DataHolder.p3 > 0)
+                                {
+                                    DataHolder.p3 -= 1;
+                                    string candyName = "Candy" + (candyType + 1);
+                                    float randomEulerY = Random.Range(transform.eulerAngles.y - 90, transform.eulerAngles.y + 90);
+                                    Instantiate(Resources.Load(candyName), transform.position, Quaternion.Euler(0, randomEulerY, 0));
+                                }
+
+                                break;
+                            case 3:
+                                if (DataHolder.p4 > 0)
+                                {
+                                    DataHolder.p4 -= 1;
+                                    string candyName = "Candy" + (candyType + 1);
+                                    float randomEulerY = Random.Range(transform.eulerAngles.y - 90, transform.eulerAngles.y + 90);
+                                    Instantiate(Resources.Load(candyName), transform.position, Quaternion.Euler(0, randomEulerY, 0));
+                                }
+
+                                break;
                         }
-                        
-                        break;
-                    case 1:
-                        if (DataHolder.p2 > 0)
-                        {
-                            DataHolder.p2 -= 1;
-                            string candyName = "Candy" + (candyType + 1);
-                            float randomEulerY = Random.Range(transform.eulerAngles.y - 90, transform.eulerAngles.y + 90);
-                            Instantiate(Resources.Load(candyName), transform.position, Quaternion.Euler(0, randomEulerY, 0));
-                        }
-                        break;
-                    case 2:
-                        if (DataHolder.p3 > 0)
-                        {
-                            DataHolder.p3 -= 1;
-                            string candyName = "Candy" + (candyType + 1);
-                            float randomEulerY = Random.Range(transform.eulerAngles.y - 90, transform.eulerAngles.y + 90);
-                            Instantiate(Resources.Load(candyName), transform.position, Quaternion.Euler(0, randomEulerY, 0));
-                        }
-                        
-                        break;
-                    case 3:
-                        if (DataHolder.p4 > 0)
-                        {
-                            DataHolder.p4 -= 1;
-                            string candyName = "Candy" + (candyType + 1);
-                            float randomEulerY = Random.Range(transform.eulerAngles.y - 90, transform.eulerAngles.y + 90);
-                            Instantiate(Resources.Load(candyName), transform.position, Quaternion.Euler(0, randomEulerY, 0));
-                        }
-                       
-                        break;
+                        dontMove = true;
+
+                    }
                 }
-                dontMove = true;
-                
             }
         }
         if (collision.gameObject.CompareTag("Ground"))
@@ -352,6 +418,14 @@ public class TestBuddiesController : MonoBehaviour
     }
 
 
+    void Safe()
+    {
+        safe = true;
+    }
+    void Unsafe()
+    {
+        safe = false;
+    }
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -376,17 +450,11 @@ public class TestBuddiesController : MonoBehaviour
     }
     public void OnJump(InputAction.CallbackContext context)
     {
-        
         if (context.performed)
         {
             jump = true;
             canJump = true;
         }
-        //else if (context.canceled)
-        //{
-        //    jump = false;
-        //    canJump = false;
-        //}
     }
 
 }

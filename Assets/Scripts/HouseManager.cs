@@ -19,6 +19,8 @@ public class HouseManager : MonoBehaviour
     public GameObject door;
     public GameObject otherDoor;
     public Transform spewPos;
+    public GameObject[] lightOn;
+    public GameObject[] lightOff;
     bool opened;
     Renderer r;
     // Start is called before the first frame update
@@ -63,24 +65,38 @@ public class HouseManager : MonoBehaviour
                 //spew candy, right now equals candyAmount
                 for(int i = 0; i < candyAmount; i++)
                 {
-                    Debug.Log("did");
                     int candyType = Random.Range(0, 3);
                     string candyName = "Candy" + (candyType + 1);
                     float randomEulerY = Random.Range(transform.eulerAngles.y - 90, transform.eulerAngles.y + 90);
                     Instantiate(Resources.Load(candyName), spewPos.position, Quaternion.Euler(0, randomEulerY, 0));
-                    if (i == candyAmount - 1)
-                    {
-                        opened = true;
-                    }
                 }
 
-                //opened = true;
+                //turn off light
+                for(int i = 0; i < lightOff.Length; i++)
+                {
+                    lightOff[i].SetActive(true);
+                }
+                for(int i = 0; i < lightOn.Length; i++)
+                {
+                    lightOn[i].SetActive(false);
+                }
+
+                opened = true;
             }
             if (t >= coolDownTime)
             {
                 CanCandy = true;
                 stopGiving = false;
                 opened = false;
+                //turn on light
+                for (int i = 0; i < lightOff.Length; i++)
+                {
+                    lightOff[i].SetActive(false);
+                }
+                for (int i = 0; i < lightOn.Length; i++)
+                {
+                    lightOn[i].SetActive(true);
+                }
                 t = 0;
             }
         }
