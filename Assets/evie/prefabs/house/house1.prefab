@@ -209,6 +209,7 @@ Transform:
   - {fileID: 7608719981550088202}
   - {fileID: 6582158584361485952}
   - {fileID: 7608719982709688481}
+  - {fileID: 9052432408967793192}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -240,7 +241,12 @@ MonoBehaviour:
   candyAmount: 0
   rTimes: 
   totalRtime: 0
+  coolDownTime: 5
+  stopGiving: 0
   CanCandy: 0
+  door: {fileID: 8608663479973656536}
+  otherDoor: {fileID: 0}
+  spewPos: {fileID: 9052432408967793192}
 --- !u!65 &5522985037832315794
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -914,6 +920,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4769866886639011866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9052432408967793192}
+  m_Layer: 0
+  m_Name: SpewPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9052432408967793192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4769866886639011866}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.11, y: -0.64, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3767681338370322133}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4944008784890414482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,6 +1772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4158301488160952544}
   - component: {fileID: 4647733245150775267}
+  - component: {fileID: 8540254982463329610}
   m_Layer: 0
   m_Name: house1_door
   m_TagString: Untagged
@@ -1779,6 +1816,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8540254982463329610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8608663479973656536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39580b360d5c04cbfafbafc94650d11f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &276969084
 PrefabInstance:
   m_ObjectHideFlags: 0

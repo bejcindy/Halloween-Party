@@ -8,7 +8,7 @@ public class HouseManager : MonoBehaviour
     //public List<int> revisits;
 
     public int candyAmount;
-
+    
     public int[] rTimes;
 
     public int totalRtime;
@@ -16,6 +16,10 @@ public class HouseManager : MonoBehaviour
     public float coolDownTime;
     public bool stopGiving;
     public bool CanCandy;
+    public GameObject door;
+    public GameObject otherDoor;
+    public Transform spewPos;
+    bool opened;
     Renderer r;
     // Start is called before the first frame update
     void Start()
@@ -23,25 +27,17 @@ public class HouseManager : MonoBehaviour
         //r = GetComponent<MeshRenderer>();
         CanCandy = true;
         rTimes = new int[] { 0, 0, 0, 0 };
+        opened = false;
         switch (gameObject.tag)
         {
             case "House1":
                 candyAmount = 3;
-                //possibility = DataHolder.h1Pos;
-                //revisits = DataHolder.h1R;
-                //coolDown = DataHolder.coolDownTime[0];
                 break;
             case "House2":
-                candyAmount = 5;
-                //possibility = DataHolder.h2Pos;
-                //revisits = DataHolder.h2R;
-                //coolDown = DataHolder.coolDownTime[1];
+                candyAmount = 6;
                 break;
             case "House3":
-                candyAmount = 8;
-                //possibility = DataHolder.h3Pos;
-                //revisits = DataHolder.h3R;
-                //coolDown = DataHolder.coolDownTime[2];
+                candyAmount = 10;
                 break;
         }
         //Debug.Log(candyAmount);
@@ -50,23 +46,41 @@ public class HouseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //totalRtime = rTimes[0] + rTimes[1] + rTimes[2] + rTimes[3];
-        //if (totalRtime != 0)
-        //{
-        //    Debug.Log(rTimes[0]);
-        //}
         if (stopGiving)
         {
             t += Time.deltaTime;
-            //Debug.Log("t"+t);
-            //r.enabled = false;
             rTimes = new int[] { 0, 0, 0, 0 };
             CanCandy = false;
+            if (!opened)
+            {
+                //door animaiton
+                door.GetComponent<Animator>().SetBool("open", true);
+                if (otherDoor)
+                {
+                    otherDoor.GetComponent<Animator>().SetBool("open", true);
+                }
+
+                //spew candy, right now equals candyAmount
+                for(int i = 0; i < candyAmount; i++)
+                {
+                    Debug.Log("did");
+                    int candyType = Random.Range(0, 3);
+                    string candyName = "Candy" + (candyType + 1);
+                    float randomEulerY = Random.Range(transform.eulerAngles.y - 90, transform.eulerAngles.y + 90);
+                    Instantiate(Resources.Load(candyName), spewPos.position, Quaternion.Euler(0, randomEulerY, 0));
+                    if (i == candyAmount - 1)
+                    {
+                        opened = true;
+                    }
+                }
+
+                //opened = true;
+            }
             if (t >= coolDownTime)
             {
                 CanCandy = true;
-                //r.enabled = true;
-                //rTimes= new int[] { 0, 0, 0, 0 };
+                stopGiving = false;
+                opened = false;
                 t = 0;
             }
         }

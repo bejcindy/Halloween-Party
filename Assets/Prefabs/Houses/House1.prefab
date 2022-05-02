@@ -304,6 +304,8 @@ MonoBehaviour:
   candyAmount: 0
   rTimes: 
   totalRtime: 0
+  coolDownTime: 5
+  stopGiving: 0
   CanCandy: 0
 --- !u!65 &2096785531
 BoxCollider:

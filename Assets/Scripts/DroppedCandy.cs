@@ -8,13 +8,15 @@ public class DroppedCandy : MonoBehaviour
 
     Rigidbody rb;
 
-    float horizontalForce = 200;
-    float verticalForce = 300;
+    float horizontalForce;
+    float verticalForce;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        horizontalForce = Random.Range(400, 600);
+        verticalForce = Random.Range(300, 500);
         rb.AddForce(transform.forward * horizontalForce);
         rb.AddForce(transform.up * verticalForce);
     }

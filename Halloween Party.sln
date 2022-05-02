@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinoBloom.Runtime", "KinoBl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToonyColorsPro.Editor", "ToonyColorsPro.Editor.csproj", "{D76D3A49-5A20-C3CD-BD54-239DD3B62010}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{8EE2243C-C335-F970-BFDB-16BBB68FEE99}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToonyColorsPro.Demo.Editor", "ToonyColorsPro.Demo.Editor.csproj", "{F9DC2A42-6380-DF3E-271C-43CE4A3F8AF0}"
 EndProject
 Global
@@ -39,6 +41,10 @@ Global
 		{D76D3A49-5A20-C3CD-BD54-239DD3B62010}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D76D3A49-5A20-C3CD-BD54-239DD3B62010}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D76D3A49-5A20-C3CD-BD54-239DD3B62010}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EE2243C-C335-F970-BFDB-16BBB68FEE99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EE2243C-C335-F970-BFDB-16BBB68FEE99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EE2243C-C335-F970-BFDB-16BBB68FEE99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EE2243C-C335-F970-BFDB-16BBB68FEE99}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F9DC2A42-6380-DF3E-271C-43CE4A3F8AF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F9DC2A42-6380-DF3E-271C-43CE4A3F8AF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9DC2A42-6380-DF3E-271C-43CE4A3F8AF0}.Release|Any CPU.ActiveCfg = Release|Any CPU

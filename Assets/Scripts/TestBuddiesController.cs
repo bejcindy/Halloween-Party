@@ -120,7 +120,7 @@ public class TestBuddiesController : MonoBehaviour
             {
                 //currentSpeed = speed;
                 currentSpeed = speed * Mathf.Pow(candySlowDown, candyCarried);
-                Debug.Log("current speed is: " + currentSpeed);
+                //Debug.Log("current speed is: " + currentSpeed);
             }
 
             x = movement.x * currentSpeed;
@@ -290,7 +290,7 @@ public class TestBuddiesController : MonoBehaviour
             //add the cool down time here later
             //need animation
 
-            KnockOnDoors(other.gameObject.GetComponent<HouseManager>().candyAmount, other.gameObject.GetComponent<HouseManager>().rTimes, other.gameObject.GetComponent<HouseManager>().CanCandy, other.gameObject.GetComponent<HouseManager>().stopGiving);
+            KnockOnDoors(other.gameObject.GetComponent<HouseManager>().candyAmount, other.gameObject.GetComponent<HouseManager>().rTimes, other.gameObject.GetComponent<HouseManager>().CanCandy, other.gameObject);
         }
 
         if (other.CompareTag("ATM"))
@@ -318,11 +318,11 @@ public class TestBuddiesController : MonoBehaviour
 
     }
 
-    void KnockOnDoors(int candyAmount, int[] rTimes, bool can, bool stop)
+    void KnockOnDoors(int candyAmount, int[] rTimes, bool can, GameObject house)
     {
         if (can)
         {
-            if (rTimes[playerInput.playerIndex] < 3)
+            if (!house.GetComponent<HouseManager>().stopGiving)
             {
                 if (knocking && !knocked)
                 {
@@ -341,8 +341,8 @@ public class TestBuddiesController : MonoBehaviour
                             DataHolder.p4 += candyAmount;
                             break;
                     }
-                    stop = true;
-                    rTimes[playerInput.playerIndex] += 1;
+                    house.GetComponent<HouseManager>().stopGiving = true;
+                    
                     knocked = true;
                     Debug.Log("called knocking");
                 }

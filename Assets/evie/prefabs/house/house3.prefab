@@ -91,6 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3359138919509456726}
   - component: {fileID: 769586466436512043}
+  - component: {fileID: 6672417472283961191}
   m_Layer: 0
   m_Name: house3_door
   m_TagString: Untagged
@@ -134,6 +135,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6672417472283961191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622167881070536241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39580b360d5c04cbfafbafc94650d11f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1809140761194377931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,6 +1348,7 @@ Transform:
   - {fileID: 7608719981899638044}
   - {fileID: 8295002518248314195}
   - {fileID: 3359138919509456726}
+  - {fileID: 6413728810297373375}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1366,9 +1380,12 @@ MonoBehaviour:
   candyAmount: 0
   rTimes: 
   totalRtime: 0
-  coolDownTime: 0
+  coolDownTime: 15
   stopGiving: 0
   CanCandy: 0
+  door: {fileID: 1622167881070536241}
+  otherDoor: {fileID: 0}
+  spewPos: {fileID: 0}
 --- !u!65 &1478945264839652834
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1949,6 +1966,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &9151940191827850782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6413728810297373375}
+  m_Layer: 0
+  m_Name: SpewPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6413728810297373375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9151940191827850782}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.26, y: -0.64, z: 0.19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 293534789710972621}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1041867232
 PrefabInstance:
   m_ObjectHideFlags: 0
