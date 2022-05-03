@@ -234,6 +234,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5ad25c01-f16a-42bc-95b0-97c69d07d9a5
     m_ActionName: Player/CameraReset[/DualShock4GamepadHID/leftShoulder,/DualShock4GamepadHID/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3c3b4574-d46b-4b69-8d82-2d780f489e0d
+    m_ActionName: Player/Jump[/DualShock4GamepadHID/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -310,6 +314,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   isRunning: 0
+  jumpForce: 0
+  candySlowDown: 0.98
+  attacked: 0
 --- !u!1 &8024014417716307264
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +350,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1965357044955875694}
+  - {fileID: 8765724153862128422}
   m_Father: {fileID: 1289123626827128313}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -436,6 +444,68 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!1001 &5537163238607947968
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8024014417716307267}
+    m_Modifications:
+    - target: {fileID: 3851121991374834662, guid: 0dbd10420b0ba462aa4043a5957918a5, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851121991374834662, guid: 0dbd10420b0ba462aa4043a5957918a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 124.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851121991374834662, guid: 0dbd10420b0ba462aa4043a5957918a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851121991374834662, guid: 0dbd10420b0ba462aa4043a5957918a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -45.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851121991374834662, guid: 0dbd10420b0ba462aa4043a5957918a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851121991374834662, guid: 0dbd10420b0ba462aa4043a5957918a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851121991374834662, guid: 0dbd10420b0ba462aa4043a5957918a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851121991374834662, guid: 0dbd10420b0ba462aa4043a5957918a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851121991374834662, guid: 0dbd10420b0ba462aa4043a5957918a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851121991374834662, guid: 0dbd10420b0ba462aa4043a5957918a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851121991374834662, guid: 0dbd10420b0ba462aa4043a5957918a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483966337846595932, guid: 0dbd10420b0ba462aa4043a5957918a5, type: 3}
+      propertyPath: m_Name
+      value: CowBoy 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0dbd10420b0ba462aa4043a5957918a5, type: 3}
+--- !u!4 &8765724153862128422 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3851121991374834662, guid: 0dbd10420b0ba462aa4043a5957918a5, type: 3}
+  m_PrefabInstance: {fileID: 5537163238607947968}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8024014418426891602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -449,7 +519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4309253379082808548, guid: c317b89048d0a2846ad704d60a15f493, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8366948447506039868, guid: c317b89048d0a2846ad704d60a15f493, type: 3}
       propertyPath: m_RootOrder

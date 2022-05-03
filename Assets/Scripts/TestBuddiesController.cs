@@ -21,6 +21,8 @@ public class TestBuddiesController : MonoBehaviour
     public float candySlowDown=0.98f;
     public bool attacked;
 
+    public Animator anim;
+
     int playerN;
     float speed = 25;
     //[SerializeField]
@@ -44,6 +46,8 @@ public class TestBuddiesController : MonoBehaviour
     bool isGrounded;
     bool canJump;
     bool safe;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -104,25 +108,32 @@ public class TestBuddiesController : MonoBehaviour
             cam.GetComponent<SplitScreenCamera>().horizontal = rightStick.x;
             cam.GetComponent<SplitScreenCamera>().vertical = rightStick.y;
             cam.GetComponent<SplitScreenCamera>().reset = camReset;
-            //if (cam.GetComponent<CinemachineVirtualCamera>())
-            //{
-            //    cam.GetComponent<CinemachineVirtualCamera>().LookAt = transform;
-            //    cam.GetComponent<CinemachineVirtualCamera>().Follow = transform;
-            //}
         }
         
         if (!dontMove)
         {
-            if (isRunning)
+            if (movement.x == 0 && movement.y == 0)
+            {
+                anim.SetBool("isRun", false);
+                anim.SetBool("isWalk", false);
+                anim.SetBool("isIdle", true);
+            }
+            else if (isRunning)
             {
                 //currentSpeed = runSpeed;
                 currentSpeed = runSpeed * Mathf.Pow(candySlowDown, candyCarried);
+                anim.SetBool("isRun", true);
+                anim.SetBool("isWalk", false);
+                anim.SetBool("isIdle", false);
             }
-            else
+            else if (!isRunning)
             {
                 //currentSpeed = speed;
                 currentSpeed = speed * Mathf.Pow(candySlowDown, candyCarried);
                 //Debug.Log("current speed is: " + currentSpeed);
+                anim.SetBool("isRun", false);
+                anim.SetBool("isWalk", true);
+                anim.SetBool("isIdle", false);
             }
 
             x = movement.x * currentSpeed;
@@ -144,16 +155,19 @@ public class TestBuddiesController : MonoBehaviour
             if (knocked)
             {
                 knockCoolDown += Time.deltaTime;
+                
                 if (knockCoolDown >= 1f)
                 {
                     knocked = false;
                     knockCoolDown = 0;
+                    anim.SetBool("isKnock", false);
                 }
             }
             //jump related code over here!!
             if (jump && isGrounded && canJump)
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                anim.SetBool("isJump", true);
                 isGrounded = false;
             }
 
@@ -162,6 +176,7 @@ public class TestBuddiesController : MonoBehaviour
             if (attacked && !safe)
             {
                 Debug.Log("attacked");
+                anim.SetBool("isAttacked", true);
                 int candyType = Random.Range(0, 3);
                 switch (playerInput.playerIndex)
                 {
@@ -210,6 +225,8 @@ public class TestBuddiesController : MonoBehaviour
         }
         else
         {
+            anim.SetBool("isBumped", false);
+            anim.SetBool("isAttacked", false);
             t += Time.deltaTime;
             //add a flashing animation here
             if (t >= freezeTime)
@@ -271,6 +288,7 @@ public class TestBuddiesController : MonoBehaviour
                     //check if this & the other player isRunning
                     if (collision.gameObject.GetComponent<SplitScreenPlayerController>().isRunning)
                     {
+                        anim.SetBool("isBumped", true);
                         int candyType = Random.Range(0, 3);
                         switch (playerInput.playerIndex)
                         {
@@ -325,6 +343,7 @@ public class TestBuddiesController : MonoBehaviour
             isGrounded = true;
             canJump = false;
             jump = false;
+            anim.SetBool("isJump", false);
         }
         if (collision.gameObject.CompareTag("Candy") && !dontMove)
         {
@@ -355,7 +374,6 @@ public class TestBuddiesController : MonoBehaviour
         {
             //add the cool down time here later
             //need animation
-
             KnockOnDoors(other.gameObject.GetComponent<HouseManager>().candyAmount, other.gameObject.GetComponent<HouseManager>().rTimes, other.gameObject.GetComponent<HouseManager>().CanCandy, other.gameObject);
         }
 
@@ -388,6 +406,12 @@ public class TestBuddiesController : MonoBehaviour
     {
         if (can)
         {
+            if (knocking)
+            {
+                //Debug.Log("isKnock");
+                anim.SetBool("isKnock", true);
+            }
+            //anim.SetBool("isKnock", true);
             if (!house.GetComponent<HouseManager>().stopGiving)
             {
                 if (knocking && !knocked)
