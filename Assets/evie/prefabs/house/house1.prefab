@@ -2311,6 +2311,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_lantern (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4428971119620761467, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5546386877412952706, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
       propertyPath: m_Range
       value: 100
