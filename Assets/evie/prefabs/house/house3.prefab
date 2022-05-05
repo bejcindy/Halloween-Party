@@ -1822,7 +1822,7 @@ MonoBehaviour:
   CanCandy: 0
   door: {fileID: 1622167881070536241}
   otherDoor: {fileID: 0}
-  spewPos: {fileID: 0}
+  spewPos: {fileID: 6413728810297373375}
   lightOn:
   - {fileID: 11884981420389859}
   - {fileID: 5450244847797741478}

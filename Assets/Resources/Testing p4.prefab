@@ -10,13 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 352606094065881942}
   - component: {fileID: 352606094065881943}
-  - component: {fileID: 2669719884403866007}
-  - component: {fileID: 1457146213635317243}
   - component: {fileID: 4355528505422327668}
   - component: {fileID: 8903819198500224261}
   - component: {fileID: 7985538946383896311}
   m_Layer: 0
-  m_Name: Testing p4
+  m_Name: Testing P4
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +62,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1457146213635317243}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SplitScreenPlayerController, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
@@ -80,7 +78,7 @@ MonoBehaviour:
     m_ActionName: Player/Move[/DualShock4GamepadHID/leftStick,/DualShock4GamepadHID1/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1457146213635317243}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SplitScreenPlayerController, Assembly-CSharp
         m_MethodName: OnLook
         m_Mode: 0
@@ -100,7 +98,7 @@ MonoBehaviour:
     m_ActionName: Player/Fire[/DualShock4GamepadHID/rightTrigger,/DualShock4GamepadHID1/rightTrigger,/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2669719884403866007}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Phase2PlayerController, Assembly-CSharp
         m_MethodName: InputPlacement
         m_Mode: 0
@@ -152,7 +150,7 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2669719884403866007}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Phase2PlayerController, Assembly-CSharp
         m_MethodName: OnConfirm
         m_Mode: 0
@@ -168,7 +166,7 @@ MonoBehaviour:
     m_ActionName: UI/Confirm[/DualShock4GamepadHID/buttonSouth,/DualShock4GamepadHID1/buttonSouth]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2669719884403866007}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Phase2PlayerController, Assembly-CSharp
         m_MethodName: ChangeScene
         m_Mode: 0
@@ -184,7 +182,7 @@ MonoBehaviour:
     m_ActionName: Player/SwitchScene[/DualShock4GamepadHID/rightShoulder]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2669719884403866007}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Phase2PlayerController, Assembly-CSharp
         m_MethodName: ChangeScene
         m_Mode: 0
@@ -200,7 +198,7 @@ MonoBehaviour:
     m_ActionName: UI/SwitchScene[/DualShock4GamepadHID/rightShoulder]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1457146213635317243}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SplitScreenPlayerController, Assembly-CSharp
         m_MethodName: OnRun
         m_Mode: 0
@@ -216,7 +214,7 @@ MonoBehaviour:
     m_ActionName: Player/Run[/DualShock4GamepadHID/buttonSouth]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1457146213635317243}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SplitScreenPlayerController, Assembly-CSharp
         m_MethodName: OnKnock
         m_Mode: 0
@@ -232,7 +230,7 @@ MonoBehaviour:
     m_ActionName: Player/Knock[/DualShock4GamepadHID/buttonEast]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1457146213635317243}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SplitScreenPlayerController, Assembly-CSharp
         m_MethodName: ResetCam
         m_Mode: 0
@@ -255,34 +253,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &2669719884403866007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 352606094065881940}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0791c3f76df94b6a93a74ae1603db48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  placement: {fileID: 0}
-  confirm: {fileID: 0}
---- !u!114 &1457146213635317243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 352606094065881940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bceadfb0ac834c7682a6a47b8d18ec1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  isRunning: 0
 --- !u!54 &4355528505422327668
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -341,15 +311,13 @@ GameObject:
   - component: {fileID: 3979038619745526867}
   - component: {fileID: 3979038619745526878}
   - component: {fileID: 3979038619745526879}
-  - component: {fileID: 3979038619745526864}
-  - component: {fileID: 3979038619745526866}
   m_Layer: 0
   m_Name: Player4
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3979038619745526867
 Transform:
   m_ObjectHideFlags: 0
@@ -415,35 +383,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3979038619745526864
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3979038619745526868}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &3979038619745526866
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3979038619745526868}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1001 &3979038618288340357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -532,6 +471,18 @@ PrefabInstance:
     - target: {fileID: 5132530318831213848, guid: d5a01b522eb4f47fc9760af8bb3b2cc8, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132530318831213848, guid: d5a01b522eb4f47fc9760af8bb3b2cc8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132530318831213848, guid: d5a01b522eb4f47fc9760af8bb3b2cc8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132530318831213848, guid: d5a01b522eb4f47fc9760af8bb3b2cc8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5132530318831213848, guid: d5a01b522eb4f47fc9760af8bb3b2cc8, type: 3}
       propertyPath: m_LocalPosition.x

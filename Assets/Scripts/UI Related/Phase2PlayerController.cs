@@ -39,7 +39,7 @@ public class Phase2PlayerController : MonoBehaviour
         transform.position = new Vector3(1.3f - playerInput.playerIndex*.8f, 0, 0);
         DontDestroyOnLoad(gameObject);
         //phase1script = GetComponent<SplitScreenPlayerController>();
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
         //phase1script.enabled = false;
         if (transform.childCount == 0)
@@ -49,6 +49,7 @@ public class Phase2PlayerController : MonoBehaviour
                 GameObject characterModel = Instantiate(Resources.Load("Testing P1"), transform.position, Quaternion.identity) as GameObject;
                 characterModel.transform.parent = transform;
                 phase1script = characterModel.GetComponent<TestBuddiesController>();
+                rb = characterModel.transform.GetComponent<Rigidbody>();
                 phase1script.enabled = false;
                 DataHolder.c1Taken = true;
             }else if (!DataHolder.c2Taken)
@@ -56,6 +57,7 @@ public class Phase2PlayerController : MonoBehaviour
                 GameObject characterModel = Instantiate(Resources.Load("Testing P2"), transform.position, Quaternion.identity) as GameObject;
                 characterModel.transform.parent = transform;
                 phase1script = characterModel.GetComponent<TestBuddiesController>();
+                rb = characterModel.transform.GetComponent<Rigidbody>();
                 phase1script.enabled = false;
                 DataHolder.c2Taken = true;
             }
@@ -64,6 +66,7 @@ public class Phase2PlayerController : MonoBehaviour
                 GameObject characterModel = Instantiate(Resources.Load("Testing P3"), transform.position, Quaternion.identity) as GameObject;
                 characterModel.transform.parent = transform;
                 phase1script = characterModel.GetComponent<TestBuddiesController>();
+                rb = characterModel.transform.GetComponent<Rigidbody>();
                 phase1script.enabled = false;
                 DataHolder.c3Taken = true;
             }
@@ -72,6 +75,7 @@ public class Phase2PlayerController : MonoBehaviour
                 GameObject characterModel = Instantiate(Resources.Load("Testing P4"), transform.position, Quaternion.identity) as GameObject;
                 characterModel.transform.parent = transform;
                 phase1script = characterModel.GetComponent<TestBuddiesController>();
+                rb = characterModel.transform.GetComponent<Rigidbody>();
                 phase1script.enabled = false;
                 DataHolder.c4Taken = true;
             }
@@ -100,14 +104,24 @@ public class Phase2PlayerController : MonoBehaviour
         {
             case 0:
                 //playerInput.SwitchCurrentActionMap("UI");
-                if (change)
-                {
-                    SceneManager.LoadScene(1);
-                    change = false;
-                }
+                //if (change)
+                //{
+                //    SceneManager.LoadScene(1);
+                //    change = false;
+                //}
                 rb.useGravity = false;
                 titleCam = GameObject.FindGameObjectWithTag("MainCamera");
                 transform.LookAt(titleCam.transform);
+                //if (DataHolder.c1Taken && DataHolder.c2Taken && DataHolder.c3Taken && DataHolder.c4Taken)
+                if (DataHolder.c1Taken && DataHolder.c2Taken)
+                {
+                    Debug.Log(confirm);
+                    if (change)
+                    {
+                        DataHolder.ready = true;
+                        change = false;
+                    }
+                }
                 break;
             case 1:
                 //playerInput.SwitchCurrentActionMap("Player");

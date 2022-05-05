@@ -72,6 +72,7 @@ public class DataHolder : MonoBehaviour
     bool screenShotTaken;
 
     public static DataHolder instance = null;
+    public static bool ready;
 
     private void Awake()
     {
@@ -84,6 +85,7 @@ public class DataHolder : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+        ready = false;
         screenShotTaken = false;
         speed = PlayerSpeed;
         runSpeed = PlayerRunSpeed;
@@ -139,9 +141,14 @@ public class DataHolder : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            if (c1Taken && c2Taken && c3Taken && c4Taken)
+            //if (c1Taken && c2Taken && c3Taken && c4Taken)
+            if(c1Taken&&c2Taken)
             {
                 GameObject.Find("Instruction").GetComponent<Text>().text = "Press X / A to Continue";
+                if (ready)
+                {
+                    SceneManager.LoadScene(1);
+                }
             }
             else
             {
