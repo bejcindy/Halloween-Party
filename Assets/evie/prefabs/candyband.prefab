@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &289973972921388400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3131784507067473653}
+  - component: {fileID: 8357762409098919291}
+  m_Layer: 0
+  m_Name: trigger
+  m_TagString: ATM
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3131784507067473653
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289973972921388400}
+  m_LocalRotation: {x: -0, y: 0.70128715, z: -0, w: 0.7128789}
+  m_LocalPosition: {x: -0.11, y: -2.43, z: 0.02}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 4568063739252973034}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8357762409098919291
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289973972921388400}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3677974, y: 3.6670692, z: 2.604372}
+  m_Center: {x: -0.07986283, y: 1.3335344, z: -0.10484028}
 --- !u!1 &299030221488740710
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4568063739252973034}
   - component: {fileID: 2900706170601014795}
+  - component: {fileID: 6012425732745341650}
   m_Layer: 0
   m_Name: candyband
   m_TagString: Untagged
@@ -299,6 +344,7 @@ Transform:
   - {fileID: 7135031780832543969}
   - {fileID: 4031145642070589552}
   - {fileID: 6047455558175049570}
+  - {fileID: 3131784507067473653}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -321,6 +367,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &6012425732745341650
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3045048187788129191}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3.7470934, z: 1}
+  m_Center: {x: 0, y: -1.3735465, z: 0}
 --- !u!1 &3565551355780701275
 GameObject:
   m_ObjectHideFlags: 0
