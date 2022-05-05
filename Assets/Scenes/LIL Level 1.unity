@@ -38073,6 +38073,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: candyband (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3045048187788129191, guid: 6ec154d32646b624abf35582fdaabc1c, type: 3}
+      propertyPath: m_TagString
+      value: ATM
+      objectReference: {fileID: 0}
     - target: {fileID: 4568063739252973034, guid: 6ec154d32646b624abf35582fdaabc1c, type: 3}
       propertyPath: m_RootOrder
       value: 23
