@@ -1822,7 +1822,7 @@ MonoBehaviour:
   CanCandy: 0
   door: {fileID: 1622167881070536241}
   otherDoor: {fileID: 0}
-  spewPos: {fileID: 0}
+  spewPos: {fileID: 6413728810297373375}
   lightOn:
   - {fileID: 11884981420389859}
   - {fileID: 5450244847797741478}
@@ -2649,7 +2649,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9151940191827850782}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.26, y: -0.64, z: 0.19}
+  m_LocalPosition: {x: -3.31, y: 3.62, z: 2.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 293534789710972621}
@@ -2866,6 +2866,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4393569283425894177, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
+--- !u!1 &5826899966975232893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5826899966332217367, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
+  m_PrefabInstance: {fileID: 2075976554}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7608719981899638044 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7608719981810255478, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
@@ -2874,10 +2879,5 @@ Transform:
 --- !u!1 &5450244846764057900 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5450244846893303366, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
-  m_PrefabInstance: {fileID: 2075976554}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5826899966975232893 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5826899966332217367, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
   m_PrefabInstance: {fileID: 2075976554}
   m_PrefabAsset: {fileID: 0}
