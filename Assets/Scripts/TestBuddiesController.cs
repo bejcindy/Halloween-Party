@@ -24,10 +24,10 @@ public class TestBuddiesController : MonoBehaviour
     public Animator anim;
 
     int playerN;
-    float speed = 25;
+    float speed = 15;
     //[SerializeField]
     //[Range(15,50)]
-    float runSpeed = 25;
+    float runSpeed = 15;
 
     Rigidbody rb;
 
@@ -89,22 +89,26 @@ public class TestBuddiesController : MonoBehaviour
             {
                 case 0:
                     cam = GameObject.FindGameObjectWithTag("P1");
+                    Debug.Log("foudn p1"+cam.name);
                     break;
                 case 1:
                     cam = GameObject.FindGameObjectWithTag("P2");
+                    Debug.Log("foudn p2");
                     break;
                 case 2:
                     cam = GameObject.FindGameObjectWithTag("P3");
+                    Debug.Log("found p3");
                     break;
                 case 3:
                     cam = GameObject.FindGameObjectWithTag("P4");
+                    Debug.Log("found p4");
                     break;
             }
 
-            cam.GetComponent<SplitScreenCamera>().player = transform;
         }
         if (cam)
         {
+            cam.GetComponent<SplitScreenCamera>().player = transform;
             cam.GetComponent<SplitScreenCamera>().horizontal = rightStick.x;
             cam.GetComponent<SplitScreenCamera>().vertical = rightStick.y;
             cam.GetComponent<SplitScreenCamera>().reset = camReset;

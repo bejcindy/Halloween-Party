@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Title Scene.unity
     guid: 8cd49b08e28f145bca511982e7c36d8b
   - enabled: 1
-    path: Assets/Scenes/Split Screen.unity
-    guid: 4119be4ad293a1e4cb9b586fb71fc47f
+    path: Assets/Scenes/LIL Level 1.unity
+    guid: 1e082e7fa3e83d9459ecfe5b31164e62
+  - enabled: 1
+    path: Assets/Scenes/LIL Level 2.unity
+    guid: f728e7464608eff4dab8effe5bbbe3b7
+  - enabled: 1
+    path: Assets/Scenes/LIL Level 3.unity
+    guid: 72b475bb02f379347a5188e33ea387c3
   - enabled: 1
     path: Assets/Scenes/Phase 2.unity
     guid: e1514b670cb02489dbd24f05a284192c

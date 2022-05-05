@@ -15,7 +15,8 @@ public class Phase2PlayerController : MonoBehaviour
 
     int PlayerNum;
 
-    SplitScreenPlayerController phase1script;
+    //SplitScreenPlayerController phase1script;
+    TestBuddiesController phase1script;
 
     Vector2 v;
     bool c;
@@ -37,33 +38,41 @@ public class Phase2PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         transform.position = new Vector3(1.3f - playerInput.playerIndex*.8f, 0, 0);
         DontDestroyOnLoad(gameObject);
-        phase1script = GetComponent<SplitScreenPlayerController>();
+        //phase1script = GetComponent<SplitScreenPlayerController>();
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
-        phase1script.enabled = false;
+        //phase1script.enabled = false;
         if (transform.childCount == 0)
         {
             if (!DataHolder.c1Taken)
             {
-                GameObject characterModel = Instantiate(Resources.Load("cowboy"), transform.position, Quaternion.identity) as GameObject;
+                GameObject characterModel = Instantiate(Resources.Load("Testing P1"), transform.position, Quaternion.identity) as GameObject;
                 characterModel.transform.parent = transform;
+                phase1script = characterModel.GetComponent<TestBuddiesController>();
+                phase1script.enabled = false;
                 DataHolder.c1Taken = true;
             }else if (!DataHolder.c2Taken)
             {
-                GameObject characterModel = Instantiate(Resources.Load("dino"), transform.position, Quaternion.identity) as GameObject;
+                GameObject characterModel = Instantiate(Resources.Load("Testing P2"), transform.position, Quaternion.identity) as GameObject;
                 characterModel.transform.parent = transform;
+                phase1script = characterModel.GetComponent<TestBuddiesController>();
+                phase1script.enabled = false;
                 DataHolder.c2Taken = true;
             }
             else if (!DataHolder.c3Taken)
             {
-                GameObject characterModel = Instantiate(Resources.Load("hotdof"), transform.position, Quaternion.identity) as GameObject;
+                GameObject characterModel = Instantiate(Resources.Load("Testing P3"), transform.position, Quaternion.identity) as GameObject;
                 characterModel.transform.parent = transform;
+                phase1script = characterModel.GetComponent<TestBuddiesController>();
+                phase1script.enabled = false;
                 DataHolder.c3Taken = true;
             }
             else if (!DataHolder.c4Taken)
             {
-                GameObject characterModel = Instantiate(Resources.Load("pump"), transform.position, Quaternion.identity) as GameObject;
+                GameObject characterModel = Instantiate(Resources.Load("Testing P4"), transform.position, Quaternion.identity) as GameObject;
                 characterModel.transform.parent = transform;
+                phase1script = characterModel.GetComponent<TestBuddiesController>();
+                phase1script.enabled = false;
                 DataHolder.c4Taken = true;
             }
         }
@@ -105,21 +114,17 @@ public class Phase2PlayerController : MonoBehaviour
                 if (change)
                 {
                     SceneManager.LoadScene(2);
-                    
                     change = false;
                 }
                 phase1script.enabled = true;
-                transform.localScale = new Vector3(3, 3, 3);
+                transform.localScale = new Vector3(2, 2, 2);
                 rb.useGravity = true;
                 break;
             case 2:
-                //playerInput.SwitchCurrentActionMap("Player");
-                //Debug.Log(change);
                 phase1script.enabled = false;
                 transform.localScale = new Vector3(1, 1, 1);
                 if (change)
                 {
-                    //playerInput.actions["SwitchActionMap"].performed+=SwitchActionMap;
                     SceneManager.LoadScene(0);
                     change = false;
                 }
@@ -174,14 +179,6 @@ public class Phase2PlayerController : MonoBehaviour
                 break;
         }
     }
-    //public void Up()
-    //{
-    //    placement.text = "1";
-    //}
-    //playerInput.currentActionMap = playerInput.actions.FindActionMap("Player");
-
-
-
     public void InputPlacement(InputAction.CallbackContext context)
     {
         v = context.ReadValue<Vector2>();

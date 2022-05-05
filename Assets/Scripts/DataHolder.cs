@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DataHolder : MonoBehaviour
 {
@@ -136,7 +137,17 @@ public class DataHolder : MonoBehaviour
     }
     private void Update()
     {
-       
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            if (c1Taken && c2Taken && c3Taken && c4Taken)
+            {
+                GameObject.Find("Instruction").GetComponent<Text>().text = "Press X / A to Continue";
+            }
+            else
+            {
+                GameObject.Find("Instruction").GetComponent<Text>().text = "Press Any Button To Join";
+            }
+        }
         
     }
 
