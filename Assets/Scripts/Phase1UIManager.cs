@@ -48,7 +48,8 @@ public class Phase1UIManager : MonoBehaviour
                 otherT -= Time.deltaTime;
                 if (otherT <= 0)
                 {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    SceneManager.LoadScene(4);
                 }
             }
             Timer.text = string.Format("{0:0}:{1:00}", Mathf.FloorToInt(t / 60), Mathf.FloorToInt(t % 60));

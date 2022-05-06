@@ -144,12 +144,12 @@ public class Phase2PlayerController : MonoBehaviour
 
             case 1:
                 playerInput.SwitchCurrentActionMap("Player");
-                if (change)
-                {
-                    SceneManager.LoadScene(2);
-                    //born = false;
-                    change = false;
-                }
+                //if (change)
+                //{
+                //    SceneManager.LoadScene(4);
+                //    //born = false;
+                //    change = false;
+                //}
                 if (!born)
                 {
                     //playerInput.enabled = false;
@@ -166,12 +166,12 @@ public class Phase2PlayerController : MonoBehaviour
                 break;
             case 2:
                 playerInput.SwitchCurrentActionMap("Player");
-                if (change)
-                {
-                    SceneManager.LoadScene(3);
-                    //born = false;
-                    change = false;
-                }
+                //if (change)
+                //{
+                //    SceneManager.LoadScene(4);
+                //    //born = false;
+                //    change = false;
+                //}
                 if (born)
                 {
                     //playerInput.enabled = false;
@@ -188,12 +188,12 @@ public class Phase2PlayerController : MonoBehaviour
                 break;
             case 3:
                 playerInput.SwitchCurrentActionMap("Player");
-                if (change)
-                {
-                    SceneManager.LoadScene(4);
-                    //born = false;
-                    change = false;
-                }
+                //if (change)
+                //{
+                //    SceneManager.LoadScene(4);
+                //    //born = false;
+                //    change = false;
+                //}
                 if (!born)
                 {
                     //playerInput.enabled = false;
@@ -212,11 +212,11 @@ public class Phase2PlayerController : MonoBehaviour
             case 4:
                 phase1script.enabled = false;
                 transform.localScale = new Vector3(.5f, .5f, .5f);
-                if (change)
-                {
-                    SceneManager.LoadScene(0);
-                    change = false;
-                }
+                //if (change)
+                //{
+                //    SceneManager.LoadScene(5);
+                //    change = false;
+                //}
                 rb.useGravity = false;
                 transform.GetChild(0).gameObject.SetActive(false);
                 if (Phase2Manager.timeUp)

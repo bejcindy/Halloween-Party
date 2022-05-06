@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Phase2Manager : MonoBehaviour
 {
@@ -56,6 +57,10 @@ public class Phase2Manager : MonoBehaviour
                 Time.timeScale = 0;
                 pauseMenu.SetActive(true);
             }
+        }
+        if(c1.gameObject.activeSelf&& c2.gameObject.activeSelf&& c3.gameObject.activeSelf&& c4.gameObject.activeSelf)
+        {
+            SceneManager.LoadScene(0);
         }
 
     }
