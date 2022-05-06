@@ -97,19 +97,7 @@ MonoBehaviour:
     m_ActionId: 64b06b8b-be59-4b5f-b3d9-5a758ac8c70f
     m_ActionName: Player/Fire[/DualShock4GamepadHID/rightTrigger,/DualShock4GamepadHID1/rightTrigger,/Mouse/leftButton]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Phase2PlayerController, Assembly-CSharp
-        m_MethodName: InputPlacement
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 3be05550-4f04-4ab3-85f7-f6a2f2915183
     m_ActionName: UI/Navigate[/DualShock4GamepadHID/leftStick/up,/DualShock4GamepadHID1/leftStick/up,/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID1/dpad/up,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID1/leftStick/down,/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID1/dpad/down,/DualShock4GamepadHID/leftStick/left,/DualShock4GamepadHID1/leftStick/left,/DualShock4GamepadHID/dpad/left,/DualShock4GamepadHID1/dpad/left,/DualShock4GamepadHID/leftStick/right,/DualShock4GamepadHID1/leftStick/right,/DualShock4GamepadHID/dpad/right,/DualShock4GamepadHID1/dpad/right,/DualShock4GamepadHID/dpad,/DualShock4GamepadHID1/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
@@ -149,19 +137,7 @@ MonoBehaviour:
     m_ActionId: 9db6312b-3e35-4741-9950-f00ef4e7adeb
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Phase2PlayerController, Assembly-CSharp
-        m_MethodName: OnConfirm
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: fc3c073a-3997-4612-b798-681152e1dbef
     m_ActionName: UI/Confirm[/DualShock4GamepadHID/buttonSouth,/DualShock4GamepadHID1/buttonSouth]
   - m_PersistentCalls:
@@ -169,19 +145,7 @@ MonoBehaviour:
     m_ActionId: 311e8d34-7411-4947-8cc7-228ec3e1cf82
     m_ActionName: Player/SwitchScene[/DualShock4GamepadHID/rightShoulder]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Phase2PlayerController, Assembly-CSharp
-        m_MethodName: ChangeScene
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: aaba95ee-4693-488e-88b0-994b251ddcc0
     m_ActionName: UI/SwitchScene[/DualShock4GamepadHID/rightShoulder]
   - m_PersistentCalls:
@@ -233,7 +197,19 @@ MonoBehaviour:
     m_ActionId: 5ad25c01-f16a-42bc-95b0-97c69d07d9a5
     m_ActionName: Player/CameraReset[/DualShock4GamepadHID/leftShoulder,/DualShock4GamepadHID/leftTrigger]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6330811962613386572}
+        m_TargetAssemblyTypeName: TestBuddiesController, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 3c3b4574-d46b-4b69-8d82-2d780f489e0d
     m_ActionName: Player/Jump[/DualShock4GamepadHID/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 1
@@ -268,8 +244,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5080353, y: 0.6886974, z: 1.0000001}
-  m_Center: {x: -0.0038807497, y: 0.3229409, z: -0.00000011225388}
+  m_Size: {x: 0.5400505, y: 0.89855343, z: 0.67983246}
+  m_Center: {x: 0.0014448166, y: 0.4492025, z: 0.058677673}
 --- !u!114 &6330811962613386572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   isRunning: 0
-  jumpForce: 0
+  jumpForce: 25
   candySlowDown: 0.98
   attacked: 0
   anim: {fileID: 9091820770489907428}

@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Phase1UIManager : MonoBehaviour
 {
     public Text p1txt, p2txt, p3txt, p4txt;
     public Text Timer;
     float t = 120;
-
+    float otherT = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +45,11 @@ public class Phase1UIManager : MonoBehaviour
             else
             {
                 t = 0;
-
+                otherT -= Time.deltaTime;
+                if (otherT <= 0)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
             }
             Timer.text = string.Format("{0:0}:{1:00}", Mathf.FloorToInt(t / 60), Mathf.FloorToInt(t % 60));
         }

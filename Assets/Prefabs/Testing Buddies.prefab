@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   t: 5
   player: {fileID: 62300559036296111}
-  offset: {x: 0, y: 2, z: -7}
+  offset: {x: 0, y: 1.5, z: -4}
   horizontal: 0
   vertical: 0
   reset: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   t: 5
   player: {fileID: 62300559543335868}
-  offset: {x: 0, y: 2, z: -7}
+  offset: {x: 0, y: 1.5, z: -4}
   horizontal: 0
   vertical: 0
   reset: 0
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   t: 5
   player: {fileID: 9107883205685760789}
-  offset: {x: 0, y: 2, z: -7}
+  offset: {x: 0, y: 1.5, z: -4}
   horizontal: 0
   vertical: 0
   reset: 0
@@ -549,7 +549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   t: 5
   player: {fileID: 62300558845845038}
-  offset: {x: 0, y: 2, z: -7}
+  offset: {x: 0, y: 1.5, z: -4}
   horizontal: 0
   vertical: 0
   reset: 0

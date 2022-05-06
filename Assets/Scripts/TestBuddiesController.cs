@@ -27,7 +27,7 @@ public class TestBuddiesController : MonoBehaviour
     float speed = 15;
     //[SerializeField]
     //[Range(15,50)]
-    float runSpeed = 15;
+    float runSpeed = 20;
 
     Rigidbody rb;
 
@@ -46,14 +46,15 @@ public class TestBuddiesController : MonoBehaviour
     bool isGrounded;
     bool canJump;
     bool safe;
-
+    bool doing;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        freezeTime = 3;
+        freezeTime = 2f;
         dontMove = false;
+        doing = false;
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
         isRunning = false;
@@ -61,6 +62,7 @@ public class TestBuddiesController : MonoBehaviour
         jump = false;
         attacked = false;
         safe = false;
+        Debug.Log("called");
     }
 
     // Update is called once per frame
@@ -116,6 +118,7 @@ public class TestBuddiesController : MonoBehaviour
         
         if (!dontMove)
         {
+            safe = true;
             if (movement.x == 0 && movement.y == 0)
             {
                 anim.SetBool("isRun", false);
@@ -167,9 +170,11 @@ public class TestBuddiesController : MonoBehaviour
                     anim.SetBool("isKnock", false);
                 }
             }
+            //Debug.Log(gameObject.name + "jump" + jump);
             //jump related code over here!!
             if (jump && isGrounded && canJump)
             {
+                
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 anim.SetBool("isJump", true);
                 isGrounded = false;
@@ -180,6 +185,7 @@ public class TestBuddiesController : MonoBehaviour
             if (attacked && !safe)
             {
                 Debug.Log("attacked");
+                //dontMove = true;
                 anim.SetBool("isAttacked", true);
                 int candyType = Random.Range(0, 3);
                 switch (playerInput.playerIndex)
@@ -232,6 +238,7 @@ public class TestBuddiesController : MonoBehaviour
             anim.SetBool("isBumped", false);
             anim.SetBool("isAttacked", false);
             t += Time.deltaTime;
+            safe = false;
             //add a flashing animation here
             if (t >= freezeTime)
             {
@@ -274,7 +281,7 @@ public class TestBuddiesController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (transform.position.y - collision.gameObject.transform.position.y > 1)
+            if (transform.position.y - collision.gameObject.transform.position.y > .5f)
             {
                 Debug.Log("jumped");
                 //jump ass attack
@@ -285,7 +292,7 @@ public class TestBuddiesController : MonoBehaviour
             }
             else
             {
-                Debug.Log("bumped");
+                //Debug.Log("bumped");
                 //knock off your friend and lose candy!
                 if (isRunning)
                 {
@@ -408,40 +415,49 @@ public class TestBuddiesController : MonoBehaviour
 
     void KnockOnDoors(int candyAmount, int[] rTimes, bool can, GameObject house)
     {
+        //bool doing;
         if (can)
         {
+            
             if (knocking)
             {
                 //Debug.Log("isKnock");
                 anim.SetBool("isKnock", true);
+                dontMove = true;
+                doing = true;
             }
-            //anim.SetBool("isKnock", true);
-            if (!house.GetComponent<HouseManager>().stopGiving)
+            if (!dontMove)
             {
-                if (knocking && !knocked)
+                Debug.Log("trying hard");
+                //anim.SetBool("isKnock", true);
+                if (!house.GetComponent<HouseManager>().stopGiving)
                 {
-                    switch (playerInput.playerIndex)
+                    if (doing && !knocked)
                     {
-                        case 0:
-                            DataHolder.p1 += candyAmount;
-                            break;
-                        case 1:
-                            DataHolder.p2 += candyAmount;
-                            break;
-                        case 2:
-                            DataHolder.p3 += candyAmount;
-                            break;
-                        case 3:
-                            DataHolder.p4 += candyAmount;
-                            break;
+                        switch (playerInput.playerIndex)
+                        {
+                            case 0:
+                                DataHolder.p1 += candyAmount;
+                                break;
+                            case 1:
+                                DataHolder.p2 += candyAmount;
+                                break;
+                            case 2:
+                                DataHolder.p3 += candyAmount;
+                                break;
+                            case 3:
+                                DataHolder.p4 += candyAmount;
+                                break;
+                        }
+                        house.GetComponent<HouseManager>().stopGiving = true;
+                        doing = false;
+                        knocked = true;
+                        Debug.Log("called knocking");
                     }
-                    house.GetComponent<HouseManager>().stopGiving = true;
-                    
-                    knocked = true;
-                    Debug.Log("called knocking");
-                }
 
+                }
             }
+
         }
     }
 
@@ -483,6 +499,7 @@ public class TestBuddiesController : MonoBehaviour
             jump = true;
             canJump = true;
         }
+        //Debug.Log(gameObject.name + " pressed " + context.action.triggered);
     }
 
 }

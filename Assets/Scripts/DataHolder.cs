@@ -144,7 +144,7 @@ public class DataHolder : MonoBehaviour
             //if (c1Taken && c2Taken && c3Taken && c4Taken)
             if(c1Taken&&c2Taken)
             {
-                GameObject.Find("Instruction").GetComponent<Text>().text = "Press X / A to Continue";
+                GameObject.Find("Instruction").GetComponent<Text>().text = "Press R1 to Continue";
                 if (ready)
                 {
                     SceneManager.LoadScene(1);

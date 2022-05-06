@@ -30,14 +30,19 @@ public class Phase2PlayerController : MonoBehaviour
     int sceneNum;
 
     GameObject titleCam;
+    Transform initialPos;
+    string startPosName;
+
+    bool born;
 
     //public int playerIndex { get; }
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
-        transform.position = new Vector3(1.3f - playerInput.playerIndex*.8f, 0, 0);
+        transform.position = new Vector3(1.3f - playerInput.playerIndex*.4f, 0, 0);
         DontDestroyOnLoad(gameObject);
+        born = false;
         //phase1script = GetComponent<SplitScreenPlayerController>();
         //rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
@@ -80,6 +85,23 @@ public class Phase2PlayerController : MonoBehaviour
                 DataHolder.c4Taken = true;
             }
         }
+
+        switch(playerInput.playerIndex)
+        {
+            case 0:
+                startPosName = "P1Start";
+                break;
+            case 1:
+                startPosName = "P2Start";
+                break;
+            case 2:
+                startPosName = "P3Start";
+                break;
+            case 3:
+                startPosName = "P4Start";
+                break;
+        }
+
     }
     // Start is called before the first frame update
     void Start()
@@ -89,12 +111,6 @@ public class Phase2PlayerController : MonoBehaviour
         //sceneNum = SceneManager.GetActiveScene().buildIndex;
         
     }
-
-    //private void OnEnable()
-    //{
-    //    transform.position = new Vector3(2 - playerInput.playerIndex, 0, 0);
-    //}
-
 
     // Update is called once per frame
     void Update()
@@ -112,10 +128,12 @@ public class Phase2PlayerController : MonoBehaviour
                 rb.useGravity = false;
                 titleCam = GameObject.FindGameObjectWithTag("MainCamera");
                 transform.LookAt(titleCam.transform);
+                transform.localScale = new Vector3(.5f, .5f, .5f);
+                playerInput.enabled = true;
                 //if (DataHolder.c1Taken && DataHolder.c2Taken && DataHolder.c3Taken && DataHolder.c4Taken)
                 if (DataHolder.c1Taken && DataHolder.c2Taken)
                 {
-                    Debug.Log(confirm);
+                    //Debug.Log(confirm);
                     if (change)
                     {
                         DataHolder.ready = true;
@@ -123,20 +141,77 @@ public class Phase2PlayerController : MonoBehaviour
                     }
                 }
                 break;
+
             case 1:
-                //playerInput.SwitchCurrentActionMap("Player");
+                playerInput.SwitchCurrentActionMap("Player");
                 if (change)
                 {
                     SceneManager.LoadScene(2);
+                    //born = false;
                     change = false;
                 }
-                phase1script.enabled = true;
-                transform.localScale = new Vector3(2, 2, 2);
-                rb.useGravity = true;
+                if (!born)
+                {
+                    //playerInput.enabled = false;
+                    initialPos = GameObject.FindGameObjectWithTag(startPosName).transform;
+                    transform.position = initialPos.position;
+                    transform.rotation = initialPos.rotation;
+                    transform.GetChild(0).transform.position = transform.position;
+                    transform.GetChild(0).GetComponent<TestBuddiesController>().cam = null;
+                    phase1script.enabled = true;
+                    transform.localScale = new Vector3(1, 1, 1);
+                    rb.useGravity = true;
+                    born = true;
+                }
                 break;
             case 2:
+                playerInput.SwitchCurrentActionMap("Player");
+                if (change)
+                {
+                    SceneManager.LoadScene(3);
+                    //born = false;
+                    change = false;
+                }
+                if (born)
+                {
+                    //playerInput.enabled = false;
+                    transform.GetChild(0).GetComponent<TestBuddiesController>().cam = null;
+                    initialPos = GameObject.FindGameObjectWithTag(startPosName).transform;
+                    transform.position = initialPos.position;
+                    transform.rotation = initialPos.rotation;
+                    transform.GetChild(0).transform.position = transform.position;
+                    phase1script.enabled = true;
+                    transform.localScale = new Vector3(1, 1, 1);
+                    rb.useGravity = true;
+                    born = false;
+                }
+                break;
+            case 3:
+                playerInput.SwitchCurrentActionMap("Player");
+                if (change)
+                {
+                    SceneManager.LoadScene(4);
+                    //born = false;
+                    change = false;
+                }
+                if (!born)
+                {
+                    //playerInput.enabled = false;
+                    transform.GetChild(0).GetComponent<TestBuddiesController>().cam = null;
+                    initialPos = GameObject.FindGameObjectWithTag(startPosName).transform;
+                    transform.position = initialPos.position;
+                    transform.rotation = initialPos.rotation;
+                    transform.GetChild(0).transform.position = transform.position;
+                    phase1script.enabled = true;
+                    transform.localScale = new Vector3(1, 1, 1);
+                    rb.useGravity = true;
+                    born = true;
+                }
+                break;
+            //phase 2 stuff, change the number according to the build indext of phase 2 scene
+            case 4:
                 phase1script.enabled = false;
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(.5f, .5f, .5f);
                 if (change)
                 {
                     SceneManager.LoadScene(0);

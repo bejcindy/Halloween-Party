@@ -15,6 +15,10 @@ TagManager:
   - P3
   - P4
   - Ground
+  - P1Start
+  - P2Start
+  - P3Start
+  - P4Start
   layers:
   - Default
   - TransparentFX
