@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Phase1UIManager : MonoBehaviour
 {
     public Text p1txt, p2txt, p3txt, p4txt;
+    public Slider p1s, p2s, p3s, p4s;
     public Text Timer;
     float t = 120;
     float otherT = 2;
@@ -23,18 +24,22 @@ public class Phase1UIManager : MonoBehaviour
         if (p1txt)
         {
             p1txt.text = "Candy Carrying: " + DataHolder.p1 + "\n" + "Candy Stored: " + DataHolder.p1ATM;
+            p1s.value = DataHolder.p1ATM;
         }
         if (p2txt)
         {
             p2txt.text = "Candy Carrying: " + DataHolder.p2 + "\n" + "Candy Stored: " + DataHolder.p2ATM;
+            p2s.value = DataHolder.p2ATM;
         }
         if (p3txt)
         {
             p3txt.text = "Candy Carrying: " + DataHolder.p3 + "\n" + "Candy Stored: " + DataHolder.p3ATM;
+            p3s.value = DataHolder.p3ATM;
         }
         if (p4txt)
         {
             p4txt.text = "Candy Carrying: " + DataHolder.p4 + "\n" + "Candy Stored: " + DataHolder.p4ATM;
+            p4s.value = DataHolder.p4ATM;
         }
         if (Timer)
         {

@@ -12,6 +12,8 @@ public class Phase2Manager : MonoBehaviour
     public GameObject pauseMenu;
     public Text p1, p2, p3, p4;
     public Text c1, c2, c3, c4;
+    public Text scoops;
+
     //public GameObject playerPrefab;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,8 @@ public class Phase2Manager : MonoBehaviour
         scooped = false;
         instructed = false;
         timeUp = false;
+
+        scoops.text = "P1: " + ScoopCalculator(DataHolder.p1ATM) + " P2: " + ScoopCalculator(DataHolder.p2ATM) + " P3: " + ScoopCalculator(DataHolder.p3ATM) + " P4: " + ScoopCalculator(DataHolder.p4ATM);
         //PlayerInputManager.Instantiate(playerPrefab) as GameObject;
     }
     void OnPlayerJoined(PlayerInput playerInput)
@@ -58,10 +62,39 @@ public class Phase2Manager : MonoBehaviour
                 pauseMenu.SetActive(true);
             }
         }
-        if(c1.gameObject.activeSelf&& c2.gameObject.activeSelf&& c3.gameObject.activeSelf&& c4.gameObject.activeSelf)
+        if (c1.gameObject.activeSelf && c2.gameObject.activeSelf && c3.gameObject.activeSelf && c4.gameObject.activeSelf)
         {
+            DataHolder.p1 = 0;
+            DataHolder.p2 = 0;
+            DataHolder.p3 = 0;
+            DataHolder.p4 = 0;
+            DataHolder.p1ATM = 0;
+            DataHolder.p2ATM = 0;
+            DataHolder.p3ATM = 0;
+            DataHolder.p4ATM = 0;
+            DataHolder.p1Total = 0;
+            DataHolder.p2Total = 0;
+            DataHolder.p3Total = 0;
+            DataHolder.p4Total = 0;
             SceneManager.LoadScene(0);
-        }
 
+        }
+    }
+
+    string ScoopCalculator(int n)
+    {
+        if (n <= 25)
+        {
+            return "2 Scoop";
+        }else if (n > 25 && n <= 50)
+        {
+            return "3 Scoops";
+        }else if (n > 50 && n <= 75)
+        {
+            return "4 Scoops";
+        }else
+        {
+            return "5 Scoops";
+        }
     }
 }
