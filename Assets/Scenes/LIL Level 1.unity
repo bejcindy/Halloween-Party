@@ -768,7 +768,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -114.5, y: -195.03998}
+  m_AnchoredPosition: {x: -114.5, y: -121}
   m_SizeDelta: {x: 23.9923, y: 30.5847}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &46827435
@@ -13626,7 +13626,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 289.2, y: -195.03998}
+  m_AnchoredPosition: {x: 289.2, y: -121.00001}
   m_SizeDelta: {x: 23.9923, y: 30.5847}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &984586670
@@ -16713,7 +16713,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh93340
+  m_Name: pb_Mesh57004
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -28492,7 +28492,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 209.99994, y: -193.04001}
+  m_AnchoredPosition: {x: 209.99994, y: -119.00004}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1448924770
@@ -36824,7 +36824,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -196.99997, y: -195}
+  m_AnchoredPosition: {x: -196.99997, y: -120.96003}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1985332739
@@ -38041,7 +38041,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh93026
+  m_Name: pb_Mesh56678
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -39136,7 +39136,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh92714
+  m_Name: pb_Mesh56340
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

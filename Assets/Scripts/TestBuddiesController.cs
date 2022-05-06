@@ -69,7 +69,7 @@ public class TestBuddiesController : MonoBehaviour
     void Update()
     {
         //read the candy amount
-        switch (playerInput.playerIndex)
+        switch (playerInput.playerIndex/2)
         {
             case 0:
                 candyCarried = DataHolder.p1;
@@ -87,7 +87,7 @@ public class TestBuddiesController : MonoBehaviour
 
         if (!cam)
         {
-            switch (playerInput.playerIndex)
+            switch (playerInput.playerIndex/2)
             {
                 case 0:
                     cam = GameObject.FindGameObjectWithTag("P1");
@@ -188,7 +188,7 @@ public class TestBuddiesController : MonoBehaviour
                 //dontMove = true;
                 anim.SetBool("isAttacked", true);
                 int candyType = Random.Range(0, 3);
-                switch (playerInput.playerIndex)
+                switch (playerInput.playerIndex/2)
                 {
                     case 0:
                         if (DataHolder.p1 > 0)
@@ -251,7 +251,7 @@ public class TestBuddiesController : MonoBehaviour
         #region Save To ATM
         if (saved)
         {
-            switch (playerInput.playerIndex)
+            switch (playerInput.playerIndex/2)
             {
                 case 0:
                     DataHolder.p1 = 0;
@@ -301,7 +301,7 @@ public class TestBuddiesController : MonoBehaviour
                     {
                         anim.SetBool("isBumped", true);
                         int candyType = Random.Range(0, 3);
-                        switch (playerInput.playerIndex)
+                        switch (playerInput.playerIndex/2)
                         {
                             case 0:
                                 if (DataHolder.p1 > 0)
@@ -358,7 +358,7 @@ public class TestBuddiesController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Candy") && !dontMove)
         {
-            switch (playerInput.playerIndex)
+            switch (playerInput.playerIndex/2)
             {
                 case 0:
                     DataHolder.p1 += 1;
@@ -392,7 +392,7 @@ public class TestBuddiesController : MonoBehaviour
         {
             if (knocking && !saved)
             {
-                switch (playerInput.playerIndex)
+                switch (playerInput.playerIndex/2)
                 {
                     case 0:
                         DataHolder.p1ATM += DataHolder.p1;
@@ -434,7 +434,7 @@ public class TestBuddiesController : MonoBehaviour
                 {
                     if (doing && !knocked)
                     {
-                        switch (playerInput.playerIndex)
+                        switch (playerInput.playerIndex/2)
                         {
                             case 0:
                                 DataHolder.p1 += candyAmount;

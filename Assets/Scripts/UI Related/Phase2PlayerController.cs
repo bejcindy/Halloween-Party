@@ -34,13 +34,14 @@ public class Phase2PlayerController : MonoBehaviour
     string startPosName;
 
     bool born;
+    int nextLevel;
 
     //public int playerIndex { get; }
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
-        transform.position = new Vector3(1.3f - playerInput.playerIndex*.4f, 0, 0);
+        transform.position = new Vector3(1.3f - playerInput.playerIndex/2*.4f, 0, 0);
         DontDestroyOnLoad(gameObject);
         born = false;
         //phase1script = GetComponent<SplitScreenPlayerController>();
@@ -86,7 +87,7 @@ public class Phase2PlayerController : MonoBehaviour
             }
         }
 
-        switch(playerInput.playerIndex)
+        switch(playerInput.playerIndex/2)
         {
             case 0:
                 startPosName = "P1Start";
@@ -107,7 +108,7 @@ public class Phase2PlayerController : MonoBehaviour
     void Start()
     {
         //playerInput = GetComponent<PlayerInput>();
-        PlayerNum = playerInput.playerIndex + 1;
+        PlayerNum = playerInput.playerIndex/2 + 1;
         //sceneNum = SceneManager.GetActiveScene().buildIndex;
         
     }
@@ -120,18 +121,18 @@ public class Phase2PlayerController : MonoBehaviour
         {
             case 0:
                 //playerInput.SwitchCurrentActionMap("UI");
-                //if (change)
-                //{
-                //    SceneManager.LoadScene(1);
-                //    change = false;
-                //}
+                if (change)
+                {
+                    SceneManager.LoadScene(1);
+                    change = false;
+                }
                 rb.useGravity = false;
                 titleCam = GameObject.FindGameObjectWithTag("MainCamera");
                 transform.LookAt(titleCam.transform);
                 transform.localScale = new Vector3(.5f, .5f, .5f);
                 playerInput.enabled = true;
                 //if (DataHolder.c1Taken && DataHolder.c2Taken && DataHolder.c3Taken && DataHolder.c4Taken)
-                if (DataHolder.c1Taken && DataHolder.c2Taken)
+                if (DataHolder.c1Taken && DataHolder.c2Taken&& DataHolder.c3Taken&& DataHolder.c4Taken)
                 {
                     //Debug.Log(confirm);
                     if (change)
@@ -144,15 +145,16 @@ public class Phase2PlayerController : MonoBehaviour
 
             case 1:
                 playerInput.SwitchCurrentActionMap("Player");
-                //if (change)
-                //{
-                //    SceneManager.LoadScene(4);
-                //    //born = false;
-                //    change = false;
-                //}
+                if (change)
+                {
+                    SceneManager.LoadScene(4);
+                    //born = false;
+                    change = false;
+                }
                 if (!born)
                 {
                     //playerInput.enabled = false;
+                    nextLevel = 2;
                     initialPos = GameObject.FindGameObjectWithTag(startPosName).transform;
                     transform.position = initialPos.position;
                     transform.rotation = initialPos.rotation;
@@ -166,14 +168,15 @@ public class Phase2PlayerController : MonoBehaviour
                 break;
             case 2:
                 playerInput.SwitchCurrentActionMap("Player");
-                //if (change)
-                //{
-                //    SceneManager.LoadScene(4);
-                //    //born = false;
-                //    change = false;
-                //}
+                if (change)
+                {
+                    SceneManager.LoadScene(4);
+                    //born = false;
+                    change = false;
+                }
                 if (born)
                 {
+                    nextLevel = 3;
                     //playerInput.enabled = false;
                     transform.GetChild(0).GetComponent<TestBuddiesController>().cam = null;
                     initialPos = GameObject.FindGameObjectWithTag(startPosName).transform;
@@ -188,14 +191,15 @@ public class Phase2PlayerController : MonoBehaviour
                 break;
             case 3:
                 playerInput.SwitchCurrentActionMap("Player");
-                //if (change)
-                //{
-                //    SceneManager.LoadScene(4);
-                //    //born = false;
-                //    change = false;
-                //}
+                if (change)
+                {
+                    SceneManager.LoadScene(4);
+                    //born = false;
+                    change = false;
+                }
                 if (!born)
                 {
+                    nextLevel = 1;
                     //playerInput.enabled = false;
                     transform.GetChild(0).GetComponent<TestBuddiesController>().cam = null;
                     initialPos = GameObject.FindGameObjectWithTag(startPosName).transform;
@@ -212,11 +216,11 @@ public class Phase2PlayerController : MonoBehaviour
             case 4:
                 phase1script.enabled = false;
                 transform.localScale = new Vector3(.5f, .5f, .5f);
-                //if (change)
-                //{
-                //    SceneManager.LoadScene(5);
-                //    change = false;
-                //}
+                if (change)
+                {
+                    SceneManager.LoadScene(nextLevel);
+                    change = false;
+                }
                 rb.useGravity = false;
                 transform.GetChild(0).gameObject.SetActive(false);
                 if (Phase2Manager.timeUp)
