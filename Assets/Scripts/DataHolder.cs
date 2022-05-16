@@ -74,6 +74,8 @@ public class DataHolder : MonoBehaviour
     public static DataHolder instance = null;
     public static bool ready;
 
+    public static bool reset;
+
     private void Awake()
     {
         if (instance = null)
@@ -154,6 +156,18 @@ public class DataHolder : MonoBehaviour
             {
                 GameObject.Find("Instruction").GetComponent<Text>().text = "Press Any Button To Join";
             }
+        }
+        if (reset)
+        {
+            p1 = 0;
+            p2 = 0;
+            p3 = 0;
+            p4 = 0;
+            p1ATM = 0;
+            p2ATM = 0;
+            p3ATM = 0;
+            p4ATM = 0;
+            reset = false;
         }
         
     }

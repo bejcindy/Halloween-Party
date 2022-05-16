@@ -21,7 +21,7 @@ public class TestBuddiesController : MonoBehaviour
     public float candySlowDown=0.98f;
     public bool attacked;
 
-    public Animator anim;
+    Animator anim;
 
     int playerN;
     float speed = 15;
@@ -37,6 +37,7 @@ public class TestBuddiesController : MonoBehaviour
 
     bool saved;
     Vector2 movement;
+    Vector2 actualMovement;
     Vector2 rightStick;
     PlayerInput playerInput;
     bool knocking, knocked;
@@ -68,8 +69,13 @@ public class TestBuddiesController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(gameObject.name+" movement:" + movement);
+        if (transform.GetChild(0))
+        {
+            anim = transform.GetChild(0).GetComponent<Animator>();
+        }
         //read the candy amount
-        switch (playerInput.playerIndex/2)
+        switch (playerInput.playerIndex)
         {
             case 0:
                 candyCarried = DataHolder.p1;
@@ -87,7 +93,7 @@ public class TestBuddiesController : MonoBehaviour
 
         if (!cam)
         {
-            switch (playerInput.playerIndex/2)
+            switch (playerInput.playerIndex)
             {
                 case 0:
                     cam = GameObject.FindGameObjectWithTag("P1");
@@ -119,25 +125,29 @@ public class TestBuddiesController : MonoBehaviour
         if (!dontMove)
         {
             safe = true;
+            
             if (movement.x == 0 && movement.y == 0)
             {
+                Debug.Log("case1");
                 anim.SetBool("isRun", false);
                 anim.SetBool("isWalk", false);
                 anim.SetBool("isIdle", true);
             }
             else if (isRunning)
             {
-                //currentSpeed = runSpeed;
-                currentSpeed = runSpeed * Mathf.Pow(candySlowDown, candyCarried);
+                Debug.Log("case2");
+                currentSpeed = runSpeed;
+                //currentSpeed = runSpeed * Mathf.Pow(candySlowDown, candyCarried);
                 anim.SetBool("isRun", true);
                 anim.SetBool("isWalk", false);
                 anim.SetBool("isIdle", false);
             }
             else if (!isRunning)
             {
-                //currentSpeed = speed;
-                currentSpeed = speed * Mathf.Pow(candySlowDown, candyCarried);
-                //Debug.Log("current speed is: " + currentSpeed);
+                Debug.Log("case3");
+                currentSpeed = speed;
+                //currentSpeed = speed * Mathf.Pow(candySlowDown, candyCarried);
+                Debug.Log("current speed is: " + currentSpeed);
                 anim.SetBool("isRun", false);
                 anim.SetBool("isWalk", true);
                 anim.SetBool("isIdle", false);
@@ -145,7 +155,6 @@ public class TestBuddiesController : MonoBehaviour
 
             x = movement.x * currentSpeed;
             z = movement.y * currentSpeed;
-
             Vector3 direction = (cam.transform.forward * z + cam.transform.right * x).normalized;
             //Vector3 direction = (transform.forward * z + transform.right * x).normalized;
             Vector3 zeroY = new Vector3(direction.x*currentSpeed, rb.velocity.y, direction.z*currentSpeed);
@@ -188,7 +197,7 @@ public class TestBuddiesController : MonoBehaviour
                 //dontMove = true;
                 anim.SetBool("isAttacked", true);
                 int candyType = Random.Range(0, 3);
-                switch (playerInput.playerIndex/2)
+                switch (playerInput.playerIndex)
                 {
                     case 0:
                         if (DataHolder.p1 > 0)
@@ -251,7 +260,7 @@ public class TestBuddiesController : MonoBehaviour
         #region Save To ATM
         if (saved)
         {
-            switch (playerInput.playerIndex/2)
+            switch (playerInput.playerIndex)
             {
                 case 0:
                     DataHolder.p1 = 0;
@@ -301,7 +310,7 @@ public class TestBuddiesController : MonoBehaviour
                     {
                         anim.SetBool("isBumped", true);
                         int candyType = Random.Range(0, 3);
-                        switch (playerInput.playerIndex/2)
+                        switch (playerInput.playerIndex)
                         {
                             case 0:
                                 if (DataHolder.p1 > 0)
@@ -358,7 +367,7 @@ public class TestBuddiesController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Candy") && !dontMove)
         {
-            switch (playerInput.playerIndex/2)
+            switch (playerInput.playerIndex)
             {
                 case 0:
                     DataHolder.p1 += 1;
@@ -392,7 +401,7 @@ public class TestBuddiesController : MonoBehaviour
         {
             if (knocking && !saved)
             {
-                switch (playerInput.playerIndex/2)
+                switch (playerInput.playerIndex)
                 {
                     case 0:
                         DataHolder.p1ATM += DataHolder.p1;
@@ -434,7 +443,7 @@ public class TestBuddiesController : MonoBehaviour
                 {
                     if (doing && !knocked)
                     {
-                        switch (playerInput.playerIndex/2)
+                        switch (playerInput.playerIndex)
                         {
                             case 0:
                                 DataHolder.p1 += candyAmount;
@@ -474,6 +483,7 @@ public class TestBuddiesController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         movement = context.ReadValue<Vector2>();
+        //Debug.Log(gameObject.name + " actual movement:" + movement);
     }
 
     public void OnLook(InputAction.CallbackContext context)

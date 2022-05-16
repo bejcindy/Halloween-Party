@@ -25,15 +25,24 @@ public class SplitScreenCamera : MonoBehaviour
         
         originalOffestY= new Vector3(0, offset.y, 0);
         originalOffset = offset;
-        transform.position = player.position + offset;
+        if (player)
+        {
+            transform.position = player.position + offset;
+            offset = transform.position - player.transform.position;
+        }
+        //transform.position = player.position + offset;
         stop = false;
         toohigh = false;
-        offset = transform.position - player.transform.position;
+        //offset = transform.position - player.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!player)
+        {
+            return;
+        }
         if (transform.position.y >= 1 && transform.position.y <= 4)
         {
             transform.position = player.position + offset;

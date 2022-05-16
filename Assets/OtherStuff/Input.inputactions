@@ -302,10 +302,10 @@
                 {
                     "name": "",
                     "id": "022a7883-81eb-44b2-9bc7-e9aa79508f50",
-                    "path": "<Gamepad>/rightShoulder",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Keyboard&Mouse",
                     "action": "SwitchScene",
                     "isComposite": false,
                     "isPartOfComposite": false
