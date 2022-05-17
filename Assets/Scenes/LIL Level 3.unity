@@ -22483,7 +22483,11 @@ MonoBehaviour:
   horizontal: 0
   vertical: 0
   reset: 0
-  camSpeed: 0.25
+  camSpeed: 1.5
+  rotSpeed: 1
+  regularRSpeed: 0
+  jumping: 0
+  previousPos: {x: 0, y: 0, z: 0}
 --- !u!81 &890635020
 AudioListener:
   m_ObjectHideFlags: 0
@@ -29836,7 +29840,11 @@ MonoBehaviour:
   horizontal: 0
   vertical: 0
   reset: 0
-  camSpeed: 0.25
+  camSpeed: 1.5
+  rotSpeed: 1
+  regularRSpeed: 0
+  jumping: 0
+  previousPos: {x: 0, y: 0, z: 0}
 --- !u!81 &1175952408
 AudioListener:
   m_ObjectHideFlags: 0
@@ -31109,7 +31117,11 @@ MonoBehaviour:
   horizontal: 0
   vertical: 0
   reset: 0
-  camSpeed: 0.25
+  camSpeed: 1.5
+  rotSpeed: 1
+  regularRSpeed: 0
+  jumping: 0
+  previousPos: {x: 0, y: 0, z: 0}
 --- !u!81 &1222224853
 AudioListener:
   m_ObjectHideFlags: 0
@@ -35822,7 +35834,11 @@ MonoBehaviour:
   horizontal: 0
   vertical: 0
   reset: 0
-  camSpeed: 0.25
+  camSpeed: 1.5
+  rotSpeed: 1
+  regularRSpeed: 0
+  jumping: 0
+  previousPos: {x: 0, y: 0, z: 0}
 --- !u!81 &1448075207
 AudioListener:
   m_ObjectHideFlags: 0

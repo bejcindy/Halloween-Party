@@ -183,7 +183,8 @@ public class TestBuddiesController : MonoBehaviour
             //jump related code over here!!
             if (jump && isGrounded && canJump)
             {
-                
+                cam.GetComponent<SplitScreenCamera>().jumping = true;
+                cam.GetComponent<SplitScreenCamera>().previousPos = transform.position;
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 anim.SetBool("isJump", true);
                 isGrounded = false;
@@ -288,6 +289,7 @@ public class TestBuddiesController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        cam.GetComponent<SplitScreenCamera>().jumping = false;
         if (collision.gameObject.CompareTag("Player"))
         {
             if (transform.position.y - collision.gameObject.transform.position.y > .5f)
@@ -364,6 +366,7 @@ public class TestBuddiesController : MonoBehaviour
             canJump = false;
             jump = false;
             anim.SetBool("isJump", false);
+            
         }
         if (collision.gameObject.CompareTag("Candy") && !dontMove)
         {

@@ -15,6 +15,11 @@ public class SplitScreenCamera : MonoBehaviour
     public float vertical;
     public bool reset;
     public float camSpeed;
+    public float rotSpeed;
+    public float regularRSpeed;
+    public bool jumping;
+
+    public Vector3 previousPos;
 
     bool stop;
     bool toohigh;
@@ -45,7 +50,8 @@ public class SplitScreenCamera : MonoBehaviour
         }
         if (transform.position.y >= 1 && transform.position.y <= 4)
         {
-            transform.position = player.position + offset;
+            Vector3 destination = player.position + offset;
+            transform.position = new Vector3(destination.x, Mathf.Lerp(transform.position.y, destination.y, Time.deltaTime * camSpeed), destination.z);
             stop = false;
             toohigh = false;
         }
@@ -97,11 +103,30 @@ public class SplitScreenCamera : MonoBehaviour
 
         }
 
-        transform.position = player.position + offset;
+        //transform.position = player.position + offset;
         //Vector3 slowLook = new Vector3(Mathf.Lerp(transform.position.x, player.position.x + originalOffset.x, t), Mathf.Lerp(transform.position.y, player.position.y + originalOffset.y, t), Mathf.Lerp(transform.position.z, player.position.z + originalOffset.z, t));
         //Debug.Log(slowLook);
         //transform.rotation = Quaternion.LookRotation(slowLook);
-        transform.LookAt(player.position + originalOffestY);
+        if (!jumping)
+        {
+            //transform.LookAt(player.position + originalOffestY);
+            Vector3 relativePos = player.position + originalOffestY - transform.position;
+            Quaternion toRotation = Quaternion.LookRotation(relativePos);
+            if (horizontal == 0)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, rotSpeed * Time.deltaTime);
+            }
+            else
+            {
+                transform.LookAt(player.position + originalOffestY);
+            }
+            //transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, rotSpeed * Time.deltaTime);
+        }else if(jumping && horizontal != 0)
+        {
+            Vector3 prevY = new Vector3(player.position.x, previousPos.y, player.position.z);
+            transform.LookAt(prevY + originalOffestY);
+        }
+        //transform.LookAt(player.position + originalOffestY);
         //Quaternion rotation = Quaternion.LookRotation(player.position - transform.position);
         //Debug.Log(rotation);
         //transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * t);

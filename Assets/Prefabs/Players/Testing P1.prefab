@@ -262,7 +262,7 @@ MonoBehaviour:
     m_ActionName: Player/Jump[/DualShock4GamepadHID/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!54 &2987756123223646683
@@ -308,7 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   isRunning: 0
-  jumpForce: 25
+  jumpForce: 20
   candySlowDown: 0.98
   attacked: 0
 --- !u!114 &6658076210014149338

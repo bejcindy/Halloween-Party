@@ -5881,12 +5881,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   t: 5
-  player: {fileID: 685703262}
+  player: {fileID: 0}
   offset: {x: 0, y: 1.5, z: -4}
   horizontal: 0
   vertical: 0
   reset: 0
-  camSpeed: 0.25
+  camSpeed: 1.5
+  rotSpeed: 1
+  regularRSpeed: 0
+  jumping: 0
+  previousPos: {x: 0, y: 0, z: 0}
 --- !u!81 &439335238
 AudioListener:
   m_ObjectHideFlags: 0
@@ -9475,11 +9479,6 @@ Transform:
   m_Father: {fileID: 344133138}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &685703262 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 62300558845845038, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-  m_PrefabInstance: {fileID: 935167996}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &690112659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14449,7 +14448,11 @@ MonoBehaviour:
   horizontal: 0
   vertical: 0
   reset: 0
-  camSpeed: 0.25
+  camSpeed: 1.5
+  rotSpeed: 1
+  regularRSpeed: 0
+  jumping: 0
+  previousPos: {x: 0, y: 0, z: 0}
 --- !u!81 &1050831807
 AudioListener:
   m_ObjectHideFlags: 0
@@ -31922,11 +31925,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664384192}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1668564741 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 62300559543335868, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-  m_PrefabInstance: {fileID: 935167996}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1675960320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33169,12 +33167,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   t: 5
-  player: {fileID: 1668564741}
+  player: {fileID: 0}
   offset: {x: 0, y: 1.5, z: -4}
   horizontal: 0
   vertical: 0
   reset: 0
-  camSpeed: 0.25
+  camSpeed: 1.5
+  rotSpeed: 1
+  regularRSpeed: 0
+  jumping: 0
+  previousPos: {x: 0, y: 0, z: 0}
 --- !u!81 &1770738208
 AudioListener:
   m_ObjectHideFlags: 0
@@ -33930,11 +33932,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8577210104288205430, guid: 66c78157f516e3e42bc31e4390dbcf48, type: 3}
   m_PrefabInstance: {fileID: 1843297693}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1851700997 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 62300559036296111, guid: e6c9ed6f60d0e4253b41f5fab484ef42, type: 3}
-  m_PrefabInstance: {fileID: 935167996}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1860677073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34220,12 +34217,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   t: 5
-  player: {fileID: 1851700997}
+  player: {fileID: 0}
   offset: {x: 0, y: 1.5, z: -4}
   horizontal: 0
   vertical: 0
   reset: 0
-  camSpeed: 0.25
+  camSpeed: 1.5
+  rotSpeed: 1
+  regularRSpeed: 0
+  jumping: 0
+  previousPos: {x: 0, y: 0, z: 0}
 --- !u!81 &1880034322
 AudioListener:
   m_ObjectHideFlags: 0
