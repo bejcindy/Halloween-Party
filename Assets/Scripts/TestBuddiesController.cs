@@ -49,6 +49,9 @@ public class TestBuddiesController : MonoBehaviour
     bool safe;
     bool doing;
 
+    public GameObject dizzy, sweat, dust;
+
+    //sweat is gonna be put in once stemina bar is done
 
     // Start is called before the first frame update
     void Start()
@@ -63,13 +66,16 @@ public class TestBuddiesController : MonoBehaviour
         jump = false;
         attacked = false;
         safe = false;
-        Debug.Log("called");
+        dizzy.SetActive(false);
+        sweat.SetActive(false);
+        dust.SetActive(false);
+        //Debug.Log("called");
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(gameObject.name+" movement:" + movement);
+        //Debug.Log(gameObject.name+" movement:" + movement);
         if (transform.GetChild(0))
         {
             anim = transform.GetChild(0).GetComponent<Animator>();
@@ -137,6 +143,7 @@ public class TestBuddiesController : MonoBehaviour
             {
                 Debug.Log("case2");
                 currentSpeed = runSpeed;
+                dust.SetActive(true);
                 //currentSpeed = runSpeed * Mathf.Pow(candySlowDown, candyCarried);
                 anim.SetBool("isRun", true);
                 anim.SetBool("isWalk", false);
@@ -146,6 +153,7 @@ public class TestBuddiesController : MonoBehaviour
             {
                 Debug.Log("case3");
                 currentSpeed = speed;
+                dust.SetActive(false);
                 //currentSpeed = speed * Mathf.Pow(candySlowDown, candyCarried);
                 Debug.Log("current speed is: " + currentSpeed);
                 anim.SetBool("isRun", false);
@@ -197,6 +205,7 @@ public class TestBuddiesController : MonoBehaviour
                 Debug.Log("attacked");
                 //dontMove = true;
                 anim.SetBool("isAttacked", true);
+                dizzy.SetActive(true);
                 int candyType = Random.Range(0, 3);
                 switch (playerInput.playerIndex)
                 {
@@ -247,6 +256,7 @@ public class TestBuddiesController : MonoBehaviour
         {
             anim.SetBool("isBumped", false);
             anim.SetBool("isAttacked", false);
+            dizzy.SetActive(false);
             t += Time.deltaTime;
             safe = false;
             //add a flashing animation here
@@ -311,6 +321,7 @@ public class TestBuddiesController : MonoBehaviour
                     if (collision.gameObject.GetComponent<SplitScreenPlayerController>().isRunning)
                     {
                         anim.SetBool("isBumped", true);
+                        dizzy.SetActive(true);
                         int candyType = Random.Range(0, 3);
                         switch (playerInput.playerIndex)
                         {

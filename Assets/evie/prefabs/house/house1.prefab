@@ -402,7 +402,7 @@ MonoBehaviour:
   candyAmount: 0
   rTimes: 
   totalRtime: 0
-  coolDownTime: 5
+  coolDownTime: 20
   stopGiving: 0
   CanCandy: 0
   door: {fileID: 8608663479973656536}

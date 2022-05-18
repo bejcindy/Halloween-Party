@@ -1817,7 +1817,7 @@ MonoBehaviour:
   candyAmount: 0
   rTimes: 
   totalRtime: 0
-  coolDownTime: 15
+  coolDownTime: 20
   stopGiving: 0
   CanCandy: 0
   door: {fileID: 1622167881070536241}
@@ -2866,11 +2866,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4393569283425894177, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
---- !u!1 &5826899966975232893 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5826899966332217367, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
-  m_PrefabInstance: {fileID: 2075976554}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7608719981899638044 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7608719981810255478, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
@@ -2879,5 +2874,10 @@ Transform:
 --- !u!1 &5450244846764057900 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5450244846893303366, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
+  m_PrefabInstance: {fileID: 2075976554}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5826899966975232893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5826899966332217367, guid: 7f66d8fb4f1db2040b74ac7e9203a5cc, type: 3}
   m_PrefabInstance: {fileID: 2075976554}
   m_PrefabAsset: {fileID: 0}

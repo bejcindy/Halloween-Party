@@ -8,7 +8,8 @@ public class HouseManager : MonoBehaviour
     //public List<int> revisits;
 
     public int candyAmount;
-    
+    int spewAmount;
+
     public int[] rTimes;
 
     public int totalRtime;
@@ -42,6 +43,7 @@ public class HouseManager : MonoBehaviour
                 candyAmount = 10;
                 break;
         }
+        spewAmount = 2 * candyAmount;
         //Debug.Log(candyAmount);
     }
 
@@ -63,7 +65,7 @@ public class HouseManager : MonoBehaviour
                 }
 
                 //spew candy, right now equals candyAmount
-                for(int i = 0; i < candyAmount; i++)
+                for(int i = 0; i < spewAmount; i++)
                 {
                     int candyType = Random.Range(0, 3);
                     string candyName = "Candy" + (candyType + 1);

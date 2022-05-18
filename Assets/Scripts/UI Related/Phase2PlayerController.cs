@@ -37,6 +37,8 @@ public class Phase2PlayerController : MonoBehaviour
     bool born;
     int nextLevel;
 
+    public GameObject dizzy, sweat, dust;
+
     //public int playerIndex { get; }
 
     private void Awake()
@@ -52,7 +54,13 @@ public class Phase2PlayerController : MonoBehaviour
         phase2script = GetComponent<Phase2PlayerController>();
         rb = transform.GetComponent<Rigidbody>();
         //phase1script.enabled = false;
-        if (transform.childCount == 0)
+
+        dizzy.SetActive(false);
+        sweat.SetActive(false);
+        dust.SetActive(false);
+
+        //changing this to 4 because particle effects are set as childern
+        if (transform.childCount == 3)
         {
             if (!DataHolder.c1Taken)
             {
