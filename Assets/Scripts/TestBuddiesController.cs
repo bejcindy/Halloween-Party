@@ -24,10 +24,10 @@ public class TestBuddiesController : MonoBehaviour
     Animator anim;
 
     int playerN;
-    float speed = 15;
+    float speed = 10;
     //[SerializeField]
     //[Range(15,50)]
-    float runSpeed = 20;
+    float runSpeed = 18;
 
     Rigidbody rb;
 
@@ -49,14 +49,14 @@ public class TestBuddiesController : MonoBehaviour
     bool safe;
     bool doing;
 
-    public GameObject dizzy, sweat, dust;
+    public GameObject dizzy, sweat, dust, knockEffect;
 
     //sweat is gonna be put in once stemina bar is done
 
     // Start is called before the first frame update
     void Start()
     {
-        freezeTime = 2f;
+        freezeTime = 1f;
         dontMove = false;
         doing = false;
         rb = GetComponent<Rigidbody>();
@@ -69,16 +69,17 @@ public class TestBuddiesController : MonoBehaviour
         dizzy.SetActive(false);
         sweat.SetActive(false);
         dust.SetActive(false);
+        knockEffect.SetActive(false);
         //Debug.Log("called");
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(gameObject.name+" movement:" + movement);
-        if (transform.GetChild(0))
+        Debug.Log(knocking);
+        if (transform.GetChild(4))
         {
-            anim = transform.GetChild(0).GetComponent<Animator>();
+            anim = transform.GetChild(4).GetComponent<Animator>();
         }
         //read the candy amount
         switch (playerInput.playerIndex)
@@ -134,14 +135,15 @@ public class TestBuddiesController : MonoBehaviour
             
             if (movement.x == 0 && movement.y == 0)
             {
-                Debug.Log("case1");
+                //Debug.Log("case1");
+                dust.SetActive(false);
                 anim.SetBool("isRun", false);
                 anim.SetBool("isWalk", false);
                 anim.SetBool("isIdle", true);
             }
             else if (isRunning)
             {
-                Debug.Log("case2");
+                //Debug.Log("case2");
                 currentSpeed = runSpeed;
                 dust.SetActive(true);
                 //currentSpeed = runSpeed * Mathf.Pow(candySlowDown, candyCarried);
@@ -151,7 +153,7 @@ public class TestBuddiesController : MonoBehaviour
             }
             else if (!isRunning)
             {
-                Debug.Log("case3");
+                //Debug.Log("case3");
                 currentSpeed = speed;
                 dust.SetActive(false);
                 //currentSpeed = speed * Mathf.Pow(candySlowDown, candyCarried);
@@ -180,9 +182,10 @@ public class TestBuddiesController : MonoBehaviour
             {
                 knockCoolDown += Time.deltaTime;
                 
-                if (knockCoolDown >= 1f)
+                if (knockCoolDown >= .5f)
                 {
                     knocked = false;
+                    knockEffect.SetActive(false);
                     knockCoolDown = 0;
                     anim.SetBool("isKnock", false);
                 }
@@ -409,6 +412,7 @@ public class TestBuddiesController : MonoBehaviour
             //add the cool down time here later
             //need animation
             KnockOnDoors(other.gameObject.GetComponent<HouseManager>().candyAmount, other.gameObject.GetComponent<HouseManager>().rTimes, other.gameObject.GetComponent<HouseManager>().CanCandy, other.gameObject);
+            //knockEffect.SetActive(true);
         }
 
         if (other.CompareTag("ATM"))
@@ -441,45 +445,48 @@ public class TestBuddiesController : MonoBehaviour
         //bool doing;
         if (can)
         {
-            
+
             if (knocking)
             {
                 //Debug.Log("isKnock");
                 anim.SetBool("isKnock", true);
                 dontMove = true;
                 doing = true;
+                knockEffect.SetActive(true);
             }
-            if (!dontMove)
-            {
-                Debug.Log("trying hard");
-                //anim.SetBool("isKnock", true);
-                if (!house.GetComponent<HouseManager>().stopGiving)
+                if (!dontMove)
                 {
-                    if (doing && !knocked)
+                    Debug.Log("trying hard");
+                    //anim.SetBool("isKnock", true);
+                    if (!house.GetComponent<HouseManager>().stopGiving)
                     {
-                        switch (playerInput.playerIndex)
+                        if (doing && !knocked)
                         {
-                            case 0:
-                                DataHolder.p1 += candyAmount;
-                                break;
-                            case 1:
-                                DataHolder.p2 += candyAmount;
-                                break;
-                            case 2:
-                                DataHolder.p3 += candyAmount;
-                                break;
-                            case 3:
-                                DataHolder.p4 += candyAmount;
-                                break;
+                            switch (playerInput.playerIndex)
+                            {
+                                case 0:
+                                    DataHolder.p1 += candyAmount;
+                                    break;
+                                case 1:
+                                    DataHolder.p2 += candyAmount;
+                                    break;
+                                case 2:
+                                    DataHolder.p3 += candyAmount;
+                                    break;
+                                case 3:
+                                    DataHolder.p4 += candyAmount;
+                                    break;
+                            }
+                            knockEffect.SetActive(false);
+                            house.GetComponent<HouseManager>().stopGiving = true;
+                            doing = false;
+                            knocked = true;
+                            Debug.Log("called knocking");
                         }
-                        house.GetComponent<HouseManager>().stopGiving = true;
-                        doing = false;
-                        knocked = true;
-                        Debug.Log("called knocking");
-                    }
 
+                    }
                 }
-            }
+            
 
         }
     }
@@ -510,7 +517,12 @@ public class TestBuddiesController : MonoBehaviour
     }
     public void OnKnock(InputAction.CallbackContext context)
     {
-        knocking = context.action.triggered;
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            knocking = context.action.triggered;
+            Debug.Log("down here: " + knocking);
+        }
+       
     }
     public void ResetCam(InputAction.CallbackContext context)
     {

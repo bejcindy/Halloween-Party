@@ -54,6 +54,9 @@ public class DataHolder : MonoBehaviour
     public static int p1ATM, p2ATM, p3ATM, p4ATM;
     //Each players' number of candies in total
     public static int p1Total, p2Total, p3Total, p4Total;
+    //Each players' stemina
+    public static float p1Stem, p2Stem, p3Stem, p4Stem;
+
     //Each players' number of candies in total
     public static List<int> Bro;
 
@@ -86,6 +89,12 @@ public class DataHolder : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        p1Stem = 0.5f;
+        p2Stem = 1;
+        p3Stem = 1;
+        p4Stem = 1;
+
         DontDestroyOnLoad(gameObject);
         ready = false;
         screenShotTaken = false;

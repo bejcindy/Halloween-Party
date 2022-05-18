@@ -37,7 +37,7 @@ public class Phase2PlayerController : MonoBehaviour
     bool born;
     int nextLevel;
 
-    public GameObject dizzy, sweat, dust;
+    public GameObject dizzy, sweat, dust, knockEffect;
 
     //public int playerIndex { get; }
 
@@ -58,9 +58,10 @@ public class Phase2PlayerController : MonoBehaviour
         dizzy.SetActive(false);
         sweat.SetActive(false);
         dust.SetActive(false);
+        knockEffect.SetActive(false);
 
         //changing this to 4 because particle effects are set as childern
-        if (transform.childCount == 3)
+        if (transform.childCount == 4)
         {
             if (!DataHolder.c1Taken)
             {
