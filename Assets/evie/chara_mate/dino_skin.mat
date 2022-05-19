@@ -153,7 +153,7 @@ Material:
     - _RampOffset: 0
     - _RampScale: 1
     - _RampSmoothing: 0
-    - _RampThreshold: 0.75
+    - _RampThreshold: 0.67
     - _RampType: 0
     - _ReceiveShadows: 1
     - _ReceiveShadowsOff: 1
@@ -195,7 +195,7 @@ Material:
     - _BaseColor: {r: 0.6751959, g: 1, b: 0.54402506, a: 1}
     - _Color: {r: 0.6751959, g: 1, b: 0.54402506, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HColor: {r: 1, g: 1, b: 1, a: 1}
+    - _HColor: {r: 0.83585656, g: 0.9339623, b: 0.53453183, a: 1}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectionColor: {r: 1, g: 1, b: 1, a: 1}
