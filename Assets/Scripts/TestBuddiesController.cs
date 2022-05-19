@@ -51,6 +51,10 @@ public class TestBuddiesController : MonoBehaviour
 
     public GameObject dizzy, sweat, dust, knockEffect;
 
+    public float runSteminaDrop;
+    float stemina;
+    bool canRun;
+
     //sweat is gonna be put in once stemina bar is done
 
     // Start is called before the first frame update
@@ -70,13 +74,15 @@ public class TestBuddiesController : MonoBehaviour
         sweat.SetActive(false);
         dust.SetActive(false);
         knockEffect.SetActive(false);
+        stemina = 1;
+        canRun = true;
         //Debug.Log("called");
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(knocking);
+        //Debug.Log(knocking);
         if (transform.GetChild(4))
         {
             anim = transform.GetChild(4).GetComponent<Animator>();
@@ -86,15 +92,19 @@ public class TestBuddiesController : MonoBehaviour
         {
             case 0:
                 candyCarried = DataHolder.p1;
+                DataHolder.p1Stem = stemina;
                 break;
             case 1:
                 candyCarried = DataHolder.p2;
+                DataHolder.p2Stem = stemina;
                 break;
             case 2:
                 candyCarried = DataHolder.p3;
+                DataHolder.p3Stem = stemina;
                 break;
             case 3:
                 candyCarried = DataHolder.p4;
+                DataHolder.p4Stem = stemina;
                 break;
         }
 
@@ -128,11 +138,35 @@ public class TestBuddiesController : MonoBehaviour
             cam.GetComponent<SplitScreenCamera>().vertical = rightStick.y;
             cam.GetComponent<SplitScreenCamera>().reset = camReset;
         }
-        
+
+
+        //Debug.Log(stemina);
+        Mathf.Clamp(stemina, 0, 1);
+        if (stemina > 0)
+        {
+            canRun = true;
+            
+        }
+        else
+        {
+            //Debug.Log("overhere "+canRun);
+            canRun = false;
+        }
+        if (stemina < 0.3f)
+        {
+            sweat.SetActive(true);
+            sweat.transform.rotation = Quaternion.LookRotation(cam.transform.position - sweat.transform.position);
+            Debug.Log(cam.transform.position);
+        }
+        else
+        {
+            sweat.SetActive(false);
+        }
+
         if (!dontMove)
         {
             safe = true;
-            
+
             if (movement.x == 0 && movement.y == 0)
             {
                 //Debug.Log("case1");
@@ -140,27 +174,42 @@ public class TestBuddiesController : MonoBehaviour
                 anim.SetBool("isRun", false);
                 anim.SetBool("isWalk", false);
                 anim.SetBool("isIdle", true);
+                if (stemina < 1)
+                {
+                    stemina += Time.deltaTime * runSteminaDrop;
+                }
             }
-            else if (isRunning)
+            else if (isRunning && canRun)
             {
                 //Debug.Log("case2");
                 currentSpeed = runSpeed;
                 dust.SetActive(true);
+
+                //Stemina Drop When Running
+                if (stemina > 0)
+                {
+                    stemina -= Time.deltaTime * runSteminaDrop;
+                }
+
                 //currentSpeed = runSpeed * Mathf.Pow(candySlowDown, candyCarried);
                 anim.SetBool("isRun", true);
                 anim.SetBool("isWalk", false);
                 anim.SetBool("isIdle", false);
             }
-            else if (!isRunning)
+            else if (!isRunning || isRunning && !canRun)
             {
                 //Debug.Log("case3");
                 currentSpeed = speed;
                 dust.SetActive(false);
                 //currentSpeed = speed * Mathf.Pow(candySlowDown, candyCarried);
-                Debug.Log("current speed is: " + currentSpeed);
+                //Debug.Log("current speed is: " + currentSpeed);
                 anim.SetBool("isRun", false);
                 anim.SetBool("isWalk", true);
                 anim.SetBool("isIdle", false);
+                if (!isRunning && stemina < 1)
+                {
+                    stemina += Time.deltaTime * runSteminaDrop;
+                }
             }
 
             x = movement.x * currentSpeed;
@@ -262,6 +311,10 @@ public class TestBuddiesController : MonoBehaviour
             dizzy.SetActive(false);
             t += Time.deltaTime;
             safe = false;
+            if (stemina < 1)
+            {
+                stemina += Time.deltaTime * runSteminaDrop;
+            }
             //add a flashing animation here
             if (t >= freezeTime)
             {
@@ -456,7 +509,7 @@ public class TestBuddiesController : MonoBehaviour
             }
                 if (!dontMove)
                 {
-                    Debug.Log("trying hard");
+                    //Debug.Log("trying hard");
                     //anim.SetBool("isKnock", true);
                     if (!house.GetComponent<HouseManager>().stopGiving)
                     {

@@ -90,7 +90,7 @@ public class DataHolder : MonoBehaviour
             Destroy(gameObject);
         }
 
-        p1Stem = 0.5f;
+        p1Stem = 1;
         p2Stem = 1;
         p3Stem = 1;
         p4Stem = 1;
