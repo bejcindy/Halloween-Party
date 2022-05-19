@@ -334,6 +334,28 @@
                 },
                 {
                     "name": "",
+                    "id": "9a243007-7513-478f-ab1e-f4d095a140bb",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bf0a9842-ac6f-4de9-8d1f-d7c6b5331031",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "90e97bcb-50a9-44b9-9111-c22afcd015b2",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
