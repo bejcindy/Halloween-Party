@@ -55,6 +55,11 @@ public class TestBuddiesController : MonoBehaviour
     float stemina;
     bool canRun;
 
+    public AudioClip boing, cacheCandyAud;
+
+    AudioSource aud;
+    bool cansave;
+
     //sweat is gonna be put in once stemina bar is done
 
     // Start is called before the first frame update
@@ -76,6 +81,7 @@ public class TestBuddiesController : MonoBehaviour
         knockEffect.SetActive(false);
         stemina = 1;
         canRun = true;
+        aud = GetComponent<AudioSource>();
         //Debug.Log("called");
     }
 
@@ -342,6 +348,8 @@ public class TestBuddiesController : MonoBehaviour
                     DataHolder.p4 = 0;
                     break;
             }
+            Debug.Log("played this many times");
+            aud.PlayOneShot(cacheCandyAud);
             saved = false;
         }
         #endregion
@@ -441,15 +449,19 @@ public class TestBuddiesController : MonoBehaviour
             {
                 case 0:
                     DataHolder.p1 += 1;
+                    aud.PlayOneShot(boing);
                     break;
                 case 1:
                     DataHolder.p2 += 1;
+                    aud.PlayOneShot(boing);
                     break;
                 case 2:
                     DataHolder.p3 += 1;
+                    aud.PlayOneShot(boing);
                     break;
                 case 3:
                     DataHolder.p4 += 1;
+                    aud.PlayOneShot(boing);
                     break;
             }
             Destroy(collision.gameObject);
@@ -470,12 +482,14 @@ public class TestBuddiesController : MonoBehaviour
 
         if (other.CompareTag("ATM"))
         {
-            if (knocking && !saved)
+            if (knocking && !saved && cansave)
             {
                 switch (playerInput.playerIndex)
                 {
                     case 0:
                         DataHolder.p1ATM += DataHolder.p1;
+                        //Debug.Log("played this many times");
+                        //aud.PlayOneShot(cacheCandyAud);
                         break;
                     case 1:
                         DataHolder.p2ATM += DataHolder.p2;
@@ -487,10 +501,21 @@ public class TestBuddiesController : MonoBehaviour
                         DataHolder.p4ATM += DataHolder.p4;
                         break;
                 }
+                //Debug.Log("played this many times");
+                //aud.PlayOneShot(cacheCandyAud);
                 saved = true;
+                cansave = false;
             }
         }
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("ATM"))
+        {
+            cansave = true;
+        }
     }
 
     void KnockOnDoors(int candyAmount, int[] rTimes, bool can, GameObject house)
@@ -573,7 +598,11 @@ public class TestBuddiesController : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
             knocking = context.action.triggered;
-            Debug.Log("down here: " + knocking);
+            //if (context.performed)
+            //{
+            //    knocking = true;
+            //}
+            //Debug.Log("down here: " + knocking);
         }
        
     }
