@@ -237,22 +237,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6330811962613386572}
         m_TargetAssemblyTypeName: TestBuddiesController, Assembly-CSharp
-        m_MethodName: ResetCam
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 5ad25c01-f16a-42bc-95b0-97c69d07d9a5
-    m_ActionName: Player/CameraReset[/DualShock4GamepadHID/leftShoulder,/DualShock4GamepadHID/leftTrigger]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6330811962613386572}
-        m_TargetAssemblyTypeName: TestBuddiesController, Assembly-CSharp
         m_MethodName: OnJump
         m_Mode: 0
         m_Arguments:
@@ -285,7 +269,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!65 &7969099916525958058
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -593,39 +577,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3174914520067349538, guid: 7ca2ca40a0f1b453cb65911621379f5d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.051
       objectReference: {fileID: 0}
     - target: {fileID: 3174914520067349538, guid: 7ca2ca40a0f1b453cb65911621379f5d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.467
       objectReference: {fileID: 0}
     - target: {fileID: 3174914520067349538, guid: 7ca2ca40a0f1b453cb65911621379f5d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.002
       objectReference: {fileID: 0}
     - target: {fileID: 3174914520067349538, guid: 7ca2ca40a0f1b453cb65911621379f5d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9662853
       objectReference: {fileID: 0}
     - target: {fileID: 3174914520067349538, guid: 7ca2ca40a0f1b453cb65911621379f5d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.23662722
       objectReference: {fileID: 0}
     - target: {fileID: 3174914520067349538, guid: 7ca2ca40a0f1b453cb65911621379f5d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.0985776
       objectReference: {fileID: 0}
     - target: {fileID: 3174914520067349538, guid: 7ca2ca40a0f1b453cb65911621379f5d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.024140019
       objectReference: {fileID: 0}
     - target: {fileID: 3174914520067349538, guid: 7ca2ca40a0f1b453cb65911621379f5d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -27.52
       objectReference: {fileID: 0}
     - target: {fileID: 3174914520067349538, guid: 7ca2ca40a0f1b453cb65911621379f5d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -11.65
       objectReference: {fileID: 0}
     - target: {fileID: 3174914520067349538, guid: 7ca2ca40a0f1b453cb65911621379f5d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

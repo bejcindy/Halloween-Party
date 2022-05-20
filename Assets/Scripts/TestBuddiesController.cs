@@ -24,10 +24,10 @@ public class TestBuddiesController : MonoBehaviour
     Animator anim;
 
     int playerN;
-    float speed = 10;
+    float speed = 8;
     //[SerializeField]
     //[Range(15,50)]
-    float runSpeed = 18;
+    float runSpeed = 12;
 
     Rigidbody rb;
 
@@ -197,7 +197,7 @@ public class TestBuddiesController : MonoBehaviour
                     stemina -= Time.deltaTime * runSteminaDrop;
                 }
 
-                //currentSpeed = runSpeed * Mathf.Pow(candySlowDown, candyCarried);
+                currentSpeed = runSpeed * Mathf.Pow(candySlowDown, candyCarried);
                 anim.SetBool("isRun", true);
                 anim.SetBool("isWalk", false);
                 anim.SetBool("isIdle", false);
@@ -207,7 +207,7 @@ public class TestBuddiesController : MonoBehaviour
                 //Debug.Log("case3");
                 currentSpeed = speed;
                 dust.SetActive(false);
-                //currentSpeed = speed * Mathf.Pow(candySlowDown, candyCarried);
+                currentSpeed = speed * Mathf.Pow(candySlowDown, candyCarried);
                 //Debug.Log("current speed is: " + currentSpeed);
                 anim.SetBool("isRun", false);
                 anim.SetBool("isWalk", true);
@@ -370,7 +370,7 @@ public class TestBuddiesController : MonoBehaviour
             {
                 Debug.Log("jumped");
                 //jump ass attack
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                rb.AddForce(Vector3.up * jumpForce*.5f, ForceMode.Impulse);
                 rb.AddForce(transform.forward * jumpForce * .5f, ForceMode.Impulse);
                 //when copy this code to actual guys, change this to the name of that script
                 collision.gameObject.GetComponent<TestBuddiesController>().attacked = true;
@@ -382,7 +382,7 @@ public class TestBuddiesController : MonoBehaviour
                 if (isRunning)
                 {
                     //check if this & the other player isRunning
-                    if (collision.gameObject.GetComponent<SplitScreenPlayerController>().isRunning)
+                    if (collision.gameObject.GetComponent<TestBuddiesController>().isRunning)
                     {
                         anim.SetBool("isBumped", true);
                         dizzy.SetActive(true);
@@ -582,7 +582,7 @@ public class TestBuddiesController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         movement = context.ReadValue<Vector2>();
-        //Debug.Log(gameObject.name + " actual movement:" + movement);
+        Debug.Log(gameObject.name + " actual movement:" + movement);
     }
 
     public void OnLook(InputAction.CallbackContext context)
@@ -606,10 +606,10 @@ public class TestBuddiesController : MonoBehaviour
         }
        
     }
-    public void ResetCam(InputAction.CallbackContext context)
-    {
-        camReset = context.action.triggered;
-    }
+    //public void ResetCam(InputAction.CallbackContext context)
+    //{
+    //    camReset = context.action.triggered;
+    //}
     public void OnJump(InputAction.CallbackContext context)
     {
         if (context.performed)

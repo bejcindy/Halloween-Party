@@ -38,6 +38,7 @@ public class Phase2PlayerController : MonoBehaviour
     int nextLevel;
 
     public GameObject dizzy, sweat, dust, knockEffect;
+    //public InputActionMap UIMap, playerMap;
 
     //public int playerIndex { get; }
 
@@ -125,12 +126,16 @@ public class Phase2PlayerController : MonoBehaviour
         switch (sceneNum)
         {
             case 0:
-                playerInput.SwitchCurrentActionMap("UI");
+                if (playerInput.currentActionMap != playerInput.actions.FindActionMap("UI"))
+                {
+                    playerInput.SwitchCurrentActionMap("UI");
+                }
+                //playerInput.SwitchCurrentActionMap("UI");
                 if (change)
                 {
                     SceneManager.LoadScene(1);
                     DataHolder.reset = true;
-                    playerInput.SwitchCurrentActionMap("Player");
+                    //playerInput.SwitchCurrentActionMap("Player");
                     change = false;
                 }
                 rb.useGravity = false;
@@ -156,12 +161,17 @@ public class Phase2PlayerController : MonoBehaviour
                 {
                     SceneManager.LoadScene(4);
                     //born = false;
-                    playerInput.SwitchCurrentActionMap("UI");
+                    //playerInput.SwitchCurrentActionMap("UI");
                     DataHolder.reset = true;
                     change = false;
                 }
                 if (!born)
                 {
+                    if (playerInput.currentActionMap != playerInput.actions.FindActionMap("Player"))
+                    {
+                        playerInput.SwitchCurrentActionMap("Player");
+                    }
+
                     //playerInput.enabled = false;
                     nextLevel = 2;
                     initialPos = GameObject.FindGameObjectWithTag(startPosName).transform;
@@ -181,12 +191,16 @@ public class Phase2PlayerController : MonoBehaviour
                 {
                     SceneManager.LoadScene(4);
                     //born = false;
-                    playerInput.SwitchCurrentActionMap("UI");
+                    //playerInput.SwitchCurrentActionMap("UI");
                     DataHolder.reset = true;
                     change = false;
                 }
                 if (born)
                 {
+                    if (playerInput.currentActionMap != playerInput.actions.FindActionMap("Player"))
+                    {
+                        playerInput.SwitchCurrentActionMap("Player");
+                    }
                     nextLevel = 3;
                     //playerInput.enabled = false;
                     phase1script.cam = null;
@@ -205,12 +219,16 @@ public class Phase2PlayerController : MonoBehaviour
                 {
                     SceneManager.LoadScene(4);
                     //born = false;
-                    playerInput.SwitchCurrentActionMap("UI");
+                    //playerInput.SwitchCurrentActionMap("UI");
                     DataHolder.reset = true;
                     change = false;
                 }
                 if (!born)
                 {
+                    if (playerInput.currentActionMap != playerInput.actions.FindActionMap("Player"))
+                    {
+                        playerInput.SwitchCurrentActionMap("Player");
+                    }
                     nextLevel = 1;
                     //playerInput.enabled = false;
                     phase1script.cam = null;
@@ -230,9 +248,14 @@ public class Phase2PlayerController : MonoBehaviour
                 if (change)
                 {
                     SceneManager.LoadScene(nextLevel);
-                    playerInput.SwitchCurrentActionMap("Player");
+                    //playerInput.SwitchCurrentActionMap("Player");
                     DataHolder.reset = true;
                     change = false;
+                }
+
+                if (playerInput.currentActionMap != playerInput.actions.FindActionMap("UI"))
+                {
+                    playerInput.SwitchCurrentActionMap("UI");
                 }
                 rb.useGravity = false;
                 transform.GetChild(0).gameObject.SetActive(false);
