@@ -480,6 +480,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "L1",
+                    "type": "Button",
+                    "id": "70b32ba9-f417-42c5-92d8-924bd57c877c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "R1",
+                    "type": "Button",
+                    "id": "c66da5a7-fa56-4641-a5b0-89ccd6f45a35",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -948,11 +966,33 @@
                 {
                     "name": "",
                     "id": "c73f13b6-290b-4cad-99c6-3d3e6d8594f4",
-                    "path": "<Gamepad>/rightShoulder",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "SwitchScene",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a7f1af24-1bca-486f-9062-c5442c0acb25",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "L1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "61e8db35-81fc-411d-92c3-7b93ac5190a8",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "R1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -38,9 +38,10 @@ public class Phase2PlayerController : MonoBehaviour
     int nextLevel;
 
     public GameObject dizzy, sweat, dust, knockEffect;
-    //public InputActionMap UIMap, playerMap;
 
-    //public int playerIndex { get; }
+    int phase2Placement;
+
+    bool L1, R1;
 
     private void Awake()
     {
@@ -55,6 +56,8 @@ public class Phase2PlayerController : MonoBehaviour
         phase2script = GetComponent<Phase2PlayerController>();
         rb = transform.GetComponent<Rigidbody>();
         //phase1script.enabled = false;
+
+        phase2Placement = 0;
 
         dizzy.SetActive(false);
         sweat.SetActive(false);
@@ -122,10 +125,10 @@ public class Phase2PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sceneNum = SceneManager.GetActiveScene().buildIndex;
-        switch (sceneNum)
+        //sceneNum = SceneManager.GetActiveScene().buildIndex;
+        switch (SceneManager.GetActiveScene().name)
         {
-            case 0:
+            case "Title Scene":
                 if (playerInput.currentActionMap != playerInput.actions.FindActionMap("UI"))
                 {
                     playerInput.SwitchCurrentActionMap("UI");
@@ -133,7 +136,7 @@ public class Phase2PlayerController : MonoBehaviour
                 //playerInput.SwitchCurrentActionMap("UI");
                 if (change)
                 {
-                    SceneManager.LoadScene(1);
+                    SceneManager.LoadScene("intro1");
                     DataHolder.reset = true;
                     //playerInput.SwitchCurrentActionMap("Player");
                     change = false;
@@ -155,12 +158,39 @@ public class Phase2PlayerController : MonoBehaviour
                 }
                 break;
 
-            case 1:
+            case "intro1":
+                //tutorial select scene
+                if (playerInput.currentActionMap != playerInput.actions.FindActionMap("UI"))
+                {
+                    playerInput.SwitchCurrentActionMap("UI");
+                }
+                if (playerInput.playerIndex == 0)
+                {
+                    GameObject.FindGameObjectWithTag("Zhu").GetComponent<Intro1Manager>().L1 = L1;
+                    GameObject.FindGameObjectWithTag("Zhu").GetComponent<Intro1Manager>().R1 = R1;
+                }
+                break;
+
+            case "Phase 1 Intro":
+                if (playerInput.currentActionMap != playerInput.actions.FindActionMap("Player"))
+                {
+                    playerInput.SwitchCurrentActionMap("Player");
+                }
+                break;
+
+            case "Phase 2 Intro":
+                if (playerInput.currentActionMap != playerInput.actions.FindActionMap("UI"))
+                {
+                    playerInput.SwitchCurrentActionMap("UI");
+                }
+                break;
+
+            case "LIL Level 1":
                 //playerInput.SwitchCurrentActionMap("Player");
                 if (change)
                 {
-                    SceneManager.LoadScene(4);
-                    //born = false;
+                    SceneManager.LoadScene("Phase 2");
+                    born = false;
                     //playerInput.SwitchCurrentActionMap("UI");
                     DataHolder.reset = true;
                     change = false;
@@ -185,17 +215,17 @@ public class Phase2PlayerController : MonoBehaviour
                     born = true;
                 }
                 break;
-            case 2:
+            case "LIL Level 2":
                 //playerInput.SwitchCurrentActionMap("Player");
                 if (change)
                 {
-                    SceneManager.LoadScene(4);
-                    //born = false;
+                    SceneManager.LoadScene("Phase 2");
+                    born = false;
                     //playerInput.SwitchCurrentActionMap("UI");
                     DataHolder.reset = true;
                     change = false;
                 }
-                if (born)
+                if (!born)
                 {
                     if (playerInput.currentActionMap != playerInput.actions.FindActionMap("Player"))
                     {
@@ -210,15 +240,15 @@ public class Phase2PlayerController : MonoBehaviour
                     phase1script.enabled = true;
                     transform.localScale = new Vector3(1, 1, 1);
                     rb.useGravity = true;
-                    born = false;
+                    born = true;
                 }
                 break;
-            case 3:
+            case "LIL Level 3":
                 //playerInput.SwitchCurrentActionMap("Player");
                 if (change)
                 {
-                    SceneManager.LoadScene(4);
-                    //born = false;
+                    SceneManager.LoadScene("Phase 1 Intro");
+                    born = false;
                     //playerInput.SwitchCurrentActionMap("UI");
                     DataHolder.reset = true;
                     change = false;
@@ -242,13 +272,14 @@ public class Phase2PlayerController : MonoBehaviour
                 }
                 break;
             //phase 2 stuff, change the number according to the build indext of phase 2 scene
-            case 4:
+            case "Phase 2":
                 phase1script.enabled = false;
                 transform.localScale = new Vector3(.5f, .5f, .5f);
                 if (change)
                 {
                     SceneManager.LoadScene(nextLevel);
                     //playerInput.SwitchCurrentActionMap("Player");
+                    born = false;
                     DataHolder.reset = true;
                     change = false;
                 }
@@ -261,23 +292,27 @@ public class Phase2PlayerController : MonoBehaviour
                 transform.GetChild(0).gameObject.SetActive(false);
                 if (Phase2Manager.timeUp)
                 {
-                    if (placement)
+                    if (placement && !confirm.gameObject.activeSelf)
                     {
                         if (v == Vector2.up)
                         {
                             placement.text = "1";
+                            phase1script.isTopPhase2 = true;
                         }
                         if (v == Vector2.left)
                         {
                             placement.text = "2";
+                            phase1script.isTopPhase2 = false;
                         }
                         if (v == Vector2.down)
                         {
                             placement.text = "3";
+                            phase1script.isTopPhase2 = false;
                         }
                         if (v == Vector2.right)
                         {
                             placement.text = "4";
+                            phase1script.isTopPhase2 = false;
                         }
                     }
                     if (confirm)
@@ -325,6 +360,34 @@ public class Phase2PlayerController : MonoBehaviour
         change = context.action.triggered;
         Debug.Log("called");
     }
+    public void OnL1(InputAction.CallbackContext context)
+    {
+        //if (context.performed)
+        //{
+        //    L1 = true;
+        //}
+        //if (context.canceled)
+        //{
+        //    L1 = false;
+        //}
+        L1 = context.action.triggered;
+        //Debug.Log("L1 is " + L1);
+    }
+    public void OnR1(InputAction.CallbackContext context)
+    {
+        //if (context.canceled)
+        //{
+        //    R1 = false;
+        //    Debug.Log("I'm also called");
+        //}
+        //else if (context.started)
+        //{
+        //    R1 = true;
+        //    Debug.Log("I'm called");
+        //}
+        R1 = context.action.triggered;
+        //R1 = context.performed;
+        //Debug.Log(gameObject.name+" R1 is " + R1);
+    }
 
-    
 }

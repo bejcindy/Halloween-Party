@@ -60,6 +60,10 @@ public class TestBuddiesController : MonoBehaviour
     AudioSource aud;
     bool cansave;
 
+    public bool isTopPhase2;
+    float speedUp = 1.1f;
+    float fastSpeed, fastRunSpeed;
+
     //sweat is gonna be put in once stemina bar is done
 
     // Start is called before the first frame update
@@ -82,6 +86,9 @@ public class TestBuddiesController : MonoBehaviour
         stemina = 1;
         canRun = true;
         aud = GetComponent<AudioSource>();
+        isTopPhase2 = false;
+        fastSpeed = speedUp * speed;
+        fastRunSpeed = speedUp * runSpeed;
         //Debug.Log("called");
     }
 
@@ -188,7 +195,17 @@ public class TestBuddiesController : MonoBehaviour
             else if (isRunning && canRun)
             {
                 //Debug.Log("case2");
-                currentSpeed = runSpeed;
+                if (!isTopPhase2)
+                {
+                    //currentSpeed = runSpeed;
+                    currentSpeed = runSpeed * Mathf.Pow(candySlowDown, candyCarried);
+                }
+                else
+                {
+                    //currentSpeed = fastRunSpeed;
+                    currentSpeed = fastRunSpeed * Mathf.Pow(candySlowDown, candyCarried);
+                }
+                
                 dust.SetActive(true);
 
                 //Stemina Drop When Running
@@ -197,7 +214,7 @@ public class TestBuddiesController : MonoBehaviour
                     stemina -= Time.deltaTime * runSteminaDrop;
                 }
 
-                currentSpeed = runSpeed * Mathf.Pow(candySlowDown, candyCarried);
+                //currentSpeed = runSpeed * Mathf.Pow(candySlowDown, candyCarried);
                 anim.SetBool("isRun", true);
                 anim.SetBool("isWalk", false);
                 anim.SetBool("isIdle", false);
@@ -205,9 +222,18 @@ public class TestBuddiesController : MonoBehaviour
             else if (!isRunning || isRunning && !canRun)
             {
                 //Debug.Log("case3");
-                currentSpeed = speed;
+                //currentSpeed = speed;
+                if (!isTopPhase2)
+                {
+                    currentSpeed = speed * Mathf.Pow(candySlowDown, candyCarried);
+                }
+                else
+                {
+                    currentSpeed = fastSpeed * Mathf.Pow(candySlowDown, candyCarried);
+                }
+
                 dust.SetActive(false);
-                currentSpeed = speed * Mathf.Pow(candySlowDown, candyCarried);
+                //currentSpeed = speed * Mathf.Pow(candySlowDown, candyCarried);
                 //Debug.Log("current speed is: " + currentSpeed);
                 anim.SetBool("isRun", false);
                 anim.SetBool("isWalk", true);

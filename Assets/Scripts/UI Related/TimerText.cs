@@ -34,6 +34,7 @@ public class TimerText : MonoBehaviour
         {
             //timeText.text = "Time's Up!";
             FinalInput.SetActive(true);
+            gameObject.SetActive(false);
             Phase2Manager.timeUp = true;
         }
     }

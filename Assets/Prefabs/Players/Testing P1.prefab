@@ -249,6 +249,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3c3b4574-d46b-4b69-8d82-2d780f489e0d
     m_ActionName: Player/Jump[/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6658076210014149338}
+        m_TargetAssemblyTypeName: Phase2PlayerController, Assembly-CSharp
+        m_MethodName: OnL1
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 70b32ba9-f417-42c5-92d8-924bd57c877c
+    m_ActionName: UI/L1
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6658076210014149338}
+        m_TargetAssemblyTypeName: Phase2PlayerController, Assembly-CSharp
+        m_MethodName: OnR1
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c66da5a7-fa56-4641-a5b0-89ccd6f45a35
+    m_ActionName: UI/R1
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -307,6 +339,7 @@ MonoBehaviour:
   runSteminaDrop: 0.25
   boing: {fileID: 8300000, guid: 12472892d64964e60a20c2a7417ad4a6, type: 3}
   cacheCandyAud: {fileID: 8300000, guid: bfc4c4295c3b24d758a35c2b34d71e4f, type: 3}
+  isTopPhase2: 0
 --- !u!114 &6658076210014149338
 MonoBehaviour:
   m_ObjectHideFlags: 0
