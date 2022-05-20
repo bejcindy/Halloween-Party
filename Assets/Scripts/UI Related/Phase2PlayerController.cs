@@ -187,6 +187,7 @@ public class Phase2PlayerController : MonoBehaviour
                 if (!born)
                 {
                     initialPos = GameObject.FindGameObjectWithTag(startPosName).transform;
+                    transform.GetChild(4).gameObject.SetActive(true);
                     transform.position = initialPos.position;
                     transform.rotation = initialPos.rotation;
                     born = true;
@@ -210,6 +211,26 @@ public class Phase2PlayerController : MonoBehaviour
                 {
                     playerInput.SwitchCurrentActionMap("UI");
                 }
+                if (previousScene != "Phase 2 Intro")
+                {
+                    born = false;
+                    previousScene = "Phase 2 Intro";
+                }
+                if (!born)
+                {
+                    transform.GetChild(4).gameObject.SetActive(false);
+                }
+                if (playerInput.playerIndex == 0)
+                {
+                    if (!GameObject.FindGameObjectWithTag("Zhu").GetComponent<Phase2IntroManager>().moveL)
+                    {
+                        GameObject.FindGameObjectWithTag("Zhu").GetComponent<Phase2IntroManager>().moveL = L1;
+                    }
+                    if (!GameObject.FindGameObjectWithTag("Zhu").GetComponent<Phase2IntroManager>().move)
+                    {
+                        GameObject.FindGameObjectWithTag("Zhu").GetComponent<Phase2IntroManager>().move = R1;
+                    }
+                }
                 break;
 
             case "LIL Level 1":
@@ -222,7 +243,9 @@ public class Phase2PlayerController : MonoBehaviour
                     DataHolder.reset = true;
                     change = false;
                 }
-                if (!born)
+                //if (!born)
+                //{
+                if (previousScene != "LIL Level 1")
                 {
                     if (playerInput.currentActionMap != playerInput.actions.FindActionMap("Player"))
                     {
@@ -240,7 +263,9 @@ public class Phase2PlayerController : MonoBehaviour
                     rb.useGravity = true;
                     //phase2script.enabled = false;
                     born = true;
+                    previousScene = "LIL Level 1";
                 }
+                //}
                 break;
             case "LIL Level 2":
                 //playerInput.SwitchCurrentActionMap("Player");
@@ -252,8 +277,12 @@ public class Phase2PlayerController : MonoBehaviour
                     DataHolder.reset = true;
                     change = false;
                 }
-                if (!born)
+                //if (!born)
+                //{
+                if (previousScene != "LIL Level 2")
                 {
+
+
                     if (playerInput.currentActionMap != playerInput.actions.FindActionMap("Player"))
                     {
                         playerInput.SwitchCurrentActionMap("Player");
@@ -268,7 +297,9 @@ public class Phase2PlayerController : MonoBehaviour
                     transform.localScale = new Vector3(1, 1, 1);
                     rb.useGravity = true;
                     born = true;
+                    previousScene = "LIL Level 2";
                 }
+                //}
                 break;
             case "LIL Level 3":
                 //playerInput.SwitchCurrentActionMap("Player");
@@ -280,8 +311,12 @@ public class Phase2PlayerController : MonoBehaviour
                     DataHolder.reset = true;
                     change = false;
                 }
-                if (!born)
+                //if (!born)
+                //{
+                if (previousScene != "LIL Level 3")
                 {
+
+
                     if (playerInput.currentActionMap != playerInput.actions.FindActionMap("Player"))
                     {
                         playerInput.SwitchCurrentActionMap("Player");
@@ -296,7 +331,9 @@ public class Phase2PlayerController : MonoBehaviour
                     transform.localScale = new Vector3(1, 1, 1);
                     rb.useGravity = true;
                     born = true;
+                    previousScene = "LIL Level 3";
                 }
+                //}
                 break;
             //phase 2 stuff, change the number according to the build indext of phase 2 scene
             case "Phase 2":
@@ -304,7 +341,7 @@ public class Phase2PlayerController : MonoBehaviour
                 transform.localScale = new Vector3(.5f, .5f, .5f);
                 if (change)
                 {
-                    SceneManager.LoadScene(nextLevel);
+                    SceneManager.LoadScene("Phase 1 Intro");
                     //playerInput.SwitchCurrentActionMap("Player");
                     born = false;
                     DataHolder.reset = true;

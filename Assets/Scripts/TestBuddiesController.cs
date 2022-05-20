@@ -340,7 +340,7 @@ public class TestBuddiesController : MonoBehaviour
         {
             anim.SetBool("isBumped", false);
             anim.SetBool("isAttacked", false);
-            dizzy.SetActive(false);
+            
             t += Time.deltaTime;
             safe = false;
             if (stemina < 1)
@@ -352,6 +352,7 @@ public class TestBuddiesController : MonoBehaviour
             {
                 dontMove = false;
                 t = 0;
+                dizzy.SetActive(false);
             }
         }
       
@@ -374,7 +375,7 @@ public class TestBuddiesController : MonoBehaviour
                     DataHolder.p4 = 0;
                     break;
             }
-            Debug.Log("played this many times");
+            //Debug.Log("played this many times");
             aud.PlayOneShot(cacheCandyAud);
             saved = false;
         }
@@ -394,7 +395,7 @@ public class TestBuddiesController : MonoBehaviour
         {
             if (transform.position.y - collision.gameObject.transform.position.y > .5f)
             {
-                Debug.Log("jumped");
+                //Debug.Log("jumped");
                 //jump ass attack
                 rb.AddForce(Vector3.up * jumpForce*.5f, ForceMode.Impulse);
                 rb.AddForce(transform.forward * jumpForce * .5f, ForceMode.Impulse);
@@ -608,7 +609,7 @@ public class TestBuddiesController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         movement = context.ReadValue<Vector2>();
-        Debug.Log(gameObject.name + " actual movement:" + movement);
+        //Debug.Log(gameObject.name + " actual movement:" + movement);
     }
 
     public void OnLook(InputAction.CallbackContext context)

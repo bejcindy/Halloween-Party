@@ -19,6 +19,7 @@ public class Phase1IntroManager : MonoBehaviour
     void Start()
     {
         move = false;
+        moveL = false;
         moveCounter = 1;
         tut.Select();
     }
