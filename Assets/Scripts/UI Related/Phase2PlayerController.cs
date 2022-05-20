@@ -42,6 +42,7 @@ public class Phase2PlayerController : MonoBehaviour
     int phase2Placement;
 
     bool L1, R1;
+    string previousScene;
 
     private void Awake()
     {
@@ -169,12 +170,38 @@ public class Phase2PlayerController : MonoBehaviour
                     GameObject.FindGameObjectWithTag("Zhu").GetComponent<Intro1Manager>().L1 = L1;
                     GameObject.FindGameObjectWithTag("Zhu").GetComponent<Intro1Manager>().R1 = R1;
                 }
+                previousScene = "intro1";
                 break;
 
             case "Phase 1 Intro":
-                if (playerInput.currentActionMap != playerInput.actions.FindActionMap("Player"))
+                //change later
+                if (playerInput.currentActionMap != playerInput.actions.FindActionMap("UI"))
                 {
-                    playerInput.SwitchCurrentActionMap("Player");
+                    playerInput.SwitchCurrentActionMap("UI");
+                }
+                if(previousScene!="Phase 1 Intro")
+                {
+                    born = false;
+                    previousScene = "Phase 1 Intro";
+                }
+                if (!born)
+                {
+                    initialPos = GameObject.FindGameObjectWithTag(startPosName).transform;
+                    transform.position = initialPos.position;
+                    transform.rotation = initialPos.rotation;
+                    born = true;
+                }
+                if (playerInput.playerIndex == 0)
+                {
+                    if (!GameObject.FindGameObjectWithTag("Zhu").GetComponent<Phase1IntroManager>().moveL)
+                    {
+                        GameObject.FindGameObjectWithTag("Zhu").GetComponent<Phase1IntroManager>().moveL = L1;
+                    }
+                    if (!GameObject.FindGameObjectWithTag("Zhu").GetComponent<Phase1IntroManager>().move)
+                    {
+                        GameObject.FindGameObjectWithTag("Zhu").GetComponent<Phase1IntroManager>().move = R1;
+                    }
+                    
                 }
                 break;
 

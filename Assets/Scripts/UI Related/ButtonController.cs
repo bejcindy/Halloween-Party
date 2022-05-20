@@ -7,17 +7,6 @@ public class ButtonController : MonoBehaviour
     public GameObject instruction;
     public GameObject phase1things;
     public GameObject pauseMenu;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Resume()
     {
