@@ -22,6 +22,8 @@ public class UltraMusicFestival : MonoBehaviour
     bool played;
     bool beginning;
 
+    string previousScene;
+
     private void Awake()
     {
         if (instance = null)
@@ -57,37 +59,80 @@ public class UltraMusicFestival : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (SceneManager.GetActiveScene().buildIndex)
+        switch (SceneManager.GetActiveScene().name)
         {
-            case 0:
+            case "Title Scene":
                 //add stuff here later related to replay start menu
                 if (!beginning)
                 {
                     CrossFade(StartScene);
                 }
+                previousScene = "Title Scene";
                 break;
-            case 1:
-                if (!changed)
+            case "intro1":
+                if(previousScene!="Title Scene"|| previousScene != "Phase 1 Intro"|| previousScene != "Phase 2 Intro")
                 {
-                    CrossFade(Phase1);
+                    CrossFade(StartScene);
+                    previousScene = "intro1";
+                }
+
+                break;
+            case "Phase 1 Intro":
+                if (previousScene != "Title Scene" || previousScene != "intro1" || previousScene != "Phase 2 Intro")
+                {
+                    CrossFade(StartScene);
+                    previousScene = "Phase 1 Intro";
                 }
                 break;
-            case 2:
-                if (!changed)
+            case "Phase 2 Intro":
+                if (previousScene != "Title Scene" || previousScene != "intro1" || previousScene != "Phase 1 Intro")
                 {
-                    CrossFade(Phase1);
+                    CrossFade(StartScene);
+                    previousScene = "Phase 2 Intro";
                 }
                 break;
-            case 3:
-                if (!changed)
+            case "LIL Level 1":
+                if (previousScene!= "LIL Level 1")
                 {
                     CrossFade(Phase1);
+                    if (changed)
+                    {
+                        previousScene = "LIL Level 1";
+                        changed = false;
+                    }
                 }
                 break;
-            case 4:
-                if (changed)
+            case "LIL Level 2":
+                if (previousScene != "LIL Level 2")
+                {
+                    CrossFade(Phase1);
+                    if (changed)
+                    {
+                        previousScene = "LIL Level 2";
+                        changed = false;
+                    }
+                }
+                break;
+            case "LIL Level 3":
+                if (previousScene != "LIL Level 3")
+                {
+                    CrossFade(Phase1);
+                    if (changed)
+                    {
+                        previousScene = "LIL Level 3";
+                        changed = false;
+                    }
+                }
+                break;
+            case "Phase 2":
+                if (previousScene != "Phase 2")
                 {
                     CrossFade(Phase2);
+                    if (changed)
+                    {
+                        previousScene = "Phase 2";
+                        changed = false;
+                    }
                 }
                 break;
         }
@@ -116,7 +161,7 @@ public class UltraMusicFestival : MonoBehaviour
                 track1.Stop();
                 t1Playing = false;
                 played = false;
-                changed = !changed;
+                changed = true;
             }
         }
         else
@@ -140,7 +185,7 @@ public class UltraMusicFestival : MonoBehaviour
                 track2.Stop();
                 t1Playing = true;
                 played = false;
-                changed = !changed;
+                changed = true;
             }
         }
     }
