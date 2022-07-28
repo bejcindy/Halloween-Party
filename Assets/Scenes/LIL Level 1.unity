@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.29146692, g: 0.24030569, b: 0.35494968, a: 1}
+  m_IndirectSpecularColor: {r: 0.2914699, g: 0.2403096, b: 0.35495254, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2259,6 +2259,54 @@ Transform:
   - {fileID: 386688872}
   m_Father: {fileID: 0}
   m_RootOrder: 44
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &149366720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 149366722}
+  - component: {fileID: 149366721}
+  m_Layer: 0
+  m_Name: Glow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &149366721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149366720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 0.226
+  sharedProfile: {fileID: 11400000, guid: 757a84ed8cb11514c8bac66e24a05e40, type: 2}
+--- !u!4 &149366722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149366720}
+  m_LocalRotation: {x: -0, y: 0.96635485, z: -0, w: -0.2572126}
+  m_LocalPosition: {x: -24.73873, y: 0.292, z: 9.252594}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 72
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &152918899
 GameObject:
@@ -28285,6 +28333,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca6d5d3c84f4c419d9b84f6e8cc8a2f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bumpSound: {fileID: 0}
+  p1Bump: 0
+  p2Bump: 0
+  p3Bump: 0
+  p4Bump: 0
 --- !u!1 &1256648587
 GameObject:
   m_ObjectHideFlags: 0

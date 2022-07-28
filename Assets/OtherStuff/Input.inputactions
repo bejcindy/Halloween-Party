@@ -293,7 +293,7 @@
                 {
                     "name": "",
                     "id": "022a7883-81eb-44b2-9bc7-e9aa79508f50",
-                    "path": "<Keyboard>/space",
+                    "path": "<Gamepad>/select",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -922,7 +922,7 @@
                 {
                     "name": "",
                     "id": "c73f13b6-290b-4cad-99c6-3d3e6d8594f4",
-                    "path": "<Keyboard>/space",
+                    "path": "<Gamepad>/select",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",

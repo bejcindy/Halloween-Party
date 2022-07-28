@@ -237,7 +237,7 @@ public class Phase2PlayerController : MonoBehaviour
                 //playerInput.SwitchCurrentActionMap("Player");
                 if (change)
                 {
-                    SceneManager.LoadScene("Phase 2");
+                    SceneManager.LoadScene("Phase 2 Intro");
                     born = false;
                     //playerInput.SwitchCurrentActionMap("UI");
                     DataHolder.reset = true;
@@ -271,7 +271,7 @@ public class Phase2PlayerController : MonoBehaviour
                 //playerInput.SwitchCurrentActionMap("Player");
                 if (change)
                 {
-                    SceneManager.LoadScene("Phase 2");
+                    SceneManager.LoadScene("Phase 2 Intro");
                     born = false;
                     //playerInput.SwitchCurrentActionMap("UI");
                     DataHolder.reset = true;
@@ -305,7 +305,7 @@ public class Phase2PlayerController : MonoBehaviour
                 //playerInput.SwitchCurrentActionMap("Player");
                 if (change)
                 {
-                    SceneManager.LoadScene("Phase 1 Intro");
+                    SceneManager.LoadScene("Phase 2 Intro");
                     born = false;
                     //playerInput.SwitchCurrentActionMap("UI");
                     DataHolder.reset = true;

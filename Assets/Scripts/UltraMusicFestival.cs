@@ -70,26 +70,41 @@ public class UltraMusicFestival : MonoBehaviour
                 previousScene = "Title Scene";
                 break;
             case "intro1":
-                if(previousScene!="Title Scene"|| previousScene != "Phase 1 Intro"|| previousScene != "Phase 2 Intro")
+                /*if(previousScene!="Title Scene"|| previousScene != "Phase 1 Intro"|| previousScene != "Phase 2 Intro")
                 {
                     CrossFade(StartScene);
-                    previousScene = "intro1";
-                }
+                    if (changed)
+                    {
+                        previousScene = "intro1";
+                        changed = false;
+                    }
+                    //previousScene = "intro1";
+                }*/
 
                 break;
             case "Phase 1 Intro":
-                if (previousScene != "Title Scene" || previousScene != "intro1" || previousScene != "Phase 2 Intro")
+                /*if (previousScene != "Title Scene" || previousScene != "intro1" || previousScene != "Phase 2 Intro")
                 {
                     CrossFade(StartScene);
-                    previousScene = "Phase 1 Intro";
-                }
+                    if (changed)
+                    {
+                        previousScene = "Phase 1 Intro";
+                        changed = false;
+                    }
+                    
+                }*/
                 break;
             case "Phase 2 Intro":
-                if (previousScene != "Title Scene" || previousScene != "intro1" || previousScene != "Phase 1 Intro")
+                /*if (previousScene != "Title Scene" || previousScene != "intro1" || previousScene != "Phase 1 Intro")
                 {
                     CrossFade(StartScene);
-                    previousScene = "Phase 2 Intro";
-                }
+                    if (changed)
+                    {
+                        previousScene = "Phase 2 Intro";
+                        changed = false;
+                    }
+                    
+                }*/
                 break;
             case "LIL Level 1":
                 if (previousScene!= "LIL Level 1")

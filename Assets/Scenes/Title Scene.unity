@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38073996, b: 0.35872692, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731195, g: 0.3807401, b: 0.35872737, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -402,7 +402,7 @@ MonoBehaviour:
   fadeDuration: 2
   StartScene: {fileID: 8300000, guid: c5a91873029bc45579c4a0a5f3ca861f, type: 3}
   Phase1: {fileID: 8300000, guid: 02417ee2aeae54108882575672c156d1, type: 3}
-  Phase2: {fileID: 8300000, guid: 6296d25791b0b4247aeb6988e5f0e102, type: 3}
+  Phase2: {fileID: 8300000, guid: 28f9c0c9fdf67374db58dc2ba92d3723, type: 3}
   bgm: {fileID: -2245691464539168749, guid: abbff1621bac84d3f9c1a2fb13b70cb7, type: 2}
 --- !u!4 &843534912
 Transform:
