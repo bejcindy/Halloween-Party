@@ -13,7 +13,7 @@ public class Phase1IntroManager : MonoBehaviour
     public GameObject thing;
     public Button tut;
 
-
+    bool movingRight, movingLeft;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +22,15 @@ public class Phase1IntroManager : MonoBehaviour
         moveL = false;
         moveCounter = 1;
         tut.Select();
+        movingRight = false;
+        movingLeft = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (move)
+        Debug.Log(moveCounter);
+        if (move && !movingLeft)
         {
             if (moveCounter < 9)
             {
@@ -35,13 +38,15 @@ public class Phase1IntroManager : MonoBehaviour
                 {
                     
                     thing.transform.Translate(Vector3.left *5f* Time.deltaTime);
-
+                    movingRight = true;
                 }
                 else
                 {
                     thing.transform.position = new Vector3(-7.9f * moveCounter, 0, 0);
                     moveCounter++;
                     move = false;
+                    movingRight = false;
+                    moveL = false;
                     //Debug.Log("adding");
                 }
             }
@@ -51,7 +56,7 @@ public class Phase1IntroManager : MonoBehaviour
             }
 
         }
-        if (moveL)
+        if (moveL && !movingRight)
         {
             if (moveCounter >1 )
             {
@@ -59,13 +64,15 @@ public class Phase1IntroManager : MonoBehaviour
                 {
                     
                     thing.transform.Translate(Vector3.right * 5f*Time.deltaTime);
-                    
+                    movingLeft = true;
                 }
                 else
                 {
                     thing.transform.position = new Vector3(-7.9f * (moveCounter-2), 0, 0);
                     moveCounter--;
                     moveL = false;
+                    movingLeft = false;
+                    move = false;
                     //Debug.Log("minus");
                 }
             }
