@@ -76,7 +76,16 @@ public class Phase2Manager : MonoBehaviour
             DataHolder.p2Total = 0;
             DataHolder.p3Total = 0;
             DataHolder.p4Total = 0;
-            SceneManager.LoadScene(0);
+            if (DataHolder.round < 3)
+            {
+                SceneManager.LoadScene("Phase 1 Intro");
+            }
+            else
+            {
+                DataHolder.round = 0;
+                SceneManager.LoadScene("Title Scene");
+            }
+            
 
         }
     }

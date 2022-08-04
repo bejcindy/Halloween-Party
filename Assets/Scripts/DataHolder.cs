@@ -79,6 +79,8 @@ public class DataHolder : MonoBehaviour
 
     public static int[] currentPlacement;
 
+    public static bool fromEndScene;
+
     private void Awake()
     {
         if (instance = null)
@@ -91,6 +93,7 @@ public class DataHolder : MonoBehaviour
         }
 
         currentPlacement = new int[4];
+        fromEndScene = false;
 
         p1Stem = 1;
         p2Stem = 1;
@@ -156,13 +159,21 @@ public class DataHolder : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            //if (c1Taken && c2Taken && c3Taken && c4Taken)
-            if(c1Taken&&c2Taken)
+            if (c1Taken && c2Taken && c3Taken && c4Taken)
+            //if(c1Taken&&c2Taken)
             {
                 GameObject.Find("Instruction").GetComponent<Text>().text = "Press R1 to Continue";
                 if (ready)
                 {
-                    SceneManager.LoadScene(1);
+                    if (!fromEndScene)
+                    {
+                        SceneManager.LoadScene("intro1");
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene("Phase 1 Intro");
+                    }
+                    
                 }
             }
             else

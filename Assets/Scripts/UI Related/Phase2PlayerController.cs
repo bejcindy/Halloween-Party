@@ -44,6 +44,7 @@ public class Phase2PlayerController : MonoBehaviour
     bool L1, R1;
     string previousScene;
     Animator anim;
+    float t;
 
     private void Awake()
     {
@@ -60,6 +61,7 @@ public class Phase2PlayerController : MonoBehaviour
         //phase1script.enabled = false;
 
         phase2Placement = 0;
+        t = 0;
 
         dizzy.SetActive(false);
         sweat.SetActive(false);
@@ -449,7 +451,14 @@ public class Phase2PlayerController : MonoBehaviour
                 }
                 if (change)
                 {
-                    SceneManager.LoadScene("Title Scene");
+                    if (DataHolder.round < 3)
+                    {
+                        SceneManager.LoadScene("Phase 1 Intro");
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene("Title Scene");
+                    }
                     born = false;
                     //playerInput.SwitchCurrentActionMap("UI");
                     DataHolder.reset = true;
@@ -457,6 +466,7 @@ public class Phase2PlayerController : MonoBehaviour
                     {
                         DataHolder.round = 0;
                     }
+                    t = 0;
                     change = false;
                 }
                 if (previousScene != "final scene")
@@ -476,7 +486,32 @@ public class Phase2PlayerController : MonoBehaviour
                     }
 
                     //condition of going back to title scene
-
+                    if (t <= 5f)
+                    {
+                        t += Time.deltaTime;
+                    }
+                    else
+                    {
+                        t = 5;
+                        if (c)
+                        {
+                            if (DataHolder.round < 3)
+                            {
+                                SceneManager.LoadScene("Phase 1 Intro");
+                            }
+                            else
+                            {
+                                DataHolder.fromEndScene = true;
+                                SceneManager.LoadScene("Title Scene");
+                            }
+                            born = false;
+                            DataHolder.reset = true;
+                            t = 0;
+                            change = false;
+                            previousScene = "final scene";
+                        }
+                    }
+                    
                 }
                 break;
         }
