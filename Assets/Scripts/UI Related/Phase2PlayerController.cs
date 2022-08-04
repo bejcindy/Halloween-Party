@@ -43,6 +43,7 @@ public class Phase2PlayerController : MonoBehaviour
 
     bool L1, R1;
     string previousScene;
+    Animator anim;
 
     private void Awake()
     {
@@ -126,6 +127,10 @@ public class Phase2PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (transform.GetChild(4))
+        {
+            anim = transform.GetChild(4).GetComponent<Animator>();
+        }
         //sceneNum = SceneManager.GetActiveScene().buildIndex;
         switch (SceneManager.GetActiveScene().name)
         {
@@ -263,6 +268,12 @@ public class Phase2PlayerController : MonoBehaviour
                     rb.useGravity = true;
                     //phase2script.enabled = false;
                     born = true;
+
+                    if (playerInput.playerIndex == 0)
+                    {
+                        DataHolder.round += 1;
+                    }
+
                     previousScene = "LIL Level 1";
                 }
                 //}
@@ -297,6 +308,12 @@ public class Phase2PlayerController : MonoBehaviour
                     transform.localScale = new Vector3(1, 1, 1);
                     rb.useGravity = true;
                     born = true;
+
+                    if (playerInput.playerIndex == 0)
+                    {
+                        DataHolder.round += 1;
+                    }
+
                     previousScene = "LIL Level 2";
                 }
                 //}
@@ -331,6 +348,12 @@ public class Phase2PlayerController : MonoBehaviour
                     transform.localScale = new Vector3(1, 1, 1);
                     rb.useGravity = true;
                     born = true;
+
+                    if (playerInput.playerIndex == 0)
+                    {
+                        DataHolder.round += 1;
+                    }
+
                     previousScene = "LIL Level 3";
                 }
                 //}
@@ -341,7 +364,15 @@ public class Phase2PlayerController : MonoBehaviour
                 transform.localScale = new Vector3(.5f, .5f, .5f);
                 if (change)
                 {
-                    SceneManager.LoadScene("Phase 1 Intro");
+                    if (DataHolder.round < 3)
+                    {
+                        SceneManager.LoadScene("Phase 1 Intro");
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene("final scene");
+                    }
+                    
                     //playerInput.SwitchCurrentActionMap("Player");
                     born = false;
                     DataHolder.reset = true;
@@ -361,21 +392,25 @@ public class Phase2PlayerController : MonoBehaviour
                         if (v == Vector2.up)
                         {
                             placement.text = "1";
+                            DataHolder.currentPlacement[playerInput.playerIndex] = 1;
                             phase1script.isTopPhase2 = true;
                         }
                         if (v == Vector2.left)
                         {
                             placement.text = "2";
+                            DataHolder.currentPlacement[playerInput.playerIndex] = 2;
                             phase1script.isTopPhase2 = false;
                         }
                         if (v == Vector2.down)
                         {
                             placement.text = "3";
+                            DataHolder.currentPlacement[playerInput.playerIndex] = 3;
                             phase1script.isTopPhase2 = false;
                         }
                         if (v == Vector2.right)
                         {
                             placement.text = "4";
+                            DataHolder.currentPlacement[playerInput.playerIndex] = 4;
                             phase1script.isTopPhase2 = false;
                         }
                     }
@@ -405,6 +440,45 @@ public class Phase2PlayerController : MonoBehaviour
                     }
                 }
                 break;
+
+            case "final scene":
+                //end scene related codes
+                if (playerInput.currentActionMap != playerInput.actions.FindActionMap("UI"))
+                {
+                    playerInput.SwitchCurrentActionMap("UI");
+                }
+                if (change)
+                {
+                    SceneManager.LoadScene("Title Scene");
+                    born = false;
+                    //playerInput.SwitchCurrentActionMap("UI");
+                    DataHolder.reset = true;
+                    if (playerInput.playerIndex == 0)
+                    {
+                        DataHolder.round = 0;
+                    }
+                    change = false;
+                }
+                if (previousScene != "final scene")
+                {
+                    initialPos = GameObject.FindGameObjectWithTag(startPosName).transform;
+                    transform.position = initialPos.position;
+                    transform.rotation = initialPos.rotation;
+
+                    //win/lose animation
+                    if (DataHolder.currentPlacement[playerInput.playerIndex] == 1)
+                    {
+                        anim.SetBool("isWin", true);
+                    }
+                    else
+                    {
+                        anim.SetBool("isLose", true);
+                    }
+
+                    //condition of going back to title scene
+
+                }
+                break;
         }
     }
     public void InputPlacement(InputAction.CallbackContext context)
@@ -426,29 +500,11 @@ public class Phase2PlayerController : MonoBehaviour
     }
     public void OnL1(InputAction.CallbackContext context)
     {
-        //if (context.performed)
-        //{
-        //    L1 = true;
-        //}
-        //if (context.canceled)
-        //{
-        //    L1 = false;
-        //}
         L1 = context.action.triggered;
         //Debug.Log("L1 is " + L1);
     }
     public void OnR1(InputAction.CallbackContext context)
     {
-        //if (context.canceled)
-        //{
-        //    R1 = false;
-        //    Debug.Log("I'm also called");
-        //}
-        //else if (context.started)
-        //{
-        //    R1 = true;
-        //    Debug.Log("I'm called");
-        //}
         R1 = context.action.triggered;
         //R1 = context.performed;
         //Debug.Log(gameObject.name+" R1 is " + R1);

@@ -60,10 +60,6 @@ public class DataHolder : MonoBehaviour
     //Each players' number of candies in total
     public static List<int> Bro;
 
-    //public Text playerCandies;
-    //public Text atm;
-    //public Text bro;
-    //public Text p1txt, p2txt, p3txt, p4txt;
     public GameObject c1, c2, c3, c4;
     public static bool c1Taken, c2Taken, c3Taken, c4Taken;
 
@@ -79,6 +75,10 @@ public class DataHolder : MonoBehaviour
 
     public static bool reset;
 
+    public static int round;
+
+    public static int[] currentPlacement;
+
     private void Awake()
     {
         if (instance = null)
@@ -89,6 +89,8 @@ public class DataHolder : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        currentPlacement = new int[4];
 
         p1Stem = 1;
         p2Stem = 1;
@@ -142,6 +144,8 @@ public class DataHolder : MonoBehaviour
         t = GameTime;
         ////check how many of each type of houses are in scene right now
         //Debug.Log(h1Pos.Count);
+
+        round = 0;
 
     }
     private void Start()
